@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="10px" viewBox="0 0 7 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>arrow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="16-EstateFunder-support" transform="translate(-198.000000, -142.000000)" fill="#BDBFD2">
+            <g id="bread-crumbs" transform="translate(140.000000, 132.000000)">
+                <path d="M57.199756,12.724695 L60.7191312,17.123914 C61.0641407,17.5551759 61.6934331,17.6250973 62.124695,17.2800878 C62.1823598,17.233956 62.234737,17.1815787 62.2808688,17.123914 L65.800244,12.724695 C66.1452535,12.2934331 66.0753321,11.6641407 65.6440702,11.3191312 C65.4667572,11.1772808 65.2464466,11.1 65.0193752,11.1 L57.9806248,11.1 C57.4283401,11.1 56.9806248,11.5477153 56.9806248,12.1 C56.9806248,12.3270715 57.0579056,12.547382 57.199756,12.724695 Z" id="arrow" transform="translate(61.500000, 14.600000) rotate(-90.000000) translate(-61.500000, -14.600000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

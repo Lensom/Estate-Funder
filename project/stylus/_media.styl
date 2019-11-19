@@ -1,0 +1,236 @@
+@import "_vars.styl"
+
+/*==========  Desktop First  ==========*/
+
+@media (max-width: 1400px)
+	.btn 
+		&__started,
+		&__login
+			padding 15px 25px
+
+	.header
+		&__menu
+			&-item 
+				padding 0 12px
+
+	.platform
+		&__image
+			max-width 600px
+			right 0
+			margin-top 80px
+
+/* Large Devices, Wide Screens */
+@media (max-width : 1200px)
+	.btn
+		&__started,
+		&__login
+			padding 15px 14px
+	.header
+		&__logotype
+			max-width 230px
+		&__buttons
+			right 25px
+			a 
+				margin-left 10px
+		&__menu
+			&-item 
+				padding 0 7px
+	.page
+		&__title
+			font-size 32px
+			line-height 42px
+		&__text
+			font-size 18px
+			line-height 32px
+	
+	.platform
+		&__image
+			max-width 500px
+		.page
+			&__list
+				li 
+					margin-bottom 15px
+	
+	.card
+		&__bold
+			font-size 16px
+			line-height 22px
+		&__title
+			font-size 24px
+		&__body
+			padding 28px 20px
+		&__class
+			left 20px
+			width 40px
+			height 40px
+			font-size 24px
+			top -20px
+		&__structure
+			padding-left 20px
+
+				
+
+/* Medium Devices, Desktops */
+@media (max-width : 998px)
+
+	.main
+		&__title
+			font-size 42px
+			line-height 52px
+		&__subtitle
+			font-size 20px
+			line-height 36px
+
+	.header
+		background $blue
+		justify-content space-between
+		.icon
+			display inline-block
+			font-size 26px
+		&__buttons 
+			right 0
+			display flex
+			position relative
+			a 
+				font-size 0
+				background-color transparent
+				padding 0
+				margin 0 0 0 30px
+				height 26px
+				&:hover 
+					background transparent 
+				&:first-child
+					margin-left 0
+		&__menu
+			&-wrapper 
+				position fixed
+				top 0
+				left 0
+				right 0
+				bottom 0
+				display flex
+				align-items center 
+				justify-content center 
+				background $blue 
+				transition all .5s ease 
+				transform translateY(100%)
+			&-wrapper.show 
+					transform translateY(0)
+			&-item 
+				display block
+				text-align center
+				padding 15px
+				a 
+					color $white 
+		&__logotype
+			position relative
+			margin-left 40px
+			max-width 181px
+		&__mobile 
+			display block
+	
+	.top
+		min-height 550px
+		padding 130px 0 30px
+	
+	.platform
+		padding 50px 0 40px
+		&__wrapper
+			flex-direction column 
+		&__image
+			position relative
+			margin 40px auto 0
+		.page
+			&__list 
+				margin-top 30px
+	
+	.page
+		&__title,
+		&__text
+			br
+				display none
+		&__title
+			font-size 30px
+			line-height 42px
+	
+	.invest 
+		padding 50px 0
+
+	.card
+		&__invest
+			&:nth-child(2n)
+				margin 0 20px
+		&__body
+			padding 20px 15px
+		&__title
+			font-size 22px
+		&__position
+			font-size 14px
+			&:before
+				top 6px
+		&__bottom
+			span 
+				font-size 16px
+		&__text-sm
+			font-size 10px
+		&__bottom
+			padding 20px 0 10px
+
+/* Small Devices, Tablets */
+@media (max-width : 768px)
+	.main
+		&__title
+			font-size 36px
+			line-height 46px
+		&__subtitle
+			font-size 18px
+			line-height 34px
+	
+	.top
+		min-height 425px
+		padding 90px 0 30px
+
+
+/* Extra Small Devices, Phones */
+@media (max-width : 568px)
+	.main
+		&__title
+			font-size 32px
+			line-height 42px
+		&__subtitle
+			font-size 16px
+			line-height 32px
+			br 
+				display none
+	.page
+		&__title
+			font-size 24px
+			line-height 38px
+		
+
+/* Extra Small Devices, Phones */
+@media (max-width : 480px)
+	.page
+		&__text
+			font-size 16px
+			line-height 28px
+
+/* Custom, iPhone Retina */
+@media (max-width : 380px)
+	.main
+		&-title
+			font-size 28px
+			line-height 38px
+
+	.top 
+		min-height 400px
+
+	.header
+		.icon 
+			font-size 20px
+		&__buttons
+			a 
+				height 20px
+				margin 0 0 0 15px
+		&__logotype 
+			max-width 165px

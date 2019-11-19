@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>icon_message</title>
+    <desc>Created with Sketch.</desc>
+    <g id="designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="23-EstateFunder-term-of-use" transform="translate(-142.000000, -4567.000000)" fill-rule="nonzero">
+            <g id="footer" transform="translate(0.000000, 4017.000000)">
+                <g transform="translate(0.000000, 340.000000)" id="icon_message">
+                    <g transform="translate(142.000000, 210.000000)">
+                        <path d="M2,0 L18,0 C19.1045695,0 20,0.8954305 20,2 L20,14 C20,15.1045695 19.1045695,16 18,16 L2,16 C0.8954305,16 0,15.1045695 0,14 L0,2 C0,0.8954305 0.8954305,0 2,0 Z M2,2 L2,14 L18,14 L18,2 L2,2 Z" id="Rectangle" fill="#3F89E8"></path>
+                        <path d="M5.62469505,4.21913119 C5.19343311,3.87412164 4.56414074,3.94404302 4.21913119,4.37530495 C3.87412164,4.80656689 3.94404302,5.43585926 4.37530495,5.78086881 L10,10.2806248 L15.624695,5.78086881 C16.055957,5.43585926 16.1258784,4.80656689 15.7808688,4.37530495 C15.4358593,3.94404302 14.8065669,3.87412164 14.375305,4.21913119 L10,7.71937515 L5.62469505,4.21913119 Z" id="Path" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

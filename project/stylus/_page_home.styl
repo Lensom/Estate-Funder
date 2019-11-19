@@ -1,0 +1,115 @@
+.top
+    text-align center
+    min-height 640px
+    background-size cover
+    background-position bottom center
+    padding 180px 0 30px
+
+.platform
+    background $white
+    padding 100px 0 80px
+    overflow hidden
+    &__wrapper
+        display flex
+        justify-content space-between
+    &__image
+        max-width 670px
+        margin-top 65px
+        position absolute
+        right -70px
+    .page
+        &__list
+            margin-top 50px
+            li
+                padding-left 40px
+                margin-bottom 22px
+
+.invest
+    padding 100px 0 100px
+    background $white
+    text-align center
+    &__cards
+        text-align left 
+        display flex
+        justify-content space-between
+        margin-top 60px
+        margin-bottom 58px
+        box-shadow 0 30px 60px rgba(21, 28, 39, 0.1)
+    &__body
+        position relative
+
+
+.card
+    &__invest
+        border-radius 10px
+        overflow hidden
+        box-shadow 0 200px 200px rgba(21, 28, 39, 0.1)
+        border-radius 10px
+        background-color $white
+    &__class
+        background-color $blue-4
+        width 50px
+        height 50px
+        display flex
+        align-items center 
+        justify-content center 
+        font-size 28px
+        color $white
+        font-weight 600
+        border-radius 50%
+        position absolute
+        top -28px
+        left 40px
+    &__body
+        padding 36px 40px
+        position relative
+    &__position
+        font-family $default-font
+        font-weight 400
+        font-size 16px
+        color $black
+        line-height 20px
+        position relative
+        padding 3px 0 0 22px
+        &:before
+            content ''
+            position absolute
+            top 8px
+            left 0
+            background-image url(../img/icon_Location.svg)
+            height 14px
+            width 12px
+    &__bottom
+        display flex
+        justify-content flex-start
+        padding 40px 0 10px
+        span
+            font-weight 600
+            font-size 18px
+            color $blue-2
+    &__procent 
+        width 50%
+        position relative
+        &:after
+            position absolute
+            content ''
+            right 0
+            top 0
+            height 100%
+            background-color #eef1f5
+            width 1px
+    &__structure
+        padding-left 35px
+        width 50%
+    &__image
+        img 
+            transition all .3s ease 
+        a 
+            display block
+            max-height 200px
+            height 100%
+            overflow hidden
+            &:hover
+                img 
+                    transform scale(1.1)
+    

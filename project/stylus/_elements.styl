@@ -1,0 +1,188 @@
+.center 
+    text-align center
+
+.white 
+    color $white
+
+.wrapper 
+    width 100%
+    max-width 1200px
+    padding 0 20px
+    margin 0 auto 
+    position relative
+
+a
+    text-decoration none
+    transition all .3s ease
+
+.main
+    &__title
+        font-weight 400
+        font-size 50px
+        color $blue-2
+        line-height 60px
+        margin-bottom 20px
+    &__subtitle
+        font-weight 500
+        font-size 24px
+        color $blue-2
+        line-height 40px
+
+.page
+    &__title
+        font-weight 400
+        font-size 40px
+        color $blue-2
+        line-height 50px
+        margin-bottom 40px
+    &__text
+        font-weight 400
+        font-size 20px
+        color $black
+        line-height 35px
+        &-sm 
+            font-size 16px
+            line-height 26px
+    &__list 
+        li 
+            padding-left 30px
+            position relative
+            &:before
+                content ''
+                background-image url(../img/point.svg)
+                position absolute
+                left 0
+                // top 50%
+                // margin-top -12px
+                width 24px
+                height 24px
+
+.card
+    &__bold
+        font-weight 600
+        font-size 18px
+        color $blue-2
+        line-height 26px
+    &__title 
+        font-weight 500
+        font-size 30px
+        color $blue-2
+        a 
+            color $blue-2 
+            &:hover
+                color $blue
+    &__subtitle 
+        font-weight 400
+        font-size 20px
+        color $black
+        line-height 35px
+    &__text
+        font-weight 400
+        font-size 16px
+        color $black
+        line-height 26px
+        &-sm 
+            font-size 12px
+            font-weight 500
+.dashbord
+    &__title
+        font-weight 400
+        font-size 16px
+        color $black
+        line-height 26px
+    &__text 
+        font-weight 500
+        font-size 22px
+        color $blue-2
+        line-height 26px
+
+
+
+
+.btn
+    display inline-block
+    &__activity
+        font-weight 700
+        font-size 14px
+        color $white
+        line-height 20px
+        text-transform uppercase
+        background $blue
+        border-radius 4px
+    &__details
+        background $blue
+        font-weight 600
+        font-size 20px
+        color $white
+        line-height 20px
+        border-radius 4px
+    &__invest
+        font-weight 600
+        font-size 14px
+        color $gray-4
+        line-height 20px
+        background $gray-2
+        border-radius 4px
+        text-transform uppercase
+        padding 15px 32px
+        &:hover 
+            background $gray-4
+            color $gray-2
+        p
+    &__started
+        display inline-block
+        font-weight 500
+        font-size 14px
+        color $white
+        line-height 20px
+        text-transform uppercase
+        border-radius 4px
+        background $blue
+        padding 15px 32px
+        transition background .3s ease 
+        &:hover 
+            background $blue-2
+    &__ops
+        font-weight 700
+        font-size 20px
+        color $white
+        line-height 20px
+        text-transform uppercase
+        background $green
+        border-radius 4px
+    &__login
+        font-weight 500
+        font-size 14px
+        color $gray-4
+        line-height 20px
+        text-transform uppercase
+        background $gray-2
+        border-radius 4px
+        padding 15px 32px
+        transition background .3s ease
+        &:hover 
+            background $gray-4
+            color $gray-2
+
+
+[class^="icon-"],
+[class*=" icon-"]
+  font-family 'icomoon' !important
+  speak none
+  font-style normal
+  font-weight normal
+  font-variant normal
+  text-transform none
+  line-height 1
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+
+.icon-btn_start:before
+  content "\e900"
+  color #fff
+
+.icon-btn_login:before
+  content "\e901"
+  color #fff
+
