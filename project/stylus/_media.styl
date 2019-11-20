@@ -73,6 +73,11 @@
 /* Medium Devices, Desktops */
 @media (max-width : 998px)
 
+	.btn
+		&__details
+			font-size 18px
+			padding 10px 30px
+
 	.main
 		&__title
 			font-size 42px
@@ -134,7 +139,7 @@
 		padding 130px 0 30px
 	
 	.platform
-		padding 50px 0 40px
+		padding 40px 0
 		&__wrapper
 			flex-direction column 
 		&__image
@@ -154,7 +159,7 @@
 			line-height 42px
 	
 	.invest 
-		padding 50px 0
+		padding 40px 0 50px
 
 	.card
 		&__invest
@@ -175,37 +180,181 @@
 			font-size 10px
 		&__bottom
 			padding 20px 0 10px
+		&__button
+			margin 20px 0
+		&__text
+			font-size 14px
+			line-height 22px
+
+	.projects
+		padding 40px 0 50px
+
+	.perfomance
+		padding 40px 0 50px
+		&__subtitle
+			font-size 18px
+			margin-top 40px
+		&__text
+			br 
+				display none
+	
+	.choose
+		padding 40px 0 50px
+		&__body
+			padding 25px 15px 20px
+	
+	.sign
+		&__wrapper
+			padding 95px 0 60px
+		&__input
+			width 250px
+	
+	.btn
+		&__submit
+			padding 15px 15px
+	
+	.footer
+		padding 50px 0
+		&__side
+			max-width 340px
+		&__right
+			max-width none
+			padding-left 15px
+		&__menu-item
+			padding-right 15px
+			a 
+				font-size 16px
+		&__copy
+			margin-top 30px
+		&__text
+			margin-top 35px
 
 /* Small Devices, Tablets */
 @media (max-width : 768px)
 	.main
 		&__title
-			font-size 36px
-			line-height 46px
+			font-size 38px
+			line-height 44px
+			margin-bottom 28px
 		&__subtitle
 			font-size 18px
-			line-height 34px
+			line-height 30px
 	
 	.top
-		min-height 425px
-		padding 90px 0 30px
+		min-height 640px
+		padding 150px 0 30px
+	
+	.invest
+		&__wrapper
+			padding 0
+	.perfomance
+		&__text
+			font-size 14px
+			margin-bottom 20px
+	
+	.choose
+		&__items
+			flex-direction: column
+		&__item 
+			margin 10px auto 20px
+			&:first-child
+				margin 10px auto 50px
 
-
+	.sign
+		&__wrapper
+			flex-direction column 
+			padding 95px 0 50px
+		&__form
+			flex-direction column
+			max-width 335px
+			margin 0 auto
+			width 100%
+		&__input
+			width auto
+			left 0
+			text-align center
+			margin-bottom 10px
+	
+	.plane
+		left 30%
+		right auto
+		width 100%
+		top 35px
+		bottom auto
+	
+	.footer
+		&__sides
+			flex-direction column 
+		&__side
+			max-width none
+		&__contacts
+			margin-top 25px
+			p
+				img 
+					padding-right 10px
+		&__copy
+			margin 10px 0 20px
+		&__right
+			padding-left 0
+		&__menu
+			&-item
+				a
+					font-size 18px
+		&__social
+			margin-top 22px
+		&__text
+			margin-top 53px
+			p
+				margin-bottom 30px
+				&:last-child
+					margin-bottom 0
 /* Extra Small Devices, Phones */
 @media (max-width : 568px)
 	.main
-		&__title
-			font-size 32px
-			line-height 42px
 		&__subtitle
-			font-size 16px
-			line-height 32px
 			br 
 				display none
 	.page
 		&__title
-			font-size 24px
-			line-height 38px
+			font-size 28px
+			line-height 40px
+			text-align center
+			margin-bottom 20px
+			br 
+				display none
+		&__text
+			text-align center
+	
+	.card
+		&__bold
+			font-size 14px
+	
+	.platform
+		&__image
+			margin 30px auto 0
+	
+	.owl-item
+		width 268px !important
+	
+	.perfomance
+		&__items
+			flex-wrap wrap 
+			margin-bottom 25px
+		&__item
+			width 50%
+			justify-content flex-start
+	.p-avg
+		margin-right 15px
+	
+	.choose
+		&__item
+			.page__list li
+				margin-bottom 15px
+	
+	.footer
+		&__menu
+			&-item
+				width 50%
 		
 
 /* Extra Small Devices, Phones */
@@ -214,16 +363,23 @@
 		&__text
 			font-size 16px
 			line-height 28px
+	
+	.btn
+		&__invest
+			width 100%
 
 /* Custom, iPhone Retina */
 @media (max-width : 380px)
 	.main
-		&-title
+		&__title
 			font-size 28px
 			line-height 38px
+		&__subtitle
+			font-size 16px
+			line-height 32px
 
 	.top 
-		min-height 400px
+		min-height 500px
 
 	.header
 		.icon 
@@ -234,3 +390,14 @@
 				margin 0 0 0 15px
 		&__logotype 
 			max-width 165px
+	
+	.footer
+		&__contacts
+			p,
+			a
+				font-size 14px
+
+	.btn
+		&__view
+			font-size 12px
+			padding 10px 28px

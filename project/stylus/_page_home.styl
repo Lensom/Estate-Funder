@@ -37,6 +37,12 @@
         box-shadow 0 30px 60px rgba(21, 28, 39, 0.1)
     &__body
         position relative
+    &__wrapper
+        width 100%
+        max-width 1200px
+        padding 0 20px
+        margin 0 auto 
+        position relative
 
 
 .card
@@ -63,6 +69,7 @@
     &__body
         padding 36px 40px
         position relative
+        text-align left
     &__position
         font-family $default-font
         font-weight 400
@@ -113,3 +120,142 @@
                 img 
                     transform scale(1.1)
     
+.projects
+    background $gray-back
+    text-align center
+    padding 100px 0
+    &__image
+        margin 63px 0
+        img 
+            margin 0 auto
+
+.perfomance
+    text-align center
+    background-color $gray-back
+    padding 100px 0 110px
+    &__subtitle
+        color $blue-2
+        font-size 20px
+        font-weight 600
+        margin-top 55px
+        margin-bottom 25px
+    &__text
+        color $black
+        font-size 16px
+        font-weight 400
+        line-height 26px
+        margin-bottom 55px
+    &__year
+        margin-left 25px
+        text-align left
+        span 
+            color $black
+            font-family $default-font
+            font-size 12px
+            font-weight 500
+    &__items
+        display flex
+        justify-content space-between
+        max-width 945px
+        margin 0 auto 55px
+    &__item
+        display flex
+        justify-content space-between
+        align-items center 
+    &__button
+        margin-top 40px
+
+.point
+    display inline-block
+    border-radius 50%
+    width 16px
+    height 15px
+
+.choose
+    padding 100px 0 105px
+    text-align center
+    background-color $white
+    &__items
+        display flex
+        justify-content space-between
+        text-align left
+        margin-top 60px
+    &__item
+        max-width 530px
+        box-shadow 0 30px 60px rgba(21, 28, 39, 0.1)
+        border-radius 10px
+        background-color $white
+        &:first-child
+            margin-right 30px
+        .page__list
+            display flex
+            justify-content flex-start 
+            flex-wrap wrap 
+            margin-top 20px
+            li 
+                width 50%
+                padding-left 42px
+                margin-bottom 20px
+        .card__text
+            margin-top 15px
+    &__body 
+        padding 35px 40px 25px
+        position relative
+    &__icon
+        width 80px
+        height 80px
+        box-shadow 0 20px 50px rgba(21, 28, 39, 0.1)
+        border-radius 20px
+        background-color $white
+        display flex
+        align-items center 
+        justify-content center
+        position absolute
+        right 30px
+        top -40px
+    &__image
+        img 
+            transition all .3s ease 
+        a 
+            display block
+            max-height 220px
+            height 100%
+            overflow hidden
+            &:hover
+                img 
+                    transform scale(1.1)
+        
+.sign
+    background-color $blue
+    position relative
+    overflow hidden
+    &__wrapper
+        display flex
+        justify-content space-between
+        align-items center
+        padding 120px 0 80px
+    &__form
+        position relative
+        z-index 1
+        flex-grow 1
+        display flex
+        justify-content flex-end
+        margin-top -40px
+    &__input
+        border-radius 4px
+        background-color #589ef7
+        appearance none
+        border none
+        padding 13px 40px 16px
+        max-width 385px
+        position relative
+        left 10px
+        width 100%
+        color $white
+        font-size 16px
+        font-weight 500
+        line-height 20px
+        font-family $default-font
+        outline none
+        &::placeholder
+            color $white

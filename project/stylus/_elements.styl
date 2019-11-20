@@ -1,8 +1,4 @@
-.center 
-    text-align center
 
-.white 
-    color $white
 
 .wrapper 
     width 100%
@@ -84,6 +80,9 @@ a
         &-sm 
             font-size 12px
             font-weight 500
+    &__button
+        text-align center
+        margin 30px 0
 .dashbord
     &__title
         font-weight 400
@@ -116,6 +115,9 @@ a
         color $white
         line-height 20px
         border-radius 4px
+        padding 13px 40px
+        &:hover
+            background $blue-2
     &__invest
         font-weight 600
         font-size 14px
@@ -163,6 +165,30 @@ a
         &:hover 
             background $gray-4
             color $gray-2
+    &__view
+        color $white
+        font-size 14px
+        font-weight 700
+        line-height 20px
+        text-transform uppercase
+        border-radius 4px
+        background-color $blue
+        padding 15px 28px
+        &:hover
+            background #1a273a
+    &__submit
+        border-radius 4px
+        background-color $white
+        font-size 14px
+        font-weight 700
+        line-height 20px
+        text-transform uppercase
+        color #000
+        border none 
+        appearance none
+        position relative
+        // left -10px
+        padding 15px 29px
 
 
 [class^="icon-"],
@@ -186,3 +212,67 @@ a
   content "\e901"
   color #fff
 
+.owl
+    &-dots
+        display none
+    &-nav
+        position absolute
+        left 50%
+        transform translateX(-50%)
+        margin 30px 0
+        button
+            position relative
+            margin 0 10px
+    &-prev,
+    &-next
+        outline none
+        span 
+            font-size 0
+    &-prev
+        span:after
+            position absolute
+            content ''
+            top 0
+            left 0
+            background-image url(../img/arrow.svg)
+            width 7px
+            height 9.5px
+            transform rotate(180deg) scale(2)
+            top -1px
+    &-next
+        span:after
+            position absolute
+            content ''
+            top 0
+            left 0
+            background-image url(../img/arrow.svg)
+            width 7px
+            height 10px
+            transform scale(2)
+
+.plane
+    position absolute
+    width 73%
+    right -120px
+    bottom 35px
+
+
+.center 
+    text-align center
+
+.white 
+    color $white
+
+.p-blue
+    background $blue
+.p-blue-2
+    background  #50a4f4
+.p-blue-3
+    background #5cb7fd
+.p-blue-4
+    border 1px solid #5cb7fd
+    background transparent
+.point.p-avg
+    background #d5dce6
+    height 100%
+    width 1px
