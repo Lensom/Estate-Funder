@@ -403,6 +403,62 @@ a {
   height: 100%;
   width: 1px;
 }
+.form__input {
+  border-radius: 4px;
+  border: 1px solid #dbe1e6;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: #475871;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  outline: none;
+  width: 100%;
+  padding: 9px 18px 13px;
+  margin-top: 25px;
+  font-family: "AvenirNextCyr", sans-serif;
+  font-weight: 500;
+}
+.form__input::-webkit-input-placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.form__input::-moz-placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.form__input:-ms-input-placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.form__input::-ms-input-placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.form__input::placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.form__input:focus {
+  border: 1px solid #475871;
+}
+.form__submit {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background-color: #3f89e8;
+  border: none;
+  width: 100%;
+  padding: 27px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.form__submit:hover {
+  background: #1a273a;
+}
+.form__wrapper {
+  margin-bottom: 40px;
+}
 .header {
   height: 80px;
   display: -webkit-box;
@@ -882,6 +938,35 @@ a {
 .sign__input::placeholder {
   color: #fff;
 }
+.signin {
+  padding: 100px 0;
+  background: #fff;
+  text-align: center;
+}
+.signin__wrapper {
+  max-width: 360px;
+  margin: 0 auto;
+}
+.signin__form {
+  text-align: left;
+  margin-top: 60px;
+}
+.signin__form p {
+  color: #1a273a;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.signin__text {
+  margin-top: 105px;
+}
+.signin__text a {
+  color: #3f89e8;
+  font-weight: 600;
+}
+.signin__text a:hover {
+  color: #1a273a;
+}
 .footer {
   background-color: #1a273a;
   padding: 103px 0 80px;
@@ -993,6 +1078,9 @@ a {
 }
 .footer__logo {
   margin-top: 3px;
+}
+.footer-2 .footer__menu-item {
+  width: 50%;
 }
 @media (max-width: 1400px) {
   .btn__started,
@@ -1256,6 +1344,15 @@ a {
   .footer__text {
     margin-top: 35px;
   }
+  .signin {
+    padding: 50px 0;
+  }
+  .signin__form {
+    margin-top: 40px;
+  }
+  .signin__text {
+    margin-top: 50px;
+  }
 }
 @media (max-width: 768px) {
   .main__title {
@@ -1409,6 +1506,22 @@ a {
   }
   .btn__invest {
     width: 100%;
+  }
+  .signin__form p {
+    font-size: 18px;
+  }
+  .signin__text {
+    margin-top: 30px;
+  }
+  .form__input {
+    margin-top: 15px;
+  }
+  .form__wrapper {
+    margin-bottom: 25px;
+  }
+  .form__submit {
+    padding: 15px;
+    font-size: 18px;
   }
 }
 @media (max-width: 380px) {
