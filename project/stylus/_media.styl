@@ -235,6 +235,22 @@
 			margin-top 40px
 		&__text
 			margin-top 50px
+	
+	.create
+		&__form
+			margin-top 40px
+			.form__submit
+				margin 40px auto
+		&__wrapper
+			.signin__text
+				margin 50px 0
+		&__list
+			margin-top 50px
+			li
+				font-size 18px
+				margin-bottom 10px
+		&__text
+			margin-top 50px
 
 /* Small Devices, Tablets */
 @media (max-width : 768px)
@@ -315,6 +331,24 @@
 				margin-bottom 30px
 				&:last-child
 					margin-bottom 0
+	
+	.create
+		&__wrapper
+			.card__text
+				text-align center
+		&__form
+			.form__wrapper
+					max-width 360px
+					margin 40px auto
+					text-align left
+	.form__wrapper.df
+		flex-direction column
+		label
+			display flex
+			flex-direction column
+			&:first-child,
+			&:last-child
+				margin 0
 /* Extra Small Devices, Phones */
 @media (max-width : 568px)
 	.main
@@ -389,7 +423,14 @@
 		&__submit
 			padding 15px 
 			font-size 18px
-
+	
+	.create
+		&__list
+			li 
+				font-size 16px
+		&__wrapper
+			.card__text
+				margin-top 30px
 /* Custom, iPhone Retina */
 @media (max-width : 380px)
 	.main

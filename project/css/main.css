@@ -185,6 +185,13 @@ a {
   font-size: 12px;
   font-weight: 500;
 }
+.card__text a {
+  color: #3f89e8;
+  font-weight: 600;
+}
+.card__text a:hover {
+  color: #1a273a;
+}
 .card__button {
   text-align: center;
   margin: 30px 0;
@@ -458,6 +465,28 @@ a {
 }
 .form__wrapper {
   margin-bottom: 40px;
+}
+.form__wrapper.df {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.form__wrapper.df label {
+  width: 100%;
+  text-align: left;
+  max-width: 360px;
+}
+.form__wrapper.df label:first-child {
+  margin-right: 5px;
+}
+.form__wrapper.df label:last-child {
+  margin-left: 5px;
 }
 .header {
   height: 80px;
@@ -960,12 +989,53 @@ a {
 .signin__text {
   margin-top: 105px;
 }
-.signin__text a {
-  color: #3f89e8;
-  font-weight: 600;
+.create__wrapper {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
 }
-.signin__text a:hover {
+.create__wrapper .card__text {
+  text-align: left;
+}
+.create__wrapper .signin__text {
+  margin: 105px 0 55px;
+  text-align: center;
+}
+.create__form {
+  text-align: left;
+  margin-top: 55px;
+}
+.create__form label p {
   color: #1a273a;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.create__form .form__input {
+  max-width: 360px;
+}
+.create__form .form__submit {
+  max-width: 265px;
+  margin: 62px auto;
+  display: block;
+}
+.create__list {
+  margin-top: 100px;
+}
+.create__list li {
+  color: #1a273a;
+  font-family: "AvenirNextCyr", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 26px;
+  margin-bottom: 20px;
+}
+.create__list li:last-child {
+  margin-bottom: 0;
+}
+.create__text {
+  text-align: left;
+  margin-top: 65px;
 }
 .footer {
   background-color: #1a273a;
@@ -1353,6 +1423,25 @@ a {
   .signin__text {
     margin-top: 50px;
   }
+  .create__form {
+    margin-top: 40px;
+  }
+  .create__form .form__submit {
+    margin: 40px auto;
+  }
+  .create__wrapper .signin__text {
+    margin: 50px 0;
+  }
+  .create__list {
+    margin-top: 50px;
+  }
+  .create__list li {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .create__text {
+    margin-top: 50px;
+  }
 }
 @media (max-width: 768px) {
   .main__title {
@@ -1452,6 +1541,33 @@ a {
   .footer__text p:last-child {
     margin-bottom: 0;
   }
+  .create__wrapper .card__text {
+    text-align: center;
+  }
+  .create__form .form__wrapper {
+    max-width: 360px;
+    margin: 40px auto;
+    text-align: left;
+  }
+  .form__wrapper.df {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .form__wrapper.df label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .form__wrapper.df label:first-child,
+  .form__wrapper.df label:last-child {
+    margin: 0;
+  }
 }
 @media (max-width: 568px) {
   .main__subtitle br {
@@ -1522,6 +1638,12 @@ a {
   .form__submit {
     padding: 15px;
     font-size: 18px;
+  }
+  .create__list li {
+    font-size: 16px;
+  }
+  .create__wrapper .card__text {
+    margin-top: 30px;
   }
 }
 @media (max-width: 380px) {

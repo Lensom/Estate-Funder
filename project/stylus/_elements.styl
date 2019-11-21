@@ -80,6 +80,11 @@ a
         &-sm 
             font-size 12px
             font-weight 500
+        a
+            color $blue
+            font-weight 600
+            &:hover
+                color $blue-2
     &__button
         text-align center
         margin 30px 0
@@ -314,3 +319,15 @@ a
 
     &__wrapper
         margin-bottom 40px
+    &__wrapper.df
+        display flex
+        align-items flex-end 
+        justify-content space-between
+        label
+            width 100%
+            text-align left
+            max-width 360px
+            &:first-child
+                margin-right 5px
+            &:last-child
+                margin-left 5px
