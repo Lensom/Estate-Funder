@@ -185,6 +185,12 @@
 		&__text
 			font-size 14px
 			line-height 22px
+		&__subtitle
+			font-size 18px
+			line-height 30px
+		&__link
+			font-size 16px
+			line-height 26px
 
 	.projects
 		padding 40px 0 50px
@@ -251,6 +257,9 @@
 				margin-bottom 10px
 		&__text
 			margin-top 50px
+	
+	.return
+		font-size 18px
 
 /* Small Devices, Tablets */
 @media (max-width : 768px)
@@ -349,6 +358,31 @@
 			&:first-child,
 			&:last-child
 				margin 0
+	.invest__types
+		.wrapper
+			&:after
+				display none
+	.invest__items 
+		flex-direction column
+		.choose__item
+			margin 0 auto 50px
+		.choose__items
+			width 100%
+			&:last-child
+				align-items center
+				.choose__item
+					margin 0 auto 50px
+			.choose__item
+				margin 0 auto 50px
+	.choose
+		&__types
+			flex-direction column 
+		&__type
+			width 100%
+			margin-bottom 30px
+			&:first-child
+				margin-right 0
+
 /* Extra Small Devices, Phones */
 @media (max-width : 568px)
 	.main
@@ -431,6 +465,9 @@
 		&__wrapper
 			.card__text
 				margin-top 30px
+	
+	.return
+		font-size 16px
 /* Custom, iPhone Retina */
 @media (max-width : 380px)
 	.main
@@ -464,3 +501,11 @@
 		&__view
 			font-size 12px
 			padding 10px 28px
+	
+	.card__types
+		margin 20px 0
+		display flex
+		flex-direction column
+		.card__type
+			width 100%
+			margin-bottom 20px
