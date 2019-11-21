@@ -35,6 +35,12 @@
 		&__menu
 			&-item 
 				padding 0 7px
+		&__info
+			margin-right 0
+			right 25px
+		&__notification
+			&-link 
+				margin 0 18px
 	.page
 		&__title
 			font-size 32px
@@ -77,6 +83,12 @@
 		&__details
 			font-size 18px
 			padding 10px 30px
+			&-size
+				padding 20px 30px
+		&__ops
+			&-size 
+				padding 20px 15px
+				font-size 18px
 
 	.main
 		&__title
@@ -133,6 +145,8 @@
 			max-width 181px
 		&__mobile 
 			display block
+		&__info
+			right 20px
 	
 	.top
 		min-height 550px
@@ -260,7 +274,24 @@
 	
 	.return
 		font-size 18px
+	
+	.profile
+		padding 50px 0
+		&__links
+			margin -10px 0 30px
+			&-link
+				font-size 16px
+				max-width 220px
+		&__name
+			font-size 26px
+		&__block
+			margin 40px 0 50px
+		.create__list
+			margin-top 40px
 
+	.svg__not
+		g 
+			fill $white
 /* Small Devices, Tablets */
 @media (max-width : 768px)
 	.main
@@ -442,6 +473,10 @@
 	.btn
 		&__invest
 			width 100%
+		&__ops
+			&-size 
+				padding 15px 
+				font-size 16px
 	
 	.signin
 		&__form
@@ -468,6 +503,27 @@
 	
 	.return
 		font-size 16px
+	.extra
+		padding 50px 0 30px
+		min-height 270px
+	.profile
+		.profile__text
+			font-size 18px
+		&__item
+			p 
+				font-size 14px
+				margin-top 5px
+		&__block
+			margin 28px 0 40px
+		&__extra
+			margin-top 40px
+		&__button
+			margin-top 40px
+	
+	.header
+		&__info
+			.header__menu
+				display none
 /* Custom, iPhone Retina */
 @media (max-width : 380px)
 	.main
@@ -490,6 +546,9 @@
 				margin 0 0 0 15px
 		&__logotype 
 			max-width 165px
+		&__notification
+			&-link
+				margin 0 13px
 	
 	.footer
 		&__contacts

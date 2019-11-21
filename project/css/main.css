@@ -266,6 +266,13 @@ a {
 .btn__details:hover {
   background: #1a273a;
 }
+.btn__details-size {
+  width: 100%;
+  max-width: 360px;
+  padding: 27px 10px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
 .btn__invest {
   font-weight: 600;
   font-size: 14px;
@@ -304,6 +311,14 @@ a {
   text-transform: uppercase;
   background: #52af56;
   border-radius: 4px;
+}
+.btn__ops-size {
+  width: 100%;
+  text-align: center;
+  padding: 28px 15px;
+}
+.btn__ops-size:hover {
+  background: #3f89e8;
 }
 .btn__login {
   font-weight: 500;
@@ -630,7 +645,52 @@ a {
   width: 70%;
   bottom: 0;
 }
-.header .icon {
+.header__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 50px;
+  margin-right: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header__notification span {
+  position: absolute;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 12px;
+  height: 12px;
+  background-color: #ff4e4e;
+  border-radius: 50%;
+  top: 3px;
+  right: -8px;
+}
+.header__notification-link {
+  margin: 0 30px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header__profile a {
+  display: block;
+}
+.header.account {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.header.account .icon {
   display: none;
 }
 .show .header__mobile {
@@ -1173,6 +1233,99 @@ a {
   margin-bottom: 100px;
   margin-right: 15px;
 }
+.extra {
+  min-height: 340px;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  padding: 90px 0 30px;
+}
+.profile {
+  padding: 100px 0 105px;
+}
+.profile__wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.profile__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: -10px 0 55px;
+}
+.profile__links-link {
+  color: #6b7c95;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  background-color: #f1f4f5;
+  max-width: 280px;
+  width: 100%;
+  display: inline-block;
+  padding: 15px;
+}
+.profile__links-link:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.profile__links-link:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.profile__links-link.active {
+  color: #fff;
+  background-color: #3f89e8;
+}
+.profile__name {
+  color: #1a273a;
+  font-family: "AvenirNextCyr", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+}
+.profile__item {
+  display: none;
+}
+.profile__item p {
+  color: #475871;
+  font-family: "AvenirNextCyr", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+.profile__item.active {
+  display: block;
+}
+.profile .profile__text {
+  color: #1a273a;
+  font-family: "AvenirNextCyr", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.profile__block {
+  margin: 50px 0 62px;
+}
+.profile__block-item {
+  margin-bottom: 20px;
+}
+.profile__block p {
+  margin-top: 10px;
+}
+.profile__extra {
+  margin-top: 60px;
+  text-align: left;
+}
+.profile__button {
+  margin-top: 62px;
+}
+.profile .create__list {
+  margin-top: 65px;
+  text-align: center;
+}
 .footer {
   background-color: #1a273a;
   padding: 103px 0 80px;
@@ -1319,6 +1472,13 @@ a {
   .header__menu-item {
     padding: 0 7px;
   }
+  .header__info {
+    margin-right: 0;
+    right: 25px;
+  }
+  .header__notification-link {
+    margin: 0 18px;
+  }
   .page__title {
     font-size: 32px;
     line-height: 42px;
@@ -1358,6 +1518,13 @@ a {
   .btn__details {
     font-size: 18px;
     padding: 10px 30px;
+  }
+  .btn__details-size {
+    padding: 20px 30px;
+  }
+  .btn__ops-size {
+    padding: 20px 15px;
+    font-size: 18px;
   }
   .main__title {
     font-size: 42px;
@@ -1437,6 +1604,9 @@ a {
   }
   .header__mobile {
     display: block;
+  }
+  .header__info {
+    right: 20px;
   }
   .top {
     min-height: 550px;
@@ -1588,6 +1758,28 @@ a {
   }
   .return {
     font-size: 18px;
+  }
+  .profile {
+    padding: 50px 0;
+  }
+  .profile__links {
+    margin: -10px 0 30px;
+  }
+  .profile__links-link {
+    font-size: 16px;
+    max-width: 220px;
+  }
+  .profile__name {
+    font-size: 26px;
+  }
+  .profile__block {
+    margin: 40px 0 50px;
+  }
+  .profile .create__list {
+    margin-top: 40px;
+  }
+  .svg__not g {
+    fill: #fff;
   }
 }
 @media (max-width: 768px) {
@@ -1809,6 +2001,10 @@ a {
   .btn__invest {
     width: 100%;
   }
+  .btn__ops-size {
+    padding: 15px;
+    font-size: 16px;
+  }
   .signin__form p {
     font-size: 18px;
   }
@@ -1834,6 +2030,29 @@ a {
   .return {
     font-size: 16px;
   }
+  .extra {
+    padding: 50px 0 30px;
+    min-height: 270px;
+  }
+  .profile .profile__text {
+    font-size: 18px;
+  }
+  .profile__item p {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  .profile__block {
+    margin: 28px 0 40px;
+  }
+  .profile__extra {
+    margin-top: 40px;
+  }
+  .profile__button {
+    margin-top: 40px;
+  }
+  .header__info .header__menu {
+    display: none;
+  }
 }
 @media (max-width: 380px) {
   .main__title {
@@ -1856,6 +2075,9 @@ a {
   }
   .header__logotype {
     max-width: 165px;
+  }
+  .header__notification-link {
+    margin: 0 13px;
   }
   .footer__contacts p,
   .footer__contacts a {

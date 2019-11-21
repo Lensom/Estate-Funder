@@ -34,7 +34,6 @@ $(document).ready(function () {
     });
 });
 
-
 // Chart.js Main page
 $(document).ready(function () {
 
@@ -150,4 +149,20 @@ $(document).ready(function () {
     myChart.data.datasets[0].pointRadius = radiusArray;
     myChart.update();
 
+});
+
+// Profile tabs
+$(document).ready(function () {
+    $('.profile__links-link').on('click', function (e) {
+        e.preventDefault();
+        let index = $(this).index();
+
+        $('.profile__links-link').removeClass('active');
+        $(this).addClass('active');
+
+        $('.profile__item').removeClass('active');
+        let activeBody = $('.profile__item')[index];
+        $(activeBody).addClass('active');
+
+    });
 });
