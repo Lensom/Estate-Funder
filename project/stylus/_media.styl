@@ -19,7 +19,7 @@
 			right 0
 			margin-top 80px
 
-/* Large Devices, Wide Screens */
+
 @media (max-width : 1200px)
 	.btn
 		&__started,
@@ -74,9 +74,7 @@
 		&__structure
 			padding-left 20px
 
-				
 
-/* Medium Devices, Desktops */
 @media (max-width : 998px)
 
 	.btn
@@ -304,7 +302,13 @@
 			margin 75px 0 10px
 		&__submit
 			margin 20px auto 0
-/* Small Devices, Tablets */
+	.support
+		padding 50px 0
+		.profile__button
+			margin-top 60px
+		.create__list
+			margin-top 30px
+
 @media (max-width : 768px)
 	.main
 		&__title
@@ -444,11 +448,18 @@
 			margin 5px 0
 		&__group
 			margin 15px 40px 5px 0
+		&__buttons
+			.btn
+				padding 19px
+				font-size 18px
+	.support
+		.contact__form
+			margin 25px 0
+		.profile__button
+			margin-top 20px
+
 	
 
-
-
-/* Extra Small Devices, Phones */
 @media (max-width : 568px)
 	.main
 		&__subtitle
@@ -511,9 +522,13 @@
 			.form__input
 				margin 5px 0 10px
 				padding 6px 15px 10px
-			
+	.start
+		&__wrapper
+			flex-direction column
+			justify-content center
+		.page__title
+			margin-bottom 30px
 
-/* Extra Small Devices, Phones */
 @media (max-width : 480px)
 	.page
 		&__text
@@ -574,6 +589,11 @@
 		&__info
 			.header__menu
 				display none
+	.form
+		&__buttons
+			.btn
+				padding 14px
+				font-size 15px
 /* Custom, iPhone Retina */
 @media (max-width : 380px)
 	.main

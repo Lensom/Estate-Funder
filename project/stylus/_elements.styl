@@ -72,6 +72,11 @@ a
         font-size 20px
         color $black
         line-height 35px
+        a
+            color $blue
+            font-weight 400
+            &:hover
+                color $blue-2
     &__text
         font-weight 400
         font-size 16px
@@ -227,7 +232,31 @@ a
         position relative
         // left -10px
         padding 15px 29px
-
+    &__start
+        color #000000
+        font-family $default-font
+        font-size 14px
+        font-weight 700
+        line-height 20px
+        text-transform uppercase
+        border-radius 4px
+        background-color $white
+        padding 15px 29px
+    &__cancel
+        border-radius 4px
+        border 1px solid #c1c8cb
+        color $black
+        font-family $default-font
+        font-size 20px
+        font-weight 700
+        line-height 20px
+        text-transform uppercase
+        appearance none
+        background transparent
+        cursor pointer
+        &:hover
+            background $gray
+            color $white
 
 [class^="icon-"],
 [class*=" icon-"]
@@ -385,6 +414,15 @@ a
             font-weight 500
             font-family $default-font
             color rgba(107, 124, 149, .5)
+    &__buttons
+        display flex
+        justify-content space-between
+        .btn
+            max-width 360px
+            width 100%  
+            &:first-child
+                margin-right 20px
+
 
 .return
     color $blue-2
