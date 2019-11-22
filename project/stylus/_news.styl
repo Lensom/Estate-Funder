@@ -1,0 +1,88 @@
+
+/* Accordion controls 
+========================================================================== */
+.control{
+  background-color: #de0000;
+  border-radius: 6px;
+  padding: 5px 10px;
+  border-style: none;
+  font-family: arial;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  outline: none;
+  margin: 10px;
+}
+
+.control:hover{
+  cursor: pointer;
+  color: #e8e8e8;
+}
+
+.control:active{
+  color: #000000;
+  padding: 4px 9px;
+  font-size: .95em;
+}
+
+/* Main accordion container 
+========================================================================== */
+
+.accordion
+  background-color $gray-back
+  padding 55px 60px
+  border-radius 10px
+  h1
+    color $blue-2
+    font-family $default-font
+    font-size 22px
+    font-weight 500
+    line-height 26px
+  &-container
+    margin-bottom 20px  
+  &-panel
+    border none
+    margin: 0 auto;
+    padding: 55px 65px;
+    background-color: #fafafad4;
+    p
+      color $black
+      font-family $default-font
+      font-size 20px
+      font-weight 500
+      line-height 35px
+
+
+.accordion:hover{
+  cursor: pointer;
+}
+
+/* Main accordion arrow 
+========================================================================== */
+.accordion button{
+  float: right;
+  font-size: 20px;
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  outline: none;
+}
+
+
+
+/* Rotate class for dropdown button
+========================================================================== */
+
+.rotate {
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+}
+
+.rotate.up {
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
