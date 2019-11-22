@@ -297,6 +297,13 @@
 	
 	.text__page
 		margin 50px auto
+	
+	.contact
+		padding 50px 0
+		&__form
+			margin 75px 0 10px
+		&__submit
+			margin 20px auto 0
 /* Small Devices, Tablets */
 @media (max-width : 768px)
 	.main
@@ -418,6 +425,28 @@
 			margin-bottom 30px
 			&:first-child
 				margin-right 0
+	
+	.contact
+		&__form
+			margin-bottom 5px
+			.df
+				label
+					max-width none
+			.form__input
+				margin-top 5px
+				margin-bottom 10px
+			.form__wrapper
+				margin-bottom 5px
+		&__submit
+			padding 17px
+	.form
+		&__textarea
+			margin 5px 0
+		&__group
+			margin 15px 40px 5px 0
+	
+
+
 
 /* Extra Small Devices, Phones */
 @media (max-width : 568px)
@@ -469,6 +498,20 @@
 	.text__page
 		.page__text
 			text-align left		
+	
+	.contact
+		&__items
+			flex-direction column
+		&__item
+			margin-bottom 20px
+		&__form
+			margin 40px 0 10px
+			.contact__title
+				margin-bottom 25px
+			.form__input
+				margin 5px 0 10px
+				padding 6px 15px 10px
+			
 
 /* Extra Small Devices, Phones */
 @media (max-width : 480px)

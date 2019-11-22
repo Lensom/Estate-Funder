@@ -166,3 +166,14 @@ $(document).ready(function () {
 
     });
 });
+
+
+$(document).ready(function () {
+    $('.form__respond input[type="checkbox"]').on('change', function () {
+        $('.form__respond input[type="checkbox"]').not(this).prop('checked', false);
+    });
+
+    $('.form__agree input[type="checkbox"]').on('change', function () {
+        $(':submit').attr('disabled', function (_, attr) { return !attr });
+    });
+})

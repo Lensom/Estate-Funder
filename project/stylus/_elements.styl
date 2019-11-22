@@ -349,6 +349,9 @@ a
         cursor pointer
         &:hover
             background $blue-2
+        &:disabled
+            background gray
+            cursor not-allowed
 
     &__wrapper
         margin-bottom 40px
@@ -364,6 +367,24 @@ a
                 margin-right 5px
             &:last-child
                 margin-left 5px
+    &__textarea
+        border-radius 4px
+        border 1px solid #dbe1e6
+        color $blue-2
+        font-weight 500
+        font-family $default-font
+        font-size 16px
+        font-weight 500
+        line-height 26px
+        min-height 200px
+        min-width 100%
+        padding 15px 18px
+        margin 15px 0 5px
+        outline none
+        &::placeholder
+            font-weight 500
+            font-family $default-font
+            color rgba(107, 124, 149, .5)
 
 .return
     color $blue-2
@@ -383,3 +404,84 @@ a
     justify-content center
     border-radius 50%
     margin 0 auto
+
+
+
+.form__group {
+  display: inline-block;
+  margin 22px 55px 15px 0
+}
+
+.form__group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.form__group label {
+  position: relative;
+  cursor: pointer;
+  color $blue-2
+  font-family $default-font
+  font-size 16px
+  font-weight 500
+  line-height 26px
+  display flex
+}
+
+.form__group label:before {
+  content:'';
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid #dbe1e6;
+  border-radius 4px
+  padding: 13px;
+  width 28px
+  height 28px
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 17px;
+}
+
+.form__group input:checked + label:before {
+   background-color $blue
+}
+
+.form__group input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  width: 6px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.form__group
+    a
+        font-family $default-font
+        font-size 16px
+        font-weight 400
+        line-height 26px
+        color $blue
+        &:hover
+            color $blue-2
+
+.form__agree
+    margin-top 33px
+    .form__group
+        margin-right 0
+    label
+        display block
+        padding-left 45px
+        &:before
+            position absolute
+            left 0
