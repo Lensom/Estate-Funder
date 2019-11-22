@@ -260,6 +260,9 @@ a {
   text-transform: uppercase;
   background: #3f89e8;
   border-radius: 4px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .btn__details {
   background: #3f89e8;
@@ -269,6 +272,9 @@ a {
   line-height: 20px;
   border-radius: 4px;
   padding: 13px 40px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .btn__details:hover {
   background: #1a273a;
@@ -280,6 +286,10 @@ a {
   text-transform: uppercase;
   margin-top: 10px;
 }
+.btn__details-m {
+  padding: 15px 38px;
+  border: none;
+}
 .btn__invest {
   font-weight: 600;
   font-size: 14px;
@@ -289,6 +299,9 @@ a {
   border-radius: 4px;
   text-transform: uppercase;
   padding: 15px 32px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .btn__invest:hover {
   background: #6b7c95;
@@ -306,18 +319,24 @@ a {
   padding: 15px 32px;
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .btn__started:hover {
   background: #1a273a;
 }
 .btn__ops {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 20px;
   color: #fff;
   line-height: 20px;
   text-transform: uppercase;
   background: #52af56;
   border-radius: 4px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .btn__ops-size {
   width: 100%;
@@ -336,6 +355,9 @@ a {
   background: #f7f8fa;
   border-radius: 4px;
   padding: 15px 32px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
@@ -352,6 +374,9 @@ a {
   border-radius: 4px;
   background-color: #3f89e8;
   padding: 15px 28px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .btn__view:hover {
   background: #1a273a;
@@ -381,6 +406,9 @@ a {
   border-radius: 4px;
   background-color: #fff;
   padding: 15px 29px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .btn__cancel {
   border-radius: 4px;
@@ -1651,6 +1679,81 @@ a {
 .start__wrapper .page__title {
   margin-bottom: 0;
 }
+.settings {
+  padding: 100px 0 105px;
+}
+.settings__wrapper {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.settings__sides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px 0;
+}
+.settings .contact__form {
+  margin: 0;
+}
+.settings__image {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  margin-bottom: 65px;
+}
+.settings__title {
+  color: #1a273a;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  margin: 8px 0 30px;
+}
+.settings__remove {
+  position: absolute;
+  top: 39%;
+  right: -15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 34px;
+  height: 34px;
+  background-color: #ff4e4e;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+}
+.settings__side:last-child {
+  width: 100%;
+  max-width: 360px;
+}
+.settings .btn {
+  margin-top: 10px;
+}
+.settings form .btn {
+  margin-top: 21px;
+  max-width: 228px;
+  font-size: 20px;
+  width: 100%;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+.settings__text {
+  margin-top: 100px;
+}
+.settings .create__list {
+  margin-top: 65px;
+}
 .footer {
   background-color: #1a273a;
   padding: 103px 0 80px;
@@ -2130,6 +2233,20 @@ a {
   .support .create__list {
     margin-top: 30px;
   }
+  .settings {
+    padding: 50px 0;
+  }
+  .settings form .btn {
+    max-width: 196px;
+    padding: 10px 17px;
+    font-size: 18px;
+  }
+  .settings__text {
+    margin-top: 0;
+  }
+  .settings .create__list {
+    margin-top: 40px;
+  }
 }
 @media (max-width: 768px) {
   .main__title {
@@ -2326,6 +2443,33 @@ a {
   }
   .support .profile__button {
     margin-top: 20px;
+  }
+  .settings__sides {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .settings__image {
+    margin: 0 auto 30px;
+  }
+  .settings__title {
+    text-align: center;
+  }
+  .settings__side:last-child {
+    margin-top: 45px;
+  }
+  .settings form .btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 auto;
   }
 }
 @media (max-width: 568px) {

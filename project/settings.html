@@ -67,130 +67,47 @@
 
   <main class="main">
 
-    <div class="profile">
+    <section class="settings">
       <div class="wrapper">
-        <div class="profile__wrapper">
-          <h2 class="page__title">Profile</h2>
-          <div class="profile__links">
-            <a href="#" class="profile__links-link active">Individual</a>
-            <a href="#" class="profile__links-link">Company</a>
-          </div>
-          <div class="profile__body">
-            <div class="profile__item active">
-              <h3 class="profile__name">Iwona Podlasińska</h3>
-              <div class="profile__block">
-                <div class="profile__block-item">
-                  <p>Date of Birth</p>
-                  <p class="profile__text">December 25, 1987</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Gender</p>
-                  <p class="profile__text">Female</p>
-                </div>
+        <div class="settings__wrapper">
+          <h2 class="page__title">Settings</h2>
+          <div class="settings__sides">
+            <div class="settings__side">
+              <div class="settings__image">
+                <a href="#" class="settings__remove">
+                  <img src="img/delete.svg" alt="">
+                </a>
+                <img src="img/s_userpic.png" alt="">
               </div>
-              <div class="profile__block">
-                <div class="profile__block-item">
-                  <p>Address</p>
-                  <p class="profile__text">145 Brooklyn Ave, Brooklyn, NY 11213</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Post Code</p>
-                  <p class="profile__text">10008</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>City</p>
-                  <p class="profile__text">New York</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Country</p>
-                  <p class="profile__text">USA</p>
-                </div>
-              </div>
-              <div class="profile__block">
-                <div class="profile__block-item">
-                  <p>Email Address</p>
-                  <p class="profile__text">constantine.work@gmail.com</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Mobile Phone</p>
-                  <p class="profile__text">716-725-1414</p>
-                </div>
-              </div>
-              <a href="#" class="btn btn__details btn__details-size">Edit Profile</a>
+              <h3 class="settings__title">Withdraw Funds</h3>
+              <a href="#" class="btn btn__details btn__details-m">Withdraw Funds</a>
             </div>
-            <div class="profile__item">
-              <h3 class="profile__name">Southwest Airlines</h3>
-              <div class="profile__block">
-                <div class="profile__block-item">
-                  <p>Registration No</p>
-                  <p class="profile__text">154701873</p>
+            <div class="settings__side">
+              <h3 class="settings__title">Change Password</h3>
+              <form action="#" class="contact__form form">
+                <div class="form__wrapper">
+                  <label for="#">
+                    <p>Current Password</p>
+                    <input type="password" class="form__input">
+                  </label>
                 </div>
-                <div class="profile__block-item">
-                  <p>City / State of Registration</p>
-                  <p class="profile__text">Sydney</p>
+                <div class="form__wrapper">
+                  <label for="#">
+                    <p>New Password</p>
+                    <input type="password" class="form__input">
+                  </label>
                 </div>
-              </div>
-              <div class="profile__block">
-                <div class="profile__block-item">
-                  <p>First Name</p>
-                  <p class="profile__text">Iwona</p>
+                <div class="form__wrapper">
+                  <label for="#">
+                    <p>Confirm New Password</p>
+                    <input type="password" class="form__input">
+                  </label>
                 </div>
-                <div class="profile__block-item">
-                  <p>Last Name</p>
-                  <p class="profile__text">Podlasińska</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Date of Birth</p>
-                  <p class="profile__text">December 25, 1987</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Gender</p>
-                  <p class="profile__text">Female</p>
-                </div>
-              </div>
-              <div class="profile__block">
-                <div class="profile__block-item">
-                  <p>Address</p>
-                  <p class="profile__text">145 Brooklyn Ave, Brooklyn, NY 11213</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Post Code</p>
-                  <p class="profile__text">10008</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>City</p>
-                  <p class="profile__text">New York</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Country</p>
-                  <p class="profile__text">USA</p>
-                </div>
-              </div>
-              <div class="profile__block">
-                <div class="profile__block-item">
-                  <p>Email Address</p>
-                  <p class="profile__text">constantine.work@gmail.com</p>
-                </div>
-                <div class="profile__block-item">
-                  <p>Mobile Phone</p>
-                  <p class="profile__text">716-725-1414</p>
-                </div>
-              </div>
-              <a href="#" class="btn btn__details btn__details-size">Edit Profile</a>
+                <input type="submit" value="Change Password" class="btn btn__details btn__details-m">
+              </form>
             </div>
           </div>
-          <div class="profile__extra">
-            <p class="card__text">
-              Please note that all personal data is strictly used for verification and investment purposes as required
-              by law. All
-              user data is treated in a highly confidential manner. At no times is your data shared with or transferred
-              to any third
-              parties. Your data is not viewable by any EstateFunder staff other than the compliance director. Our
-              compliance director
-              reports directly to the company CEO. All data is handled and safeguarded in accordance with the applicable
-              laws and
-              regulations and our Privacy Policy. Please refer to our Privacy Policy for more details..
-            </p>
+          <div class="settings__text">
             <div class="profile__button">
               <a href="#" class="btn btn__ops btn__ops-size">View investment opportunities</a>
             </div>
@@ -202,22 +119,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
 
 
-    <section class="sign">
-      <div class="wrapper">
-        <div class="sign__wrapper">
-          <div class="plane">
-            <img src="img/paper-plane_illustration.svg" alt="">
-          </div>
-          <h2 class="page__title white">Get started now by signing <br> up or emailing us</h2>
-          <div class="sign__form">
-            <input type="text" class="sign__input" placeholder="Type your email">
-            <input type="submit" value="Get Started" class="btn btn__submit">
-          </div>
-        </div>
+
+    <section class="start">
+      <div class="start__wrapper">
+        <h2 class="page__title white">Start investing <br> today</h2>
+        <a href="" class="btn btn__start">Start investing</a>
       </div>
     </section>
 
