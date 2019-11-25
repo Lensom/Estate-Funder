@@ -651,3 +651,141 @@ a
             line-height 20px
             margin-bottom 10px
         
+
+
+.note {
+  width: 500px;
+  margin: 50px auto;
+  font-size: 1.1em;
+  color: #333;
+  text-align: justify;
+}
+#drop-area {
+  border-radius 10px
+  border 1px dashed #d3d8da
+}
+#drop-area.highlight {
+  border-color: purple;
+}
+#gallery {
+  margin-top: 10px;
+}
+#gallery img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.button {
+  display: inline-block;
+  padding: 10px;
+  background: #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.button:hover {
+  background: #ddd;
+}
+.input__file
+    position absolute
+    opacity 0
+    top 0
+    left 0
+    right 0
+    bottom 0
+    width 100%
+
+.form
+    &__file
+        position relative
+        padding 15px
+        height 100%
+        display flex
+        align-items center 
+        justify-content center
+
+.msg
+    font-family $default-font
+    font-weight 400
+    font-size 16px
+    color $black
+    line-height 26px
+    text-align center 
+    span 
+        color $blue
+
+.drop
+    &__table
+        border-radius 10px
+        width 100%
+        text-align left
+        border-collapse collapse
+        // overflow hidden
+        &-wrapper 
+            margin-top 40px
+        tr
+            border-bottom 1px solid #d1d8df
+            &:last-child
+                border-bottom 0
+        th
+            font-family $default-font
+            font-weight 400
+            font-size 16px
+            color $black
+            line-height 26px
+            padding 28px 10px
+            border-bottom 1px solid #d1d8df
+            background-color $gray-back
+            &:first-child
+                padding-left 40px
+            &:last-child
+                padding-right 40px
+        td
+            font-family $default-font
+            font-weight 500
+            font-size 18px
+            color $blue-2
+            line-height 26px
+            padding 24px 10px
+            max-width 269px
+            background-color $gray-back
+            position relative
+            &:nth-child(2)
+                max-width 131px
+            &:first-child
+                padding-left 40px
+            &:last-child
+                padding-right 40px
+        span 
+            color $blue
+            font-family $default-font
+            font-weight 500
+            font-size 28px
+            position relative
+            top -5px
+
+.table
+    &__toggle
+        position absolute
+        z-index 1
+        left -100%
+        td 
+            font-size 14px
+            padding 0 !important
+            border 1px solid $gray
+            border-radius 10px
+            a 
+                display block
+                padding 5px 10px 
+                color $black
+                &:hover
+                    color #52af56
+            &:last-child
+                a:hover
+                    color red
+        &-trigger 
+            cursor pointer
+
+.hidden
+    display none

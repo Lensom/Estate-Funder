@@ -323,6 +323,14 @@
 			margin-bottom 40px
 		.page__subtitle
 			margin-bottom 10px
+	.drag
+		padding 50px 0
+		.create__list
+			margin-top 40px
+	
+	.drop__table
+		td
+			font-size 16px
 
 @media (max-width : 768px)
 	.main
@@ -513,7 +521,30 @@
 		label
 			&:first-child
 				order 1
-
+	.drop
+		&__table
+			td 	
+				font-size 14px
+				padding 15px 10px
+				max-width 150px
+				&:first-child
+					padding-left 10px
+				&:last-child
+					padding-right 10px
+			th 
+				font-size 14px
+				padding 15px 10px
+				&:first-child
+					padding-left 10px
+				&:last-child
+					padding-right 10px
+			&-wrapper 
+				margin-top 25px
+	.drag
+		&__subtitle
+			margin 40px 0 15px
+		&__area
+			margin 25px 0 40px
 
 @media (max-width : 568px)
 	.main
@@ -597,6 +628,37 @@
 		&__form
 			.form__input
 				padding 8px 15px 8px
+	.drop__table
+		td
+			&:before
+				content attr(data-label)
+				float left
+				text-transform uppercase
+				font-weight bold
+		thead 
+			display none
+		tr 
+			display block
+			margin-bottom 30px
+			border-bottom 0
+			border-radius 10px
+			// overflow hidden
+		td 
+			display block
+			max-width none 
+			text-align right
+			&:nth-child(2)
+				max-width none 
+		p
+			max-width calc(100% - 100px)
+			margin 0 0 0 auto
+	.table__toggle
+		left auto 
+		right 0
+		td 
+			display inline-block
+
+
 
 @media (max-width : 480px)
 	.page
@@ -663,6 +725,25 @@
 			.btn
 				padding 14px
 				font-size 15px
+	
+	.drop
+		&__table
+			td 	
+				padding 15px
+				&:first-child
+					padding-left 15px
+				&:last-child
+					padding-right 15px
+			th 
+				padding 15px
+				&:first-child
+					padding-left 15px
+				&:last-child
+					padding-right 15px
+	.msg
+		font-size 14px
+
+
 
 @media (max-width : 380px)
 	.main
