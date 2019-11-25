@@ -1,7 +1,5 @@
 @import "_vars.styl"
 
-/*==========  Desktop First  ==========*/
-
 @media (max-width: 1400px)
 	.btn 
 		&__started,
@@ -505,11 +503,16 @@
 				font-size 16px
 	.jq-selectbox
 		margin-top 5px
+		max-width none 
 		&__select
 			height 38px
 			&-text 
 				font-size 16px
-
+		
+	.order
+		label
+			&:first-child
+				order 1
 
 
 @media (max-width : 568px)
@@ -660,7 +663,7 @@
 			.btn
 				padding 14px
 				font-size 15px
-/* Custom, iPhone Retina */
+
 @media (max-width : 380px)
 	.main
 		&__title
