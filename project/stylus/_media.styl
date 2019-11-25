@@ -469,6 +469,8 @@
 			.btn
 				padding 19px
 				font-size 18px
+		&__label
+			max-width none 
 	.support
 		.contact__form
 			margin 25px 0
@@ -490,6 +492,25 @@
 				display flex
 				justify-content center
 				margin 0 auto	
+	.company
+		&__titles.df
+			justify-content space-between
+			p
+				max-width none 
+				&:last-child
+					display none
+		&__form
+			.form__input
+				padding 7px 15px 9px
+				font-size 16px
+	.jq-selectbox
+		margin-top 5px
+		&__select
+			height 38px
+			&-text 
+				font-size 16px
+
+
 
 @media (max-width : 568px)
 	.main
@@ -563,6 +584,16 @@
 		&__bottom
 			.page__text
 				text-align left
+	
+	.jq-selectbox
+		max-width none 
+	.form
+		&__label
+			flex-direction column
+	.company
+		&__form
+			.form__input
+				padding 8px 15px 8px
 
 @media (max-width : 480px)
 	.page

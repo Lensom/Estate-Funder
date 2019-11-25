@@ -163,11 +163,21 @@ $(document).ready(function () {
         $('.profile__item').removeClass('active');
         let activeBody = $('.profile__item')[index];
         $(activeBody).addClass('active');
-
     });
 });
 
+// Profile edit tabs
+$(document).ready(function() {
+    $('.edit').on('click', function(e) {
+        e.preventDefault();
+        window.scrollTo(0, 0);
+        let id = $(this).data('id');
+        $('.profile__item').removeClass('active');
+        $(`#${id}`).addClass('active');
+    });
+})
 
+// Checkbox toggle
 $(document).ready(function () {
     $('.form__respond input[type="checkbox"]').on('change', function () {
         $('.form__respond input[type="checkbox"]').not(this).prop('checked', false);
@@ -178,9 +188,7 @@ $(document).ready(function () {
     });
 })
 
-
-
-
+// Accordions
 $(document).ready(function () {
     $(".accordion-panel").hide();//Hide accordions 
 
@@ -208,4 +216,9 @@ $(document).ready(function () {
         panelCheck();
     });
 
+});
+
+// Styler.js for select
+$(document).ready(function() {
+    $('.form__select').styler();
 });
