@@ -331,6 +331,41 @@
 	.drop__table
 		td
 			font-size 16px
+	.news
+		padding 50px 0
+		&__item 
+			a 	
+				font-size 26px
+				line-height 30px
+			h3 
+				font-size 18px
+				line-height 28px
+		&__right
+			margin-left 30px
+			.news__item
+				margin-bottom 25px
+		&__main
+			h2 
+				margin 20px 0 4px
+		&__bottom
+			.news__item
+				a
+					font-size 16px
+					line-height 24px
+				h2 
+					line-height 24px
+		
+	.date
+		margin-bottom 0
+	.accordion
+		&__question
+			padding 40px 85px 40px 60px
+			font-size 20px
+		&__answer 
+			padding 0 60px 40px
+			line-height 30px
+			font-size 18px
+
 
 @media (max-width : 768px)
 	.main
@@ -545,6 +580,25 @@
 			margin 40px 0 15px
 		&__area
 			margin 25px 0 40px
+	.news
+		&__top
+			flex-direction column 
+		&__main
+			max-width none 
+		&__right
+			margin-left 0
+			max-width none
+			.news__item
+				margin-bottom 50px
+		&__item
+			margin-bottom 50px
+		&__bottom
+			justify-content space-around
+			.news__item
+				width 50%
+	.import
+		&__item
+			width 50%
 
 @media (max-width : 568px)
 	.main
@@ -657,7 +711,50 @@
 		right 0
 		td 
 			display inline-block
-
+	.news
+		&__bottom
+			.news__item
+				width 100%
+				padding-right 0
+				margin-bottom 50px
+				max-width 400px
+				h2 
+					margin 10px 0 0
+	.news
+		&__item
+			h3 
+				font-size 16px
+				line-height 26px
+			a 
+				font-size 22px
+			h2 
+				line-height 28px
+	.accordion
+		&__question
+			padding 25px 55px 25px 25px
+			font-size 18px
+			&:after
+				right 25px
+		&__item.show
+			.accordion__question
+				padding 25px 55px 25px 25px
+		&__answer
+			padding 0 25px 30px
+			line-height 26px
+			font-size 16px
+		&__title
+			margin-top 30px
+		&__wrapper
+			margin-top 30px
+	
+	.import
+		&__item
+			a 
+				font-size 18px
+			img 
+				margin-right 14px
+		.page__subtitle
+			font-size 18px
 
 
 @media (max-width : 480px)
@@ -743,6 +840,9 @@
 	.msg
 		font-size 14px
 
+	.import
+		&__item
+			width 100%
 
 
 @media (max-width : 380px)
@@ -788,3 +888,16 @@
 		.card__type
 			width 100%
 			margin-bottom 20px
+	.accordion
+		&__question
+			padding 15px 35px 15px 15px
+			font-size 16px
+			&:after
+				right 10px
+		&__item.show
+			.accordion__question
+				padding 15px 35px 15px 15px
+		&__answer
+			padding 0 15px 30px
+			line-height 26px
+			font-size 16px

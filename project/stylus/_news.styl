@@ -1,88 +1,134 @@
 
-/* Accordion controls 
-========================================================================== */
-.control{
-  background-color: #de0000;
-  border-radius: 6px;
-  padding: 5px 10px;
-  border-style: none;
-  font-family: arial;
-  font-size: 1em;
-  font-weight: bold;
-  color: #fff;
-  outline: none;
-  margin: 10px;
-}
-
-.control:hover{
-  cursor: pointer;
-  color: #e8e8e8;
-}
-
-.control:active{
-  color: #000000;
-  padding: 4px 9px;
-  font-size: .95em;
-}
-
-/* Main accordion container 
-========================================================================== */
-
 .accordion
-  background-color $gray-back
-  padding 55px 60px
-  border-radius 10px
-  h1
-    color $blue-2
+  text-align center
+  margin 10px 0
+  .card__title 
+    margin-top 50px
+  &__wrapper 
+    margin-top 54px
+  &__item
+    margin-bottom 20px
+    border-radius 10px
+    text-align left
+  &__answer
+    display none
+    font-family $default-font
+    font-weight 400
+    font-size 20px
+    color $black
+    line-height 35px
+    padding 0px 60px 50px
+  &__question
     font-family $default-font
     font-size 22px
     font-weight 500
     line-height 26px
-  &-container
-    margin-bottom 20px  
-  &-panel
-    border none
-    margin: 0 auto;
-    padding: 55px 65px;
-    background-color: #fafafad4;
-    p
-      color $black
+    color $blue-2
+    background $gray-back
+    padding 55px 85px 55px 60px
+    border-radius 10px
+    position relative
+    &:after
+      content ''
+      position absolute
+      top 50%
+      margin-top -7px
+      right 60px
+      background-image url(../img/arrow_b.png)
+      width 23px 
+      height 14px
+  &__item.show 
+    box-shadow 0 30px 60px rgba(21, 28, 39, 0.1)
+    .accordion
+      &__question
+        background $white
+        padding 55px 60px 45px
+        &:after
+          transform rotate(-180deg)
+
+.date 
+  font-weight 400
+  font-size 14px
+  color $black
+  line-height 35px
+  margin-bottom 8px
+
+.news
+  text-align center
+  padding 100px 0 50px
+  &__top
+    display flex
+    justify-content space-between
+    margin-top 60px
+  &__item 
+    text-align left
+    h2 
+      line-height 34px
+    a
       font-family $default-font
-      font-size 20px
       font-weight 500
+      font-size 30px
+      color $blue-2
+    h3 
+      font-weight 400
+      font-size 20px
+      color $black
       line-height 35px
+  &__bottom
+    display flex
+    flex-wrap wrap 
+    justify-content space-between
+    margin-top 42px
+    .news__item
+      width 25%
+      padding-right 15px
+      max-width 275px
+      margin-bottom 30px
+      h2 
+        margin 24px 0 0
+        line-height 28px
+      a
+        font-weight 500
+        font-size 20px
+        color $blue-2
+        line-height 28px
+      &:last-child
+        margin-right 0
+  &__right
+    margin-left 40px
+    max-width 400px
+    margin-top -5px
+    h2 
+      margin-bottom 5px
+    .news__item
+      margin-bottom 45px
+  &__main
+    max-width 660px
+    h2 
+      margin 34px 0 4px
 
-
-.accordion:hover{
-  cursor: pointer;
-}
-
-/* Main accordion arrow 
-========================================================================== */
-.accordion button{
-  float: right;
-  font-size: 20px;
-  background-color: transparent;
-  border-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
-  outline: none;
-}
-
-
-
-/* Rotate class for dropdown button
-========================================================================== */
-
-.rotate {
-    -moz-transition: all .5s linear;
-    -webkit-transition: all .5s linear;
-    transition: all .5s linear;
-}
-
-.rotate.up {
-    -moz-transform:rotate(180deg);
-    -webkit-transform:rotate(180deg);
-    transform:rotate(180deg);
-}
+.import
+  text-align center
+  padding 55px 0 72px
+  &__items
+    text-align left
+    margin-top 50px
+    display flex
+    justify-content space-between
+    flex-wrap wrap 
+  &__item
+    padding-right 15px
+    width 33.3%
+    margin-bottom 36px
+    a
+      display flex
+      font-weight 500
+      font-size 22px
+      color $blue
+      line-height 26px
+      align-items flex-end
+      margin-top 16px
+      &:hover
+        color $blue-2
+    img 
+      margin-right 22px

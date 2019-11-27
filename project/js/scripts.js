@@ -200,32 +200,20 @@ $(document).ready(function () {
 
 // Accordions
 $(document).ready(function () {
-    $(".accordion-panel").hide();//Hide accordions 
-
-    /* Show all/Hide all accordions onclick */
-    $(".control").click(function () {
-        $(".accordion-panel").stop();//Stops user from spamming button
-        /* Toggle text in button and panel */
-        if ($(".control").text() == "Collapse All") {
-            $(".control").text("Hide All");
-            $(".accordion-panel").slideDown("slow");//Show all panels
-            $(".fa-chevron-down").addClass("up");
+    $(function(){
+        $('.accordion .accordion__question').on('click', function(){
+        let parent = $(this).parent();
+        if ($(parent).hasClass('show')) {
+          $(parent).removeClass('show');
         } else {
-            $(".control").text("Collapse All");
-            $(".accordion-panel").slideUp("slow");//Hide all panels
-            $(".fa-chevron-down").removeClass("up");
-
+          $('.accordion__item').removeClass('show');
+          $(parent).addClass('show');
         }
+            let answer = $(this).next();
+            $('.accordion .accordion__answer:visible').not(answer).slideUp(200);
+            answer.slideToggle(200);
+        });
     });
-
-    /* Slide accordion panel down onclick */
-    $(".accordion").click(function () {
-        /* Select only the accordion clicked on */
-        $(this).parent().find(".fa-chevron-down").toggleClass("up");
-        $(this).parent().find(".accordion-panel").slideToggle("slow");
-        panelCheck();
-    });
-
 });
 
 // Styler.js for select
