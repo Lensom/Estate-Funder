@@ -207,6 +207,7 @@ $(document).ready(function () {
 // Styler.js for select
 $(document).ready(function() {
     $('.form__select').styler();
+    $('.state__select').styler();
 });
 
 // Drag And drop Area 

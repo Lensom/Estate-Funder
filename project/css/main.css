@@ -2590,6 +2590,109 @@ a {
 .trn__text {
   margin-top: 6px;
 }
+.state {
+  padding: 100px 0 65px;
+  text-align: center;
+  background-color: #fff;
+}
+.state__wrapper {
+  max-width: 760px;
+  margin: 42px auto 0;
+}
+.state__table {
+  margin-top: 20px;
+}
+.state__table td:nth-child(2) {
+  max-width: 340px;
+}
+.state__table td:last-child {
+  font-size: 22px;
+}
+.state__select.jq-selectbox {
+  margin: 0;
+  width: 186px;
+}
+.state__select.jq-selectbox .jq-selectbox__select {
+  border: none;
+}
+.state__select.jq-selectbox .jq-selectbox__select-text {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1a273a;
+  line-height: 20px;
+  width: 100% !important;
+}
+.state__select.jq-selectbox li {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1a273a;
+  line-height: 20px;
+  padding: 9px 25px 9px 18px;
+}
+.state__select.jq-selectbox li:hover {
+  color: #fff;
+  background: #3f89e8;
+}
+.state__select-bottom.jq-selectbox {
+  width: 90px;
+}
+.state__text {
+  font-weight: 500;
+  font-size: 20px;
+  color: #1a273a;
+  line-height: 20px;
+}
+.state__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.state__end {
+  font-family: "AvenirNextCyr", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #475871;
+  line-height: 26px;
+  text-align: right;
+  margin: 32px 40px 0 0;
+}
+.state__format {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+}
+.state__format .state__end {
+  margin: 0;
+}
+.state__export {
+  text-align: left;
+  margin-top: 30px;
+}
+.state__eth {
+  font-weight: 500;
+  font-size: 16px;
+  color: #3f89e8;
+  line-height: 26px;
+}
+.state__extra .profile__button {
+  margin-top: 70px;
+}
+.state__extra .create__list {
+  margin-top: 65px;
+}
+.jq-selectbox.focused {
+  border: none !important;
+}
 .footer {
   background-color: #1a273a;
   padding: 103px 0 80px;
@@ -3140,6 +3243,24 @@ a {
     line-height: 30px;
     font-size: 18px;
   }
+  .state {
+    padding: 50px 0;
+  }
+  .state__extra .create__list {
+    margin-top: 40px;
+  }
+  .state__extra .profile__button {
+    margin-top: 30px;
+  }
+  .state__table {
+    margin-top: 5px;
+  }
+  .state__table td:last-child {
+    font-size: 20px;
+  }
+  .state__export {
+    margin-top: 0;
+  }
 }
 @media (max-width: 768px) {
   .main__title {
@@ -3634,6 +3755,12 @@ a {
   .import .page__subtitle {
     font-size: 18px;
   }
+  .state__table td:last-child {
+    font-size: 14px;
+  }
+  .state__end {
+    margin: 0;
+  }
 }
 @media (max-width: 480px) {
   .page__text {
@@ -3722,6 +3849,27 @@ a {
   }
   .import__item {
     width: 100%;
+  }
+  .state__top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .state__format {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .state__text {
+    text-align: center;
+  }
+  .state__export {
+    margin-top: 30px;
   }
 }
 @media (max-width: 380px) {

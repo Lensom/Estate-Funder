@@ -1,0 +1,77 @@
+.state
+    padding 100px 0 65px
+    text-align center
+    background-color $white
+    &__wrapper
+        max-width 760px
+        margin 42px auto 0
+    &__table 
+        margin-top 20px
+        td
+            &:nth-child(2)
+                max-width 340px
+            &:last-child
+                font-size 22px
+    &__select.jq-selectbox
+        margin 0
+        width 186px
+        .jq-selectbox
+            &__select
+                border none 
+                &-text
+                    font-weight 500
+                    font-size 16px
+                    color $blue-2
+                    line-height 20px
+                    width 100% !important
+        li 
+            font-weight 500
+            font-size 16px
+            color $blue-2
+            line-height 20px
+            padding 9px 25px 9px 18px
+            &:hover
+                color $white
+                background $blue
+    &__select-bottom.jq-selectbox
+        width 90px
+    &__text 
+        font-weight 500
+        font-size 20px
+        color $blue-2
+        line-height 20px
+    &__top
+        display flex
+        justify-content space-between
+        align-items center 
+    &__end
+        font-family $default-font
+        font-weight 400
+        font-size 16px
+        color $black
+        line-height 26px
+        text-align right
+        margin 32px 40px 0 0
+    &__format
+        display flex
+        align-items center 
+        margin-top 20px
+        .state__end
+            margin 0
+    &__export 
+        text-align left
+        margin-top 30px
+    &__eth
+        font-weight 500
+        font-size 16px
+        color $blue
+        line-height 26px
+    &__extra
+        .profile__button
+            margin-top 70px
+        .create__list
+            margin-top 65px
+
+
+.jq-selectbox.focused
+    border none !important
