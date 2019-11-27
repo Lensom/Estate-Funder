@@ -5,7 +5,6 @@ $(document).ready(function () {
     })
 });
 
-
 // Owl carousel
 $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
@@ -36,8 +35,7 @@ $(document).ready(function () {
 
 // Chart.js Main page
 $(document).ready(function () {
-
-    var ctx = document.getElementById('myChart').getContext("2d");
+    let ctx = document.getElementById('myChart').getContext("2d");
 
     var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
     gradientStroke.addColorStop(0, '#3f89e8');
@@ -226,25 +224,28 @@ $(document).ready(function() {
 // Drag And drop Area 
 $(document).ready(function() {
    // ************************ Drag and drop ***************** //
-let dropArea = document.getElementById("drop-area")
+let dropArea = document.getElementById("drop-area");
 
-// Prevent default drag behaviors
-;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-  dropArea.addEventListener(eventName, preventDefaults, false)   
-  document.body.addEventListener(eventName, preventDefaults, false)
-})
+if (dropArea) {
+    // Prevent default drag behaviors
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false)   
+        document.body.addEventListener(eventName, preventDefaults, false)
+    });
+    
+    // Highlight drop area when item is dragged over it
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, highlight, false)
+    });
+    
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false)
+    })
 
-// Highlight drop area when item is dragged over it
-;['dragenter', 'dragover'].forEach(eventName => {
-  dropArea.addEventListener(eventName, highlight, false)
-})
+    // Handle dropped files
+    dropArea.addEventListener('drop', handleDrop, false)
+}
 
-;['dragleave', 'drop'].forEach(eventName => {
-  dropArea.addEventListener(eventName, unhighlight, false)
-})
-
-// Handle dropped files
-dropArea.addEventListener('drop', handleDrop, false)
 
 function preventDefaults (e) {
   e.preventDefault()
@@ -287,7 +288,6 @@ function handleFiles(files) {
 
 // Trigger actions table
 $(document).ready(function() {
-
     $('.table__toggle-trigger').on('click', function() {
         $('.table__toggle').addClass('hidden');
         $(this).siblings('.table__toggle').toggleClass('hidden');
