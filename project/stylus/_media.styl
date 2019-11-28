@@ -71,7 +71,16 @@
 			top -20px
 		&__structure
 			padding-left 20px
-
+	.str
+		&__image,
+		&__text
+			max-width 390px
+		&__numb
+			font-size 24px
+			width 40px
+			height 40px
+		.card__title
+			padding-left 50px
 
 @media (max-width : 998px)
 
@@ -379,7 +388,61 @@
 					font-size 20px
 		&__export 
 			margin-top 0
-
+	.etabs
+		padding 50px 0
+		&__body
+			margin 40px 0 0
+	.key
+		&__list
+			margin 25px 0 15px
+		.card__bold
+			br 
+				display none
+	.type
+		padding 50px 40px
+		&__wrapper 
+			margin-top 0
+		&__title
+			font-size 24px
+		&__items
+			margin-top 50px
+		&__text
+			font-size 18px
+		&__image 
+			margin 15px 0 20px
+		&__item
+			padding 0 15px
+			br 
+				display none
+	.rg
+		padding 50px 0
+		&__graph
+			&-wrapper
+				padding 30px 0
+	.str
+		padding 50px 0
+		&__item
+			flex-direction column 
+			align-items center
+			&:after
+				display none
+			&-left 
+				.str__text
+					order 0
+				.str__image
+					order 1
+		.card__title
+			display flex
+			flex-direction column
+			align-items center 
+			padding 0
+		&__numb
+			position relative 
+			margin-bottom 30px
+		.page__text
+			text-align center 
+			margin-bottom 30px
+		
 
 @media (max-width : 768px)
 	.main
@@ -613,6 +676,27 @@
 	.import
 		&__item
 			width 50%
+	.etab
+		&__items
+			flex-direction column 
+		&__item 
+			margin-bottom 40px
+			img 
+				align-self center
+			&:first-child 
+				img 
+					top auto
+	.type
+		padding 40px 15px
+		&__items 
+			flex-direction column 
+		&__title
+			font-size 22px
+		&__item
+			margin-bottom 50px
+		&__text
+			font-size 16px
+
 
 @media (max-width : 568px)
 	.main
@@ -776,6 +860,10 @@
 					font-size 14px
 		&__end 
 			margin 0
+	.key
+		&__list
+			.card__bold
+				width 100%
 
 @media (max-width : 480px)
 	.page

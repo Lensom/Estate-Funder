@@ -294,3 +294,245 @@ $(document).ready(function() {
         $(this).siblings('.table__toggle').toggleClass('hidden');
     });
 })
+
+// Chart.js etabs
+
+let dataCanvas = $('canvas').data();
+let arrCanvas = [];
+for (key in dataCanvas) {
+  arrCanvas.push(dataCanvas[key]);
+}
+arrCanvas.reverse();
+
+
+var etabs = document.getElementById('return__graph').getContext("2d");
+
+// etabs.style.backgroundColor = 'red';
+etabs.canvas.style.backgroundColor = 'white';
+var gradientFill = etabs.createLinearGradient(0, 200, 0, 0);
+gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)"); 
+gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
+
+var myChart = new Chart(etabs, {
+    type: 'line',
+    data: {
+        labels: ["Year 1", "Year 2", "Year 3"],
+        datasets: [{
+            label: "Approx",
+            borderColor: 'rgb(253, 204, 96)',
+            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgb(253, 204, 96)',
+            pointHoverBackgroundColor: 'rgb(253, 204, 96)',
+            pointHoverBorderColor: 'rgb(253, 204, 96)',
+            pointBorderWidth: 5,
+            pointHoverRadius: 7,
+            pointHoverBorderWidth: 1,
+            pointRadius: 10,
+            fill: true,
+            backgroundColor: 'rgba(253, 204, 96, .3)',
+            borderWidth: 4,
+            data: arrCanvas,
+            lineTension: 0,
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        layout: {
+            padding: {
+                left: 50,
+                right: 60,
+                top: 54,
+                bottom: 54
+            }
+        },
+        tooltips: {
+            displayColors: false,
+            yAlign: 'bottom',
+            xAlign: 'center',
+            backgroundColor: 'rgba(252, 252, 252, 1)',
+            titleFontSize: 14,
+            caretPadding: 6,
+            bodyAlign: 'center',
+            bodyFontFamily: "AvenirNextCyr",
+            bodyFontStyle: "500",
+            bodyFontSize: 14,
+            cornerRadius: 10,
+            xPadding: 12,
+            yPadding: 7,
+            titleFontColor: '#475871',
+            titleAlign: 'center',
+            titleFontFamily: "AvenirNextCyr",
+            bodyFontColor: '#1a273a',
+            bodyFontSize: 18,
+            bodyFontStyle: 500,
+            callbacks: {
+                title: function(tooltipItem, data) {
+                    console.log(data);
+                    return 'Approx'
+                },
+                label: function(tooltipItem, data) {
+                    myChart.data.datasets[tooltipItem.datasetIndex].backgroundColor;
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                  
+                    return `$ ${value}`;
+
+                }
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "rgba(0,0,0,0.5)",
+                    fontStyle: "bold",
+                    beginAtZero: false,
+                    fontSize: 16,
+                    fontColor: '#475871',
+                    fontFamily: 'AvenirNextCyr, sans-serif',
+                    fontStyle: 500,
+                    min: 10000,
+                    maxTicksLimit: 5,
+                    padding: 20,
+                    callback: function(value, index, values) {
+                        return `$ ${value}`
+                    },
+                },
+                gridLines: {
+                    drawTicks: false,
+                    display: false
+                }
+
+            }],
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: "#d9e0e8",
+                    display: true,
+                },
+                ticks: {
+                    padding: 20,
+                    fontSize: 16,
+                    fontColor: '#475871',
+                    fontFamily: 'AvenirNextCyr, sans-serif',
+                    fontStyle: 500,
+                }
+            }]
+        }
+    }
+});
+
+
+var etabs2 = document.getElementById('return__graph-2').getContext("2d");
+etabs2.canvas.style.backgroundColor = 'white';
+var myChart = new Chart(etabs2, {
+    type: 'line',
+    data: {
+        labels: ["Year 1", "Year 2", "Year 3"],
+        datasets: [{
+            label: "Approx",
+            borderColor: 'rgb(253, 204, 96)',
+            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgb(253, 204, 96)',
+            pointHoverBackgroundColor: 'rgb(253, 204, 96)',
+            pointHoverBorderColor: 'rgb(253, 204, 96)',
+            pointBorderWidth: 5,
+            pointHoverRadius: 7,
+            pointHoverBorderWidth: 1,
+            pointRadius: 10,
+            fill: true,
+            backgroundColor: 'rgba(253, 204, 96, .3)',
+            borderWidth: 4,
+            data: arrCanvas,
+            lineTension: 0,
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        layout: {
+            padding: {
+                left: 50,
+                right: 60,
+                top: 54,
+                bottom: 54
+            }
+        },
+        tooltips: {
+            displayColors: false,
+            yAlign: 'bottom',
+            xAlign: 'center',
+            backgroundColor: 'rgba(252, 252, 252, 1)',
+            titleFontSize: 14,
+            caretPadding: 6,
+            bodyAlign: 'center',
+            bodyFontFamily: "AvenirNextCyr",
+            bodyFontStyle: "500",
+            bodyFontSize: 14,
+            cornerRadius: 10,
+            xPadding: 12,
+            yPadding: 7,
+            titleFontColor: '#475871',
+            titleAlign: 'center',
+            titleFontFamily: "AvenirNextCyr",
+            bodyFontColor: '#1a273a',
+            bodyFontSize: 18,
+            bodyFontStyle: 500,
+            callbacks: {
+                title: function(tooltipItem, data) {
+                    console.log(data);
+                    return 'Approx'
+                },
+                label: function(tooltipItem, data) {
+                    myChart.data.datasets[tooltipItem.datasetIndex].backgroundColor;
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                  
+                    return `$ ${value}`;
+
+                }
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "rgba(0,0,0,0.5)",
+                    fontStyle: "bold",
+                    beginAtZero: false,
+                    fontSize: 16,
+                    fontColor: '#475871',
+                    fontFamily: 'AvenirNextCyr, sans-serif',
+                    fontStyle: 500,
+                    min: 10000,
+                    maxTicksLimit: 5,
+                    padding: 20,
+                    callback: function(value, index, values) {
+                        return `$ ${value}`
+                    },
+                },
+                gridLines: {
+                    drawTicks: false,
+                    display: false
+                }
+
+            }],
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: "#d9e0e8",
+                    display: true,
+                },
+                ticks: {
+                    padding: 20,
+                    fontSize: 16,
+                    fontColor: '#475871',
+                    fontFamily: 'AvenirNextCyr, sans-serif',
+                    fontStyle: 500,
+                }
+            }]
+        }
+    }
+});
+
+// Efund and eDirect tabs
+$('.profile__links-link').on('click', function() {
+    $('.ed, .et').toggleClass('hidden');
+});

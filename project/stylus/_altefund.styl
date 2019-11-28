@@ -1,0 +1,183 @@
+.etabs
+    padding 110px 0 0
+    .profile
+        &__links
+            margin 0
+            &-link
+                max-width 140px
+                text-align center
+    &__body
+        margin 80px 0 0
+    .choose
+        background-color $gray-back
+
+.key
+    &__list
+        margin 50px 0 25px
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+    .card__bold
+        padding 0 30px 20px 40px
+        width 50%
+
+.etab
+    text-align center
+    margin 27px 0
+    .page
+        &__text-sm
+            color $blue-2
+        &__title
+            margin-bottom 30px
+    &__items
+        display flex
+        justify-content space-between
+        margin 50px 0 10px
+    &__item
+        display flex
+        flex-direction column 
+        justify-content space-between
+        img
+            margin-top 25px
+        &:first-child
+            img 
+                top -75px
+                position relative
+    &__button
+        margin-top 80px
+
+.type
+    padding-bottom 110px
+    &__wrapper
+        text-align center
+        background-color $blue
+        border-radius 10px
+        margin-top 80px
+        padding 72px 60px
+    &__items
+        display flex
+        justify-content space-around
+        margin-top 75px
+    &__title 
+        font-weight 500
+        font-size 27px
+        color $white
+    &__item 
+        display flex
+        flex-direction column 
+        align-items center 
+    &__image
+        min-height 84px
+        display flex
+        align-items flex-end
+        margin 25px 0 30px
+    &__text
+        font-weight 500
+        font-size 20px
+        color $white
+        line-height 26px
+
+.rg
+    background-color $gray-back
+    text-align center
+    padding 100px 0 60px
+    &__graph
+        &-text 
+            font-weight 700
+            font-size 18px
+            color $blue-2
+            line-height 26px
+            text-transform uppercase
+            background-color white
+            border-top-left-radius 10px
+            border-top-right-radius 10px
+            text-align left
+            padding 55px 60px 0px
+        &-bottom 
+            border-bottom-left-radius 10px
+            border-bottom-right-radius 10px
+            background-color $white
+            padding 15px 15px 50px
+        &-wrapper 
+            padding 60px 0
+    p 
+        font-weight 500
+        font-size 16px
+        color $blue-2
+        margin-bottom -2px
+        span 
+            font-weight 400
+            font-size 14px
+            color $black
+            line-height 35px
+
+.str
+    text-align center
+    padding 100px 0 95px
+    background $white
+    &__item
+        display flex
+        justify-content space-between
+        position relative
+        text-align left
+        margin-bottom 105px
+        &:last-child
+            margin-bottom 0
+        &:after
+            position absolute
+            content ''
+            background-image url(../img/after__left.png)
+            height 36px
+            width 100%
+            left 50%
+            transform translateX(-50%)
+            max-width 186px
+            width 100%
+            top 50%
+        &:last-child
+            .str__image
+                &:after
+                    display none
+        &-left 
+            .str__image
+                order 0
+            .str__text
+                order 1
+    &__text
+        max-width 460px
+    &__image
+        max-width 460px
+        width 100%
+        position relative
+        &:after
+            position absolute
+            content ''
+            bottom -98px
+            left 50%
+            transform translateX(-50%)
+            background-image url(../img/after__bottom.png)
+            width 100%
+            height 88px
+            max-width 37px
+        
+
+    &__items
+        margin-top 55px
+    .card__title
+        position relative
+        padding-left 70px
+        margin-bottom 20px
+    &__numb
+        position absolute
+        font-family $default-font
+        font-weight 500
+        font-size 30px
+        color $white
+        left 0
+        background-color #4c84ff
+        width 50px
+        height 50px
+        border-radius 50%
+        display flex
+        align-items center 
+        justify-content center 
