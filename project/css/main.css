@@ -2948,6 +2948,9 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.map {
+  height: 610px;
+}
 .footer {
   background-color: #1a273a;
   padding: 103px 0 80px;
