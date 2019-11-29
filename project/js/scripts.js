@@ -10,44 +10,12 @@
 animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.support.animation&&a.support.transition){this.core.speed(0);var b,c=a.proxy(this.clear,this),d=this.core.$stage.children().eq(this.previous),e=this.core.$stage.children().eq(this.next),f=this.core.settings.animateIn,g=this.core.settings.animateOut;this.core.current()!==this.previous&&(g&&(b=this.core.coordinates(this.previous)-this.core.coordinates(this.next),d.one(a.support.animation.end,c).css({left:b+"px"}).addClass("animated owl-animated-out").addClass(g)),f&&e.one(a.support.animation.end,c).addClass("animated owl-animated-in").addClass(f))}},e.prototype.clear=function(b){a(b.target).css({left:""}).removeClass("animated owl-animated-out owl-animated-in").removeClass(this.core.settings.animateIn).removeClass(this.core.settings.animateOut),this.core.onTransitionEnd()},e.prototype.destroy=function(){var a,b;for(a in this.handlers)this.core.$element.off(a,this.handlers[a]);for(b in Object.getOwnPropertyNames(this))"function"!=typeof this[b]&&(this[b]=null)},a.fn.owlCarousel.Constructor.Plugins.Animate=e}(window.Zepto||window.jQuery,window,document),function(a,b,c,d){var e=function(b){this._core=b,this._call=null,this._time=0,this._timeout=0,this._paused=!0,this._handlers={"changed.owl.carousel":a.proxy(function(a){a.namespace&&"settings"===a.property.name?this._core.settings.autoplay?this.play():this.stop():a.namespace&&"position"===a.property.name&&this._paused&&(this._time=0)},this),"initialized.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.autoplay&&this.play()},this),"play.owl.autoplay":a.proxy(function(a,b,c){a.namespace&&this.play(b,c)},this),"stop.owl.autoplay":a.proxy(function(a){a.namespace&&this.stop()},this),"mouseover.owl.autoplay":a.proxy(function(){this._core.settings.autoplayHoverPause&&this._core.is("rotating")&&this.pause()},this),"mouseleave.owl.autoplay":a.proxy(function(){this._core.settings.autoplayHoverPause&&this._core.is("rotating")&&this.play()},this),"touchstart.owl.core":a.proxy(function(){this._core.settings.autoplayHoverPause&&this._core.is("rotating")&&this.pause()},this),"touchend.owl.core":a.proxy(function(){this._core.settings.autoplayHoverPause&&this.play()},this)},this._core.$element.on(this._handlers),this._core.options=a.extend({},e.Defaults,this._core.options)};e.Defaults={autoplay:!1,autoplayTimeout:5e3,autoplayHoverPause:!1,autoplaySpeed:!1},e.prototype._next=function(d){this._call=b.setTimeout(a.proxy(this._next,this,d),this._timeout*(Math.round(this.read()/this._timeout)+1)-this.read()),this._core.is("interacting")||c.hidden||this._core.next(d||this._core.settings.autoplaySpeed)},e.prototype.read=function(){return(new Date).getTime()-this._time},e.prototype.play=function(c,d){var e;this._core.is("rotating")||this._core.enter("rotating"),c=c||this._core.settings.autoplayTimeout,e=Math.min(this._time%(this._timeout||c),c),this._paused?(this._time=this.read(),this._paused=!1):b.clearTimeout(this._call),this._time+=this.read()%c-e,this._timeout=c,this._call=b.setTimeout(a.proxy(this._next,this,d),c-e)},e.prototype.stop=function(){this._core.is("rotating")&&(this._time=0,this._paused=!0,b.clearTimeout(this._call),this._core.leave("rotating"))},e.prototype.pause=function(){this._core.is("rotating")&&!this._paused&&(this._time=this.read(),this._paused=!0,b.clearTimeout(this._call))},e.prototype.destroy=function(){var a,b;this.stop();for(a in this._handlers)this._core.$element.off(a,this._handlers[a]);for(b in Object.getOwnPropertyNames(this))"function"!=typeof this[b]&&(this[b]=null)},a.fn.owlCarousel.Constructor.Plugins.autoplay=e}(window.Zepto||window.jQuery,window,document),function(a,b,c,d){"use strict";var e=function(b){this._core=b,this._initialized=!1,this._pages=[],this._controls={},this._templates=[],this.$element=this._core.$element,this._overrides={next:this._core.next,prev:this._core.prev,to:this._core.to},this._handlers={"prepared.owl.carousel":a.proxy(function(b){b.namespace&&this._core.settings.dotsData&&this._templates.push('<div class="'+this._core.settings.dotClass+'">'+a(b.content).find("[data-dot]").addBack("[data-dot]").attr("data-dot")+"</div>")},this),"added.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.dotsData&&this._templates.splice(a.position,0,this._templates.pop())},this),"remove.owl.carousel":a.proxy(function(a){a.namespace&&this._core.settings.dotsData&&this._templates.splice(a.position,1)},this),"changed.owl.carousel":a.proxy(function(a){a.namespace&&"position"==a.property.name&&this.draw()},this),"initialized.owl.carousel":a.proxy(function(a){a.namespace&&!this._initialized&&(this._core.trigger("initialize",null,"navigation"),this.initialize(),this.update(),this.draw(),this._initialized=!0,this._core.trigger("initialized",null,"navigation"))},this),"refreshed.owl.carousel":a.proxy(function(a){a.namespace&&this._initialized&&(this._core.trigger("refresh",null,"navigation"),this.update(),this.draw(),this._core.trigger("refreshed",null,"navigation"))},this)},this._core.options=a.extend({},e.Defaults,this._core.options),this.$element.on(this._handlers)};e.Defaults={nav:!1,navText:['<span aria-label="Previous">&#x2039;</span>','<span aria-label="Next">&#x203a;</span>'],navSpeed:!1,navElement:'button type="button" role="presentation"',navContainer:!1,navContainerClass:"owl-nav",navClass:["owl-prev","owl-next"],slideBy:1,dotClass:"owl-dot",dotsClass:"owl-dots",dots:!0,dotsEach:!1,dotsData:!1,dotsSpeed:!1,dotsContainer:!1},e.prototype.initialize=function(){var b,c=this._core.settings;this._controls.$relative=(c.navContainer?a(c.navContainer):a("<div>").addClass(c.navContainerClass).appendTo(this.$element)).addClass("disabled"),this._controls.$previous=a("<"+c.navElement+">").addClass(c.navClass[0]).html(c.navText[0]).prependTo(this._controls.$relative).on("click",a.proxy(function(a){this.prev(c.navSpeed)},this)),this._controls.$next=a("<"+c.navElement+">").addClass(c.navClass[1]).html(c.navText[1]).appendTo(this._controls.$relative).on("click",a.proxy(function(a){this.next(c.navSpeed)},this)),c.dotsData||(this._templates=[a('<button role="button">').addClass(c.dotClass).append(a("<span>")).prop("outerHTML")]),this._controls.$absolute=(c.dotsContainer?a(c.dotsContainer):a("<div>").addClass(c.dotsClass).appendTo(this.$element)).addClass("disabled"),this._controls.$absolute.on("click","button",a.proxy(function(b){var d=a(b.target).parent().is(this._controls.$absolute)?a(b.target).index():a(b.target).parent().index();b.preventDefault(),this.to(d,c.dotsSpeed)},this));for(b in this._overrides)this._core[b]=a.proxy(this[b],this)},e.prototype.destroy=function(){var a,b,c,d,e;e=this._core.settings;for(a in this._handlers)this.$element.off(a,this._handlers[a]);for(b in this._controls)"$relative"===b&&e.navContainer?this._controls[b].html(""):this._controls[b].remove();for(d in this.overides)this._core[d]=this._overrides[d];for(c in Object.getOwnPropertyNames(this))"function"!=typeof this[c]&&(this[c]=null)},e.prototype.update=function(){var a,b,c,d=this._core.clones().length/2,e=d+this._core.items().length,f=this._core.maximum(!0),g=this._core.settings,h=g.center||g.autoWidth||g.dotsData?1:g.dotsEach||g.items;if("page"!==g.slideBy&&(g.slideBy=Math.min(g.slideBy,g.items)),g.dots||"page"==g.slideBy)for(this._pages=[],a=d,b=0,c=0;a<e;a++){if(b>=h||0===b){if(this._pages.push({start:Math.min(f,a-d),end:a-d+h-1}),Math.min(f,a-d)===f)break;b=0,++c}b+=this._core.mergers(this._core.relative(a))}},e.prototype.draw=function(){var b,c=this._core.settings,d=this._core.items().length<=c.items,e=this._core.relative(this._core.current()),f=c.loop||c.rewind;this._controls.$relative.toggleClass("disabled",!c.nav||d),c.nav&&(this._controls.$previous.toggleClass("disabled",!f&&e<=this._core.minimum(!0)),this._controls.$next.toggleClass("disabled",!f&&e>=this._core.maximum(!0))),this._controls.$absolute.toggleClass("disabled",!c.dots||d),c.dots&&(b=this._pages.length-this._controls.$absolute.children().length,c.dotsData&&0!==b?this._controls.$absolute.html(this._templates.join("")):b>0?this._controls.$absolute.append(new Array(b+1).join(this._templates[0])):b<0&&this._controls.$absolute.children().slice(b).remove(),this._controls.$absolute.find(".active").removeClass("active"),this._controls.$absolute.children().eq(a.inArray(this.current(),this._pages)).addClass("active"))},e.prototype.onTrigger=function(b){var c=this._core.settings;b.page={index:a.inArray(this.current(),this._pages),count:this._pages.length,size:c&&(c.center||c.autoWidth||c.dotsData?1:c.dotsEach||c.items)}},e.prototype.current=function(){var b=this._core.relative(this._core.current());return a.grep(this._pages,a.proxy(function(a,c){return a.start<=b&&a.end>=b},this)).pop()},e.prototype.getPosition=function(b){var c,d,e=this._core.settings;return"page"==e.slideBy?(c=a.inArray(this.current(),this._pages),d=this._pages.length,b?++c:--c,c=this._pages[(c%d+d)%d].start):(c=this._core.relative(this._core.current()),d=this._core.items().length,b?c+=e.slideBy:c-=e.slideBy),c},e.prototype.next=function(b){a.proxy(this._overrides.to,this._core)(this.getPosition(!0),b)},e.prototype.prev=function(b){a.proxy(this._overrides.to,this._core)(this.getPosition(!1),b)},e.prototype.to=function(b,c,d){var e;!d&&this._pages.length?(e=this._pages.length,a.proxy(this._overrides.to,this._core)(this._pages[(b%e+e)%e].start,c)):a.proxy(this._overrides.to,this._core)(b,c)},a.fn.owlCarousel.Constructor.Plugins.Navigation=e}(window.Zepto||window.jQuery,window,document),function(a,b,c,d){"use strict";var e=function(c){this._core=c,this._hashes={},this.$element=this._core.$element,this._handlers={"initialized.owl.carousel":a.proxy(function(c){c.namespace&&"URLHash"===this._core.settings.startPosition&&a(b).trigger("hashchange.owl.navigation")},this),"prepared.owl.carousel":a.proxy(function(b){if(b.namespace){var c=a(b.content).find("[data-hash]").addBack("[data-hash]").attr("data-hash");if(!c)return;this._hashes[c]=b.content}},this),"changed.owl.carousel":a.proxy(function(c){if(c.namespace&&"position"===c.property.name){var d=this._core.items(this._core.relative(this._core.current())),e=a.map(this._hashes,function(a,b){return a===d?b:null}).join();if(!e||b.location.hash.slice(1)===e)return;b.location.hash=e}},this)},this._core.options=a.extend({},e.Defaults,this._core.options),this.$element.on(this._handlers),a(b).on("hashchange.owl.navigation",a.proxy(function(a){var c=b.location.hash.substring(1),e=this._core.$stage.children(),f=this._hashes[c]&&e.index(this._hashes[c]);f!==d&&f!==this._core.current()&&this._core.to(this._core.relative(f),!1,!0)},this))};e.Defaults={URLhashListener:!1},e.prototype.destroy=function(){var c,d;a(b).off("hashchange.owl.navigation");for(c in this._handlers)this._core.$element.off(c,this._handlers[c]);for(d in Object.getOwnPropertyNames(this))"function"!=typeof this[d]&&(this[d]=null)},a.fn.owlCarousel.Constructor.Plugins.Hash=e}(window.Zepto||window.jQuery,window,document),function(a,b,c,d){function e(b,c){var e=!1,f=b.charAt(0).toUpperCase()+b.slice(1);return a.each((b+" "+h.join(f+" ")+f).split(" "),function(a,b){if(g[b]!==d)return e=!c||b,!1}),e}function f(a){return e(a,!0)}var g=a("<support>").get(0).style,h="Webkit Moz O ms".split(" "),i={transition:{end:{WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd",transition:"transitionend"}},animation:{end:{WebkitAnimation:"webkitAnimationEnd",MozAnimation:"animationend",OAnimation:"oAnimationEnd",animation:"animationend"}}},j={csstransforms:function(){return!!e("transform")},csstransforms3d:function(){return!!e("perspective")},csstransitions:function(){return!!e("transition")},cssanimations:function(){return!!e("animation")}};j.csstransitions()&&(a.support.transition=new String(f("transition")),a.support.transition.end=i.transition.end[a.support.transition]),j.cssanimations()&&(a.support.animation=new String(f("animation")),a.support.animation.end=i.animation.end[a.support.animation]),j.csstransforms()&&(a.support.transform=new String(f("transform")),a.support.transform3d=j.csstransforms3d())}(window.Zepto||window.jQuery,window,document);
 /* jQuery Form Styler v2.0.2 | (c) Dimox | https://github.com/Dimox/jQueryFormStyler */
 !function(e){"function"==typeof define&&define.amd?define(["jquery"],e):"object"==typeof exports?module.exports=e($||require("jquery")):e(jQuery)}(function(e){"use strict";function t(t,s){this.element=t,this.options=e.extend({},l,s);var i=this.options.locale;void 0!==this.options.locales[i]&&e.extend(this.options,this.options.locales[i]),this.init()}function s(t){if(!e(t.target).parents().hasClass("jq-selectbox")&&"OPTION"!=t.target.nodeName&&e("div.jq-selectbox.opened").length){var s=e("div.jq-selectbox.opened"),l=e("div.jq-selectbox__search input",s),o=e("div.jq-selectbox__dropdown",s);s.find("select").data("_"+i).options.onSelectClosed.call(s),l.length&&l.val("").keyup(),o.hide().find("li.sel").addClass("selected"),s.removeClass("focused opened dropup dropdown")}}var i="styler",l={idSuffix:"-styler",filePlaceholder:"Файл не выбран",fileBrowse:"Обзор...",fileNumber:"Выбрано файлов: %s",selectPlaceholder:"Выберите...",selectSearch:!1,selectSearchLimit:10,selectSearchNotFound:"Совпадений не найдено",selectSearchPlaceholder:"Поиск...",selectVisibleOptions:0,selectSmartPositioning:!0,locale:"ru",locales:{en:{filePlaceholder:"No file selected",fileBrowse:"Browse...",fileNumber:"Selected files: %s",selectPlaceholder:"Select...",selectSearchNotFound:"No matches found",selectSearchPlaceholder:"Search..."}},onSelectOpened:function(){},onSelectClosed:function(){},onFormStyled:function(){}};t.prototype={init:function(){function t(){void 0!==i.attr("id")&&""!==i.attr("id")&&(this.id=i.attr("id")+l.idSuffix),this.title=i.attr("title"),this.classes=i.attr("class"),this.data=i.data()}var i=e(this.element),l=this.options,o=!(!navigator.userAgent.match(/(iPad|iPhone|iPod)/i)||navigator.userAgent.match(/(Windows\sPhone)/i)),a=!(!navigator.userAgent.match(/Android/i)||navigator.userAgent.match(/(Windows\sPhone)/i));if(i.is(":checkbox")){var d=function(){var s=new t,l=e('<div class="jq-checkbox"><div class="jq-checkbox__div"></div></div>').attr({id:s.id,title:s.title}).addClass(s.classes).data(s.data);i.after(l).prependTo(l),i.is(":checked")&&l.addClass("checked"),i.is(":disabled")&&l.addClass("disabled"),l.click(function(e){e.preventDefault(),i.triggerHandler("click"),l.is(".disabled")||(i.is(":checked")?(i.prop("checked",!1),l.removeClass("checked")):(i.prop("checked",!0),l.addClass("checked")),i.focus().change())}),i.closest("label").add('label[for="'+i.attr("id")+'"]').on("click.styler",function(t){e(t.target).is("a")||e(t.target).closest(l).length||(l.triggerHandler("click"),t.preventDefault())}),i.on("change.styler",function(){i.is(":checked")?l.addClass("checked"):l.removeClass("checked")}).on("keydown.styler",function(e){32==e.which&&l.click()}).on("focus.styler",function(){l.is(".disabled")||l.addClass("focused")}).on("blur.styler",function(){l.removeClass("focused")})};d(),i.on("refresh",function(){i.closest("label").add('label[for="'+i.attr("id")+'"]').off(".styler"),i.off(".styler").parent().before(i).remove(),d()})}else if(i.is(":radio")){var r=function(){var s=new t,l=e('<div class="jq-radio"><div class="jq-radio__div"></div></div>').attr({id:s.id,title:s.title}).addClass(s.classes).data(s.data);i.after(l).prependTo(l),i.is(":checked")&&l.addClass("checked"),i.is(":disabled")&&l.addClass("disabled"),e.fn.commonParents=function(){var t=this;return t.first().parents().filter(function(){return e(this).find(t).length===t.length})},e.fn.commonParent=function(){return e(this).commonParents().first()},l.click(function(t){if(t.preventDefault(),i.triggerHandler("click"),!l.is(".disabled")){var s=e('input[name="'+i.attr("name")+'"]');s.commonParent().find(s).prop("checked",!1).parent().removeClass("checked"),i.prop("checked",!0).parent().addClass("checked"),i.focus().change()}}),i.closest("label").add('label[for="'+i.attr("id")+'"]').on("click.styler",function(t){e(t.target).is("a")||e(t.target).closest(l).length||(l.triggerHandler("click"),t.preventDefault())}),i.on("change.styler",function(){i.parent().addClass("checked")}).on("focus.styler",function(){l.is(".disabled")||l.addClass("focused")}).on("blur.styler",function(){l.removeClass("focused")})};r(),i.on("refresh",function(){i.closest("label").add('label[for="'+i.attr("id")+'"]').off(".styler"),i.off(".styler").parent().before(i).remove(),r()})}else if(i.is(":file")){var c=function(){var s=new t,o=i.data("placeholder");void 0===o&&(o=l.filePlaceholder);var a=i.data("browse");void 0!==a&&""!==a||(a=l.fileBrowse);var d=e('<div class="jq-file"><div class="jq-file__name">'+o+'</div><div class="jq-file__browse">'+a+"</div></div>").attr({id:s.id,title:s.title}).addClass(s.classes).data(s.data);i.after(d).appendTo(d),i.is(":disabled")&&d.addClass("disabled");var r=i.val(),c=e("div.jq-file__name",d);r&&c.text(r.replace(/.+[\\\/]/,"")),i.on("change.styler",function(){var e=i.val();if(i.is("[multiple]")){e="";var t=i[0].files.length;if(t>0){var s=i.data("number");void 0===s&&(s=l.fileNumber),s=s.replace("%s",t),e=s}}c.text(e.replace(/.+[\\\/]/,"")),""===e?(c.text(o),d.removeClass("changed")):d.addClass("changed")}).on("focus.styler",function(){d.addClass("focused")}).on("blur.styler",function(){d.removeClass("focused")}).on("click.styler",function(){d.removeClass("focused")})};c(),i.on("refresh",function(){i.off(".styler").parent().before(i).remove(),c()})}else if(i.is('input[type="number"]')){var n=function(){var s=new t,l=e('<div class="jq-number"><div class="jq-number__spin minus"></div><div class="jq-number__spin plus"></div></div>').attr({id:s.id,title:s.title}).addClass(s.classes).data(s.data);i.after(l).prependTo(l).wrap('<div class="jq-number__field"></div>'),i.is(":disabled")&&l.addClass("disabled");var o,a,d,r=null,c=null;void 0!==i.attr("min")&&(o=i.attr("min")),void 0!==i.attr("max")&&(a=i.attr("max")),d=void 0!==i.attr("step")&&e.isNumeric(i.attr("step"))?Number(i.attr("step")):Number(1);var n=function(t){var s,l=i.val();e.isNumeric(l)||(l=0,i.val("0")),t.is(".minus")?s=Number(l)-d:t.is(".plus")&&(s=Number(l)+d);var r=(d.toString().split(".")[1]||[]).length;if(r>0){for(var c="1";c.length<=r;)c+="0";s=Math.round(s*c)/c}e.isNumeric(o)&&e.isNumeric(a)?s>=o&&s<=a&&i.val(s):e.isNumeric(o)&&!e.isNumeric(a)?s>=o&&i.val(s):!e.isNumeric(o)&&e.isNumeric(a)?s<=a&&i.val(s):i.val(s)};l.is(".disabled")||(l.on("mousedown","div.jq-number__spin",function(){var t=e(this);n(t),r=setTimeout(function(){c=setInterval(function(){n(t)},40)},350)}).on("mouseup mouseout","div.jq-number__spin",function(){clearTimeout(r),clearInterval(c)}).on("mouseup","div.jq-number__spin",function(){i.change().trigger("input")}),i.on("focus.styler",function(){l.addClass("focused")}).on("blur.styler",function(){l.removeClass("focused")}))};n(),i.on("refresh",function(){i.off(".styler").closest(".jq-number").before(i).remove(),n()})}else if(i.is("select")){var f=function(){function d(e){var t=e.prop("scrollHeight")-e.outerHeight(),s=null,i=null;e.off("mousewheel DOMMouseScroll").on("mousewheel DOMMouseScroll",function(l){s=l.originalEvent.detail<0||l.originalEvent.wheelDelta>0?1:-1,((i=e.scrollTop())>=t&&s<0||i<=0&&s>0)&&(l.stopPropagation(),l.preventDefault())})}function r(){for(var e=0;e<c.length;e++){var t=c.eq(e),s="",i="",o="",a="",d="",r="",f="",h="",u="";t.prop("selected")&&(i="selected sel"),t.is(":disabled")&&(i="disabled"),t.is(":selected:disabled")&&(i="selected sel disabled"),void 0!==t.attr("id")&&""!==t.attr("id")&&(a=' id="'+t.attr("id")+l.idSuffix+'"'),void 0!==t.attr("title")&&""!==c.attr("title")&&(d=' title="'+t.attr("title")+'"'),void 0!==t.attr("class")&&(f=" "+t.attr("class"),u=' data-jqfs-class="'+t.attr("class")+'"');var p=t.data();for(var v in p)""!==p[v]&&(r+=" data-"+v+'="'+p[v]+'"');i+f!==""&&(o=' class="'+i+f+'"'),s="<li"+u+r+o+d+a+">"+t.html()+"</li>",t.parent().is("optgroup")&&(void 0!==t.parent().attr("class")&&(h=" "+t.parent().attr("class")),s="<li"+u+r+' class="'+i+f+" option"+h+'"'+d+a+">"+t.html()+"</li>",t.is(":first-child")&&(s='<li class="optgroup'+h+'">'+t.parent().attr("label")+"</li>"+s)),n+=s}}var c=e("option",i),n="";if(i.is("[multiple]")){if(a||o)return;!function(){var s=new t,l=e('<div class="jq-select-multiple jqselect"></div>').attr({id:s.id,title:s.title}).addClass(s.classes).data(s.data);i.after(l),r(),l.append("<ul>"+n+"</ul>");var o=e("ul",l),a=e("li",l),f=i.attr("size"),h=o.outerHeight(),u=a.outerHeight();void 0!==f&&f>0?o.css({height:u*f}):o.css({height:4*u}),h>l.height()&&(o.css("overflowY","scroll"),d(o),a.filter(".selected").length&&o.scrollTop(o.scrollTop()+a.filter(".selected").position().top)),i.prependTo(l),i.is(":disabled")?(l.addClass("disabled"),c.each(function(){e(this).is(":selected")&&a.eq(e(this).index()).addClass("selected")})):(a.filter(":not(.disabled):not(.optgroup)").click(function(t){i.focus();var s=e(this);if(t.ctrlKey||t.metaKey||s.addClass("selected"),t.shiftKey||s.addClass("first"),t.ctrlKey||t.metaKey||t.shiftKey||s.siblings().removeClass("selected first"),(t.ctrlKey||t.metaKey)&&(s.is(".selected")?s.removeClass("selected first"):s.addClass("selected first"),s.siblings().removeClass("first")),t.shiftKey){var l=!1,o=!1;s.siblings().removeClass("selected").siblings(".first").addClass("selected"),s.prevAll().each(function(){e(this).is(".first")&&(l=!0)}),s.nextAll().each(function(){e(this).is(".first")&&(o=!0)}),l&&s.prevAll().each(function(){if(e(this).is(".selected"))return!1;e(this).not(".disabled, .optgroup").addClass("selected")}),o&&s.nextAll().each(function(){if(e(this).is(".selected"))return!1;e(this).not(".disabled, .optgroup").addClass("selected")}),1==a.filter(".selected").length&&s.addClass("first")}c.prop("selected",!1),a.filter(".selected").each(function(){var t=e(this),s=t.index();t.is(".option")&&(s-=t.prevAll(".optgroup").length),c.eq(s).prop("selected",!0)}),i.change()}),c.each(function(t){e(this).data("optionIndex",t)}),i.on("change.styler",function(){a.removeClass("selected");var t=[];c.filter(":selected").each(function(){t.push(e(this).data("optionIndex"))}),a.not(".optgroup").filter(function(s){return e.inArray(s,t)>-1}).addClass("selected")}).on("focus.styler",function(){l.addClass("focused")}).on("blur.styler",function(){l.removeClass("focused")}),h>l.height()&&i.on("keydown.styler",function(e){38!=e.which&&37!=e.which&&33!=e.which||o.scrollTop(o.scrollTop()+a.filter(".selected").position().top-u),40!=e.which&&39!=e.which&&34!=e.which||o.scrollTop(o.scrollTop()+a.filter(".selected:last").position().top-o.innerHeight()+2*u)}))}()}else!function(){var a=new t,f="",h=i.data("placeholder"),u=i.data("search"),p=i.data("search-limit"),v=i.data("search-not-found"),m=i.data("search-placeholder"),g=i.data("smart-positioning");void 0===h&&(h=l.selectPlaceholder),void 0!==u&&""!==u||(u=l.selectSearch),void 0!==p&&""!==p||(p=l.selectSearchLimit),void 0!==v&&""!==v||(v=l.selectSearchNotFound),void 0===m&&(m=l.selectSearchPlaceholder),void 0!==g&&""!==g||(g=l.selectSmartPositioning);var b=e('<div class="jq-selectbox jqselect"><div class="jq-selectbox__select"><div class="jq-selectbox__select-text"></div><div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div></div></div>').attr({id:a.id,title:a.title}).addClass(a.classes).data(a.data);i.after(b).prependTo(b);var C=b.css("z-index");C=C>0?C:1;var x=e("div.jq-selectbox__select",b),y=e("div.jq-selectbox__select-text",b),w=c.filter(":selected");r(),u&&(f='<div class="jq-selectbox__search"><input type="search" autocomplete="off" placeholder="'+m+'"></div><div class="jq-selectbox__not-found">'+v+"</div>");var q=e('<div class="jq-selectbox__dropdown">'+f+"<ul>"+n+"</ul></div>");b.append(q);var _=e("ul",q),j=e("li",q),k=e("input",q),S=e("div.jq-selectbox__not-found",q).hide();j.length<p&&k.parent().hide(),""===c.first().text()&&c.first().is(":selected")&&!1!==h?y.text(h).addClass("placeholder"):y.text(w.text());var T=0,N=0;if(j.css({display:"inline-block"}),j.each(function(){var t=e(this);t.innerWidth()>T&&(T=t.innerWidth(),N=t.width())}),j.css({display:""}),y.is(".placeholder")&&y.width()>T)y.width(y.width());else{var P=b.clone().appendTo("body").width("auto"),H=P.outerWidth();P.remove(),H==b.outerWidth()&&y.width(N)}T>b.width()&&q.width(T),""===c.first().text()&&""!==i.data("placeholder")&&j.first().hide();var A=b.outerHeight(!0),D=k.parent().outerHeight(!0)||0,I=_.css("max-height"),K=j.filter(".selected");if(K.length<1&&j.first().addClass("selected sel"),void 0===j.data("li-height")){var O=j.outerHeight();!1!==h&&(O=j.eq(1).outerHeight()),j.data("li-height",O)}var M=q.css("top");if("auto"==q.css("left")&&q.css({left:0}),"auto"==q.css("top")&&(q.css({top:A}),M=A),q.hide(),K.length&&(c.first().text()!=w.text()&&b.addClass("changed"),b.data("jqfs-class",K.data("jqfs-class")),b.addClass(K.data("jqfs-class"))),i.is(":disabled"))return b.addClass("disabled"),!1;x.click(function(){if(e("div.jq-selectbox").filter(".opened").length&&l.onSelectClosed.call(e("div.jq-selectbox").filter(".opened")),i.focus(),!o){var t=e(window),s=j.data("li-height"),a=b.offset().top,r=t.height()-A-(a-t.scrollTop()),n=i.data("visible-options");void 0!==n&&""!==n||(n=l.selectVisibleOptions);var f=5*s,h=s*n;n>0&&n<6&&(f=h),0===n&&(h="auto");var u=function(){q.height("auto").css({bottom:"auto",top:M});var e=function(){_.css("max-height",Math.floor((r-20-D)/s)*s)};e(),_.css("max-height",h),"none"!=I&&_.css("max-height",I),r<q.outerHeight()+20&&e()};!0===g||1===g?r>f+D+20?(u(),b.removeClass("dropup").addClass("dropdown")):(function(){q.height("auto").css({top:"auto",bottom:M});var e=function(){_.css("max-height",Math.floor((a-t.scrollTop()-20-D)/s)*s)};e(),_.css("max-height",h),"none"!=I&&_.css("max-height",I),a-t.scrollTop()-20<q.outerHeight()+20&&e()}(),b.removeClass("dropdown").addClass("dropup")):!1===g||0===g?r>f+D+20&&(u(),b.removeClass("dropup").addClass("dropdown")):(q.height("auto").css({bottom:"auto",top:M}),_.css("max-height",h),"none"!=I&&_.css("max-height",I)),b.offset().left+q.outerWidth()>t.width()&&q.css({left:"auto",right:0}),e("div.jqselect").css({zIndex:C-1}).removeClass("opened"),b.css({zIndex:C}),q.is(":hidden")?(e("div.jq-selectbox__dropdown:visible").hide(),q.show(),b.addClass("opened focused"),l.onSelectOpened.call(b)):(q.hide(),b.removeClass("opened dropup dropdown"),e("div.jq-selectbox").filter(".opened").length&&l.onSelectClosed.call(b)),k.length&&(k.val("").keyup(),S.hide(),k.keyup(function(){var t=e(this).val();j.each(function(){e(this).html().match(new RegExp(".*?"+t+".*?","i"))?e(this).show():e(this).hide()}),""===c.first().text()&&""!==i.data("placeholder")&&j.first().hide(),j.filter(":visible").length<1?S.show():S.hide()})),j.filter(".selected").length&&(""===i.val()?_.scrollTop(0):(_.innerHeight()/s%2!=0&&(s/=2),_.scrollTop(_.scrollTop()+j.filter(".selected").position().top-_.innerHeight()/2+s))),d(_)}}),j.hover(function(){e(this).siblings().removeClass("selected")});var W=j.filter(".selected").text();j.filter(":not(.disabled):not(.optgroup)").click(function(){i.focus();var t=e(this),s=t.text();if(!t.is(".selected")){var o=t.index();o-=t.prevAll(".optgroup").length,t.addClass("selected sel").siblings().removeClass("selected sel"),c.prop("selected",!1).eq(o).prop("selected",!0),W=s,y.text(s),b.data("jqfs-class")&&b.removeClass(b.data("jqfs-class")),b.data("jqfs-class",t.data("jqfs-class")),b.addClass(t.data("jqfs-class")),i.change()}q.hide(),b.removeClass("opened dropup dropdown"),l.onSelectClosed.call(b)}),q.mouseout(function(){e("li.sel",q).addClass("selected")}),i.on("change.styler",function(){y.text(c.filter(":selected").text()).removeClass("placeholder"),j.removeClass("selected sel").not(".optgroup").eq(i[0].selectedIndex).addClass("selected sel"),c.first().text()!=j.filter(".selected").text()?b.addClass("changed"):b.removeClass("changed")}).on("focus.styler",function(){b.addClass("focused"),e("div.jqselect").not(".focused").removeClass("opened dropup dropdown").find("div.jq-selectbox__dropdown").hide()}).on("blur.styler",function(){b.removeClass("focused")}).on("keydown.styler keyup.styler",function(e){var t=j.data("li-height");""===i.val()?y.text(h).addClass("placeholder"):y.text(c.filter(":selected").text()),j.removeClass("selected sel").not(".optgroup").eq(i[0].selectedIndex).addClass("selected sel"),38!=e.which&&37!=e.which&&33!=e.which&&36!=e.which||(""===i.val()?_.scrollTop(0):_.scrollTop(_.scrollTop()+j.filter(".selected").position().top)),40!=e.which&&39!=e.which&&34!=e.which&&35!=e.which||_.scrollTop(_.scrollTop()+j.filter(".selected").position().top-_.innerHeight()+t),13==e.which&&(e.preventDefault(),q.hide(),b.removeClass("opened dropup dropdown"),l.onSelectClosed.call(b))}).on("keydown.styler",function(e){32==e.which&&(e.preventDefault(),x.click())}),s.registered||(e(document).on("click",s),s.registered=!0)}()};f(),i.on("refresh",function(){i.off(".styler").parent().before(i).remove(),f()})}else i.is(":reset")&&i.on("click",function(){setTimeout(function(){i.closest("form").find("input, select").trigger("refresh")},1)})},destroy:function(){var t=e(this.element);t.is(":checkbox")||t.is(":radio")?(t.removeData("_"+i).off(".styler refresh").removeAttr("style").parent().before(t).remove(),t.closest("label").add('label[for="'+t.attr("id")+'"]').off(".styler")):t.is('input[type="number"]')?t.removeData("_"+i).off(".styler refresh").closest(".jq-number").before(t).remove():(t.is(":file")||t.is("select"))&&t.removeData("_"+i).off(".styler refresh").removeAttr("style").parent().before(t).remove()}},e.fn[i]=function(s){var l=arguments;if(void 0===s||"object"==typeof s)return this.each(function(){e.data(this,"_"+i)||e.data(this,"_"+i,new t(this,s))}).promise().done(function(){var t=e(this[0]).data("_"+i);t&&t.options.onFormStyled.call()}),this;if("string"==typeof s&&"_"!==s[0]&&"init"!==s){var o;return this.each(function(){var a=e.data(this,"_"+i);a instanceof t&&"function"==typeof a[s]&&(o=a[s].apply(a,Array.prototype.slice.call(l,1)))}),void 0!==o?o:this}},s.registered=!1});
-// Mobile menu
-$(document).ready(function () {
-    $('.header__mobile').on('click', function () {
-        $('body').toggleClass('show');
-    })
-});
-
-// Owl carousel
-$(document).ready(function () {
-    $(".owl-carousel").owlCarousel({
-        items: 2,
-        margin: 20,
-        nav: true,
-        dost: false,
-        responsive: {
-            768: {
-                margin: 40,
-                items: 3
-            },
-            568: {
-                items: 2,
-                loop: true,
-                center: true,
-                autoWidth: false
-            },
-            320: {
-                items: 1,
-                autoWidth: true,
-                center: true,
-                loop: true
-            }
-        }
-    });
-});
-
 // Chart.js Main page
 $(document).ready(function () {
-    let ctx = document.getElementById('myChart').getContext("2d");
+    let ctx = document.getElementById('myChart')
+    if (ctx) {
+
+    ctx = document.getElementById('myChart').getContext("2d");
 
     var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
     gradientStroke.addColorStop(0, '#3f89e8');
@@ -158,7 +126,413 @@ $(document).ready(function () {
 
     myChart.data.datasets[0].pointRadius = radiusArray;
     myChart.update();
+    }
 
+});
+
+
+// Chart.js Etabs page
+let dataCanvas = $('canvas').data();
+let arrCanvas = [];
+for (key in dataCanvas) {
+  arrCanvas.push(dataCanvas[key]);
+}
+arrCanvas.reverse();
+
+var etabs = document.getElementById('return__graph');
+if (etabs) {
+    etabs = document.getElementById('return__graph').getContext("2d");
+    etabs.canvas.style.backgroundColor = 'white';
+    var gradientFill = etabs.createLinearGradient(0, 200, 0, 0);
+    gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)"); 
+    gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
+
+    var myChart = new Chart(etabs, {
+        type: 'line',
+        data: {
+            labels: ["Year 1", "Year 2", "Year 3"],
+            datasets: [{
+                label: "Approx",
+                borderColor: 'rgb(253, 204, 96)',
+                pointBorderColor: '#fff',
+                pointBackgroundColor: 'rgb(253, 204, 96)',
+                pointHoverBackgroundColor: 'rgb(253, 204, 96)',
+                pointHoverBorderColor: 'rgb(253, 204, 96)',
+                pointBorderWidth: 5,
+                pointHoverRadius: 7,
+                pointHoverBorderWidth: 1,
+                pointRadius: 10,
+                fill: true,
+                backgroundColor: 'rgba(253, 204, 96, .3)',
+                borderWidth: 4,
+                data: arrCanvas,
+                lineTension: 0,
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 60,
+                    top: 54,
+                    bottom: 54
+                }
+            },
+            tooltips: {
+                displayColors: false,
+                yAlign: 'bottom',
+                xAlign: 'center',
+                backgroundColor: 'rgba(252, 252, 252, 1)',
+                titleFontSize: 14,
+                caretPadding: 6,
+                bodyAlign: 'center',
+                bodyFontFamily: "AvenirNextCyr",
+                bodyFontStyle: "500",
+                bodyFontSize: 14,
+                cornerRadius: 10,
+                xPadding: 12,
+                yPadding: 7,
+                titleFontColor: '#475871',
+                titleAlign: 'center',
+                titleFontFamily: "AvenirNextCyr",
+                bodyFontColor: '#1a273a',
+                bodyFontSize: 18,
+                bodyFontStyle: 500,
+                callbacks: {
+                    title: function(tooltipItem, data) {
+                        console.log(data);
+                        return 'Approx'
+                    },
+                    label: function(tooltipItem, data) {
+                        myChart.data.datasets[tooltipItem.datasetIndex].backgroundColor;
+                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                    
+                        return `$ ${value}`;
+
+                    }
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        fontColor: "rgba(0,0,0,0.5)",
+                        fontStyle: "bold",
+                        beginAtZero: false,
+                        fontSize: 16,
+                        fontColor: '#475871',
+                        fontFamily: 'AvenirNextCyr, sans-serif',
+                        fontStyle: 500,
+                        min: 10000,
+                        maxTicksLimit: 5,
+                        padding: 20,
+                        callback: function(value, index, values) {
+                            return `$ ${value}`
+                        },
+                    },
+                    gridLines: {
+                        drawTicks: false,
+                        display: false
+                    }
+
+                }],
+                xAxes: [{
+                    gridLines: {
+                        zeroLineColor: "#d9e0e8",
+                        display: true,
+                    },
+                    ticks: {
+                        padding: 20,
+                        fontSize: 16,
+                        fontColor: '#475871',
+                        fontFamily: 'AvenirNextCyr, sans-serif',
+                        fontStyle: 500,
+                    }
+                }]
+            }
+        }
+    });
+}
+
+
+// Gde to ewe 1 chart
+var etabs2 = document.getElementById('return__graph-2')
+if (etabs2) {
+    etabs2 = document.getElementById('return__graph-2').getContext("2d");
+    etabs2.canvas.style.backgroundColor = 'white';
+var myChart = new Chart(etabs2, {
+    type: 'line',
+    data: {
+        labels: ["Year 1", "Year 2", "Year 3"],
+        datasets: [{
+            label: "Approx",
+            borderColor: 'rgb(253, 204, 96)',
+            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgb(253, 204, 96)',
+            pointHoverBackgroundColor: 'rgb(253, 204, 96)',
+            pointHoverBorderColor: 'rgb(253, 204, 96)',
+            pointBorderWidth: 5,
+            pointHoverRadius: 7,
+            pointHoverBorderWidth: 1,
+            pointRadius: 10,
+            fill: true,
+            backgroundColor: 'rgba(253, 204, 96, .3)',
+            borderWidth: 4,
+            data: arrCanvas,
+            lineTension: 0,
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        layout: {
+            padding: {
+                left: 50,
+                right: 60,
+                top: 54,
+                bottom: 54
+            }
+        },
+        tooltips: {
+            displayColors: false,
+            yAlign: 'bottom',
+            xAlign: 'center',
+            backgroundColor: 'rgba(252, 252, 252, 1)',
+            titleFontSize: 14,
+            caretPadding: 6,
+            bodyAlign: 'center',
+            bodyFontFamily: "AvenirNextCyr",
+            bodyFontStyle: "500",
+            bodyFontSize: 14,
+            cornerRadius: 10,
+            xPadding: 12,
+            yPadding: 7,
+            titleFontColor: '#475871',
+            titleAlign: 'center',
+            titleFontFamily: "AvenirNextCyr",
+            bodyFontColor: '#1a273a',
+            bodyFontSize: 18,
+            bodyFontStyle: 500,
+            callbacks: {
+                title: function(tooltipItem, data) {
+                    console.log(data);
+                    return 'Approx'
+                },
+                label: function(tooltipItem, data) {
+                    myChart.data.datasets[tooltipItem.datasetIndex].backgroundColor;
+                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                  
+                    return `$ ${value}`;
+
+                }
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "rgba(0,0,0,0.5)",
+                    fontStyle: "bold",
+                    beginAtZero: false,
+                    fontSize: 16,
+                    fontColor: '#475871',
+                    fontFamily: 'AvenirNextCyr, sans-serif',
+                    fontStyle: 500,
+                    min: 10000,
+                    maxTicksLimit: 5,
+                    padding: 20,
+                    callback: function(value, index, values) {
+                        return `$ ${value}`
+                    },
+                },
+                gridLines: {
+                    drawTicks: false,
+                    display: false
+                }
+
+            }],
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: "#d9e0e8",
+                    display: true,
+                },
+                ticks: {
+                    padding: 20,
+                    fontSize: 16,
+                    fontColor: '#475871',
+                    fontFamily: 'AvenirNextCyr, sans-serif',
+                    fontStyle: 500,
+                }
+            }]
+        }
+    }
+});
+}
+
+// Google Map
+function initMap() {
+    let options = {
+        zoom: 4,
+        center: {lat: 50.424944850187026, lng: 10.752940693750004},
+        styles: [
+            {
+              "elementType": "labels",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#4279ff"
+                },
+                {
+                  "weight": 1
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.land_parcel",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.neighborhood",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.province",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "landscape",
+              "stylers": [
+                {
+                  "color": "#6caaff"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "stylers": [
+                {
+                  "color": "#4279ff"
+                }
+              ]
+            }
+          ]
+    }
+
+    let map = new 
+    google.maps.Map(document.getElementById('map'), options)
+
+    var markers = [
+        {
+          coords:{lat:50.4668,lng:-70.9495},
+          content:'<h1>Lynn 1</h1>'
+        },
+        {
+          coords:{lat:52.8584,lng:-22.9300},
+          content:'<h1>Lynn 2</h1>'
+        },
+        {
+          coords:{lat:42.7762,lng:-41.0773},
+          content:'<h1>Lynn 3</h1>'
+        },
+        {
+          coords:{lat:82.7762,lng:-41.0773},
+          content:'<h1>Lynn 4</h1>'
+        },
+        {
+          coords:{lat:62.7762,lng:-41.0773},
+          content:'<h1>Lynn 5</h1>'
+        }
+      ];
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+    function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          icon:'../img/google.png'
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+
+}
+
+// Mobile menu
+$(document).ready(function () {
+    $('.header__mobile').on('click', function () {
+        $('body').toggleClass('show');
+    })
+});
+
+// Owl carousel
+$(document).ready(function () {
+    $(".owl-carousel").owlCarousel({
+        items: 2,
+        margin: 20,
+        nav: true,
+        dost: false,
+        responsive: {
+            768: {
+                margin: 40,
+                items: 3
+            },
+            568: {
+                items: 2,
+                loop: true,
+                center: true,
+                autoWidth: false
+            },
+            320: {
+                items: 1,
+                autoWidth: true,
+                center: true,
+                loop: true
+            }
+        }
+    });
 });
 
 // Profile tabs
@@ -295,381 +669,7 @@ $(document).ready(function() {
     });
 })
 
-// Chart.js etabs
-
-let dataCanvas = $('canvas').data();
-let arrCanvas = [];
-for (key in dataCanvas) {
-  arrCanvas.push(dataCanvas[key]);
-}
-arrCanvas.reverse();
-
-
-var etabs = document.getElementById('return__graph').getContext("2d");
-
-// etabs.style.backgroundColor = 'red';
-etabs.canvas.style.backgroundColor = 'white';
-var gradientFill = etabs.createLinearGradient(0, 200, 0, 0);
-gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)"); 
-gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
-
-var myChart = new Chart(etabs, {
-    type: 'line',
-    data: {
-        labels: ["Year 1", "Year 2", "Year 3"],
-        datasets: [{
-            label: "Approx",
-            borderColor: 'rgb(253, 204, 96)',
-            pointBorderColor: '#fff',
-            pointBackgroundColor: 'rgb(253, 204, 96)',
-            pointHoverBackgroundColor: 'rgb(253, 204, 96)',
-            pointHoverBorderColor: 'rgb(253, 204, 96)',
-            pointBorderWidth: 5,
-            pointHoverRadius: 7,
-            pointHoverBorderWidth: 1,
-            pointRadius: 10,
-            fill: true,
-            backgroundColor: 'rgba(253, 204, 96, .3)',
-            borderWidth: 4,
-            data: arrCanvas,
-            lineTension: 0,
-        }]
-    },
-    options: {
-        legend: {
-            display: false
-        },
-        layout: {
-            padding: {
-                left: 50,
-                right: 60,
-                top: 54,
-                bottom: 54
-            }
-        },
-        tooltips: {
-            displayColors: false,
-            yAlign: 'bottom',
-            xAlign: 'center',
-            backgroundColor: 'rgba(252, 252, 252, 1)',
-            titleFontSize: 14,
-            caretPadding: 6,
-            bodyAlign: 'center',
-            bodyFontFamily: "AvenirNextCyr",
-            bodyFontStyle: "500",
-            bodyFontSize: 14,
-            cornerRadius: 10,
-            xPadding: 12,
-            yPadding: 7,
-            titleFontColor: '#475871',
-            titleAlign: 'center',
-            titleFontFamily: "AvenirNextCyr",
-            bodyFontColor: '#1a273a',
-            bodyFontSize: 18,
-            bodyFontStyle: 500,
-            callbacks: {
-                title: function(tooltipItem, data) {
-                    console.log(data);
-                    return 'Approx'
-                },
-                label: function(tooltipItem, data) {
-                    myChart.data.datasets[tooltipItem.datasetIndex].backgroundColor;
-                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                  
-                    return `$ ${value}`;
-
-                }
-            }
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    fontColor: "rgba(0,0,0,0.5)",
-                    fontStyle: "bold",
-                    beginAtZero: false,
-                    fontSize: 16,
-                    fontColor: '#475871',
-                    fontFamily: 'AvenirNextCyr, sans-serif',
-                    fontStyle: 500,
-                    min: 10000,
-                    maxTicksLimit: 5,
-                    padding: 20,
-                    callback: function(value, index, values) {
-                        return `$ ${value}`
-                    },
-                },
-                gridLines: {
-                    drawTicks: false,
-                    display: false
-                }
-
-            }],
-            xAxes: [{
-                gridLines: {
-                    zeroLineColor: "#d9e0e8",
-                    display: true,
-                },
-                ticks: {
-                    padding: 20,
-                    fontSize: 16,
-                    fontColor: '#475871',
-                    fontFamily: 'AvenirNextCyr, sans-serif',
-                    fontStyle: 500,
-                }
-            }]
-        }
-    }
-});
-
-
-var etabs2 = document.getElementById('return__graph-2').getContext("2d");
-etabs2.canvas.style.backgroundColor = 'white';
-var myChart = new Chart(etabs2, {
-    type: 'line',
-    data: {
-        labels: ["Year 1", "Year 2", "Year 3"],
-        datasets: [{
-            label: "Approx",
-            borderColor: 'rgb(253, 204, 96)',
-            pointBorderColor: '#fff',
-            pointBackgroundColor: 'rgb(253, 204, 96)',
-            pointHoverBackgroundColor: 'rgb(253, 204, 96)',
-            pointHoverBorderColor: 'rgb(253, 204, 96)',
-            pointBorderWidth: 5,
-            pointHoverRadius: 7,
-            pointHoverBorderWidth: 1,
-            pointRadius: 10,
-            fill: true,
-            backgroundColor: 'rgba(253, 204, 96, .3)',
-            borderWidth: 4,
-            data: arrCanvas,
-            lineTension: 0,
-        }]
-    },
-    options: {
-        legend: {
-            display: false
-        },
-        layout: {
-            padding: {
-                left: 50,
-                right: 60,
-                top: 54,
-                bottom: 54
-            }
-        },
-        tooltips: {
-            displayColors: false,
-            yAlign: 'bottom',
-            xAlign: 'center',
-            backgroundColor: 'rgba(252, 252, 252, 1)',
-            titleFontSize: 14,
-            caretPadding: 6,
-            bodyAlign: 'center',
-            bodyFontFamily: "AvenirNextCyr",
-            bodyFontStyle: "500",
-            bodyFontSize: 14,
-            cornerRadius: 10,
-            xPadding: 12,
-            yPadding: 7,
-            titleFontColor: '#475871',
-            titleAlign: 'center',
-            titleFontFamily: "AvenirNextCyr",
-            bodyFontColor: '#1a273a',
-            bodyFontSize: 18,
-            bodyFontStyle: 500,
-            callbacks: {
-                title: function(tooltipItem, data) {
-                    console.log(data);
-                    return 'Approx'
-                },
-                label: function(tooltipItem, data) {
-                    myChart.data.datasets[tooltipItem.datasetIndex].backgroundColor;
-                    var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                  
-                    return `$ ${value}`;
-
-                }
-            }
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    fontColor: "rgba(0,0,0,0.5)",
-                    fontStyle: "bold",
-                    beginAtZero: false,
-                    fontSize: 16,
-                    fontColor: '#475871',
-                    fontFamily: 'AvenirNextCyr, sans-serif',
-                    fontStyle: 500,
-                    min: 10000,
-                    maxTicksLimit: 5,
-                    padding: 20,
-                    callback: function(value, index, values) {
-                        return `$ ${value}`
-                    },
-                },
-                gridLines: {
-                    drawTicks: false,
-                    display: false
-                }
-
-            }],
-            xAxes: [{
-                gridLines: {
-                    zeroLineColor: "#d9e0e8",
-                    display: true,
-                },
-                ticks: {
-                    padding: 20,
-                    fontSize: 16,
-                    fontColor: '#475871',
-                    fontFamily: 'AvenirNextCyr, sans-serif',
-                    fontStyle: 500,
-                }
-            }]
-        }
-    }
-});
-
 // Efund and eDirect tabs
 $('.profile__links-link').on('click', function() {
     $('.ed, .et').toggleClass('hidden');
 });
-
-
-// Google Map
-function initMap() {
-    let options = {
-        zoom: 4,
-        center: {lat: 50.424944850187026, lng: 24.652940693750004},
-        styles: [
-            {
-              "elementType": "labels",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "color": "#4279ff"
-                },
-                {
-                  "weight": 1
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.land_parcel",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.neighborhood",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "administrative.province",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                {
-                  "visibility": "off"
-                }
-              ]
-            },
-            {
-              "featureType": "landscape",
-              "stylers": [
-                {
-                  "color": "#6caaff"
-                }
-              ]
-            },
-            {
-              "featureType": "water",
-              "stylers": [
-                {
-                  "color": "#4279ff"
-                }
-              ]
-            }
-          ]
-    }
-
-    let map = new 
-    google.maps.Map(document.getElementById('map'), options)
-
-    let marker = new google.maps.Marker({
-        position: {lat: 50.424944850187026, lng: 24.652940693750004},
-        map,
-        icon:'../img/google.png',
-        content:'<h1>Lynn M123A</h1>'
-    })
-
-    var markers = [
-        {
-          coords:{lat:50.4668,lng:-70.9495},
-          content:'<h1>Lynn 1</h1>'
-        },
-        {
-          coords:{lat:52.8584,lng:-22.9300},
-          content:'<h1>Lynn 2</h1>'
-        },
-        {
-          coords:{lat:42.7762,lng:-41.0773},
-          content:'<h1>Lynn 3</h1>'
-        },
-        {
-          coords:{lat:82.7762,lng:-41.0773},
-          content:'<h1>Lynn 4</h1>'
-        },
-        {
-          coords:{lat:62.7762,lng:-41.0773},
-          content:'<h1>Lynn 5</h1>'
-        }
-      ];
-
-      // Loop through markers
-      for(var i = 0;i < markers.length;i++){
-        // Add marker
-        addMarker(markers[i]);
-      }
-
-    function addMarker(props){
-        var marker = new google.maps.Marker({
-          position:props.coords,
-          map:map,
-          icon:'../img/google.png'
-        });
-
-        // Check for customicon
-        if(props.iconImage){
-          // Set icon image
-          marker.setIcon(props.iconImage);
-        }
-
-        // Check content
-        if(props.content){
-          var infoWindow = new google.maps.InfoWindow({
-            content:props.content
-          });
-
-          marker.addListener('click', function(){
-            infoWindow.open(map, marker);
-          });
-        }
-      }
-
-}

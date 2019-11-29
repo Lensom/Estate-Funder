@@ -2950,6 +2950,37 @@ a {
 }
 .map {
   height: 610px;
+  margin-top: 90px;
+}
+.map__photos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-height: 354px;
+}
+.map__photos img {
+  width: 33.33%;
+}
+.ong {
+  padding: 100px 0 0;
+  text-align: center;
+}
+.perfomance__subtitle-sm {
+  margin: 0;
+  color: #475871;
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.historical {
+  background: #fff;
+}
+.historical .perfomance__items {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 .footer {
   background-color: #1a273a;

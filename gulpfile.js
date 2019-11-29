@@ -27,6 +27,8 @@ gulp.task('js', gulp.series(function () {
 		'project/js/jquery-3.3.1.min.js', // Add custom js
 		'project/js/owl.carousel.min.js',
 		'project/js/jquery.formstyler.min.js',
+		'project/js/charts.js',
+		'project/js/map.js',
 		'project/js/common.js', // Always at the end
 	])
 		.pipe(plumber())
@@ -70,7 +72,7 @@ gulp.task('minimg', gulp.series(function () {
 
 gulp.task('watch', function () {
 	gulp.watch('project/stylus/**/*.styl', gulp.series('styl'));
-	gulp.watch(['project/js/common.js'], gulp.series('js'));
+	gulp.watch(['project/js/common.js', 'project/js/charts.js', 'project/js/map.js'], gulp.series('js'));
 	gulp.watch('project/*.html', gulp.series('html'));
 });
 
