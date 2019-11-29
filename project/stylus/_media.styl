@@ -442,7 +442,25 @@
 		.page__text
 			text-align center 
 			margin-bottom 30px
-		
+	.vs
+		padding 50px 0
+		&__wrapper
+			flex-direction column 
+			align-items center 
+		&__text 
+			padding 0
+			max-width none 
+			text-align center
+			order 0
+		&__graph-text
+			p
+				justify-content center
+				text-align center
+		&__graph
+			order 1
+			margin-top 40px
+	.ong
+		padding 50px 0 0 
 
 @media (max-width : 768px)
 	.main
@@ -696,7 +714,12 @@
 			margin-bottom 50px
 		&__text
 			font-size 16px
-
+	.vs
+		&__graph
+			width 100%
+	.map 
+		height 480px
+		margin-top 45px
 
 @media (max-width : 568px)
 	.main
@@ -864,6 +887,11 @@
 		&__list
 			.card__bold
 				width 100%
+	.historical
+		.perfomance__items
+			justify-content space-between
+	.map
+		height 300px
 
 @media (max-width : 480px)
 	.page
