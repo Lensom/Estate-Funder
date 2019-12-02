@@ -259,6 +259,13 @@ $(document).ready(function () {
 
 // Gde to ewe 1 chart
 $(document).ready(function() {
+    let dataCanvas = $('#return__graph-2').data();
+    let arrCanvas = [];
+    for (key in dataCanvas) {
+      arrCanvas.push(dataCanvas[key]);
+    }
+    arrCanvas.reverse();
+
     var etabs2 = document.getElementById('return__graph-2')
     if (etabs2) {
         etabs2 = document.getElementById('return__graph-2').getContext("2d");
@@ -931,7 +938,7 @@ function initMap() {
         var marker = new google.maps.Marker({
           position:props.coords,
           map:map,
-          icon:'../img/google.png'
+          icon:'./img/google.png'
         });
 
         // Check for customicon

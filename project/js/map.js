@@ -104,7 +104,7 @@ function initMap() {
         var marker = new google.maps.Marker({
           position:props.coords,
           map:map,
-          icon:'../img/google.png'
+          icon:'./img/google.png'
         });
 
         // Check for customicon

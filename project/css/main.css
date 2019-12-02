@@ -1202,6 +1202,9 @@ a {
 .header.account {
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
+.current_page_item a {
+  color: #3f89e8;
+}
 .show .header__mobile {
   height: auto;
 }
