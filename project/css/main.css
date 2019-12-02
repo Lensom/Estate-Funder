@@ -2504,6 +2504,38 @@ a {
   text-align: center;
   padding: 55px 15px;
   line-height: 26px;
+  margin-top: 40px;
+}
+.returns__text {
+  font-weight: 500;
+  font-size: 20px;
+  color: #1a273a;
+  position: relative;
+}
+.returns__text span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1a273a;
+  line-height: 26px;
+  text-transform: uppercase;
+}
+.returns__graph {
+  margin-top: 110px;
+}
+.returns__graph span {
+  left: 64px;
+}
+.returns__graph-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 65px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .cont {
   position: relative;
@@ -2577,6 +2609,16 @@ a {
   margin-top: 84%;
   padding: 35px 30px 35px 50px;
   background-size: contain;
+  background: #3f89e8;
+}
+.trn__item-text:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: -37px;
+  width: 55px;
+  height: 98%;
+  background-image: url("../img/blueafter.png");
 }
 .trn__item-2 {
   position: relative;

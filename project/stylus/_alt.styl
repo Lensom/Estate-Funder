@@ -150,7 +150,29 @@
         text-align center 
         padding 55px 15px
         line-height 26px
-
+        margin-top 40px
+    &__text
+        font-weight 500
+        font-size 20px
+        color $blue-2
+        position relative
+        span 
+            position absolute
+            left 0
+            top 0
+            font-weight 700
+            font-size 18px
+            color $blue-2
+            line-height 26px
+            text-transform uppercase
+    &__graph 
+        margin-top 110px
+        span 
+            left 64px
+        &-text 
+            display flex
+            padding 0 65px
+            justify-content space-between
 .cont
     position relative
     text-align left
@@ -203,6 +225,15 @@
             padding 35px 30px 35px 50px
             // background-image url(../img/blue.png)
             background-size contain
+            background $blue
+            &:after 
+                content ''
+                position absolute
+                top 4px
+                right -37px
+                width 55px
+                height 98%
+                background-image url(../img/blueafter.png)
         &-2
             position relative
     &__subtitle
