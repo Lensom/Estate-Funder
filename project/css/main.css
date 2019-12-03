@@ -3086,6 +3086,110 @@ a {
 .vs .card__subtitle {
   margin-bottom: 20px;
 }
+.dashboard .page__title {
+  text-align: center;
+}
+.dashboard__table {
+  margin-top: -15px;
+}
+.dashboard__table th:last-child,
+.dashboard__table td:last-child {
+  padding-right: 60px;
+}
+.dashboard__table th:first-child,
+.dashboard__table td:first-child {
+  padding-left: 60px;
+}
+.dashboard__table td {
+  font-size: 22px;
+}
+.dashboard__button {
+  text-align: center;
+  margin-top: 40px;
+}
+.dashboard__block {
+  background: #000;
+  max-width: 245px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 6px;
+  padding: 40px 15px 43px;
+  margin-bottom: 10px;
+}
+.dashboard__block:first-child {
+  background-color: #3f89e8;
+}
+.dashboard__block:nth-child(2) {
+  background-color: #3f5be8;
+}
+.dashboard__block:nth-child(3) {
+  background-color: #893fe8;
+}
+.dashboard__block:last-child {
+  background-color: #ae35d5;
+}
+.dashboard__block-text {
+  font-weight: 500;
+  font-size: 24px;
+  color: #fff;
+  line-height: 26px;
+  margin-top: 10px;
+}
+.dashboard__block-text span {
+  font-size: 20px;
+}
+.dashboard__block-title {
+  font-size: 14px;
+  color: #fff;
+  line-height: 20px;
+}
+.dashboard__snap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0 30px 60px rgba(21,28,39,0.1);
+          box-shadow: 0 30px 60px rgba(21,28,39,0.1);
+  border-radius: 10px;
+  padding: 50px 60px 30px;
+  margin-top: 30px;
+}
+.dashboard__graph {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding-right: 40px;
+  max-width: 540px;
+  margin-top: 50px;
+}
+.dashboard__blocks {
+  max-width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.dashboard__wrapper {
+  margin: 50px 0 60px;
+}
+.dashboard .create__list {
+  text-align: center;
+}
 .footer {
   background-color: #1a273a;
   padding: 103px 0 80px;
@@ -3299,6 +3403,19 @@ a {
   }
   .trn__subtitle br {
     display: none;
+  }
+  .dashboard__graph {
+    max-width: 500px;
+  }
+  .dashboard__block {
+    max-width: 200px;
+  }
+  .dashboard__blocks {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .dashboard__snap {
+    padding: 50px 15px 30px;
   }
 }
 @media (max-width: 998px) {
@@ -3961,6 +4078,44 @@ a {
             transform: rotate(90deg);
     margin-left: -28px;
   }
+  .dashboard__table td:last-child,
+  .dashboard__table th:last-child {
+    padding-right: 40px;
+  }
+  .dashboard__table td:first-child,
+  .dashboard__table th:first-child {
+    padding-left: 40px;
+  }
+  .dashboard__table td {
+    font-size: 18px;
+  }
+  .dashboard__snap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 15px 15px 30px;
+  }
+  .dashboard__graph {
+    padding-right: 0;
+  }
+  .dashboard__blocks {
+    margin-top: 40px;
+    max-width: none;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .dashboard__block {
+    width: 47%;
+    max-width: none;
+  }
+  .dashboard__block:nth-child(2n) {
+    margin-left: 15px;
+  }
 }
 @media (max-width: 768px) {
   .main__title {
@@ -4463,6 +4618,10 @@ a {
   .process .card__subtitle br {
     display: none;
   }
+  .dashboard__graph {
+    max-width: none;
+    width: 100%;
+  }
 }
 @media (max-width: 568px) {
   .main__subtitle br {
@@ -4661,6 +4820,12 @@ a {
   .trn__item {
     width: 100%;
   }
+  .dashboard__block {
+    width: 100%;
+  }
+  .dashboard__block:nth-child(2n) {
+    margin-left: 0;
+  }
 }
 @media (max-width: 480px) {
   .page__text {
@@ -4858,5 +5023,8 @@ a {
     width: 56px;
     height: 86%;
     top: 138px;
+  }
+  .dashboard__table td {
+    font-size: 12px;
   }
 }

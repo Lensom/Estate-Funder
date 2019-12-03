@@ -1,0 +1,66 @@
+.dashboard
+    .page__title
+        text-align center
+    &__table 
+        th,td
+            &:last-child
+                padding-right 60px
+            &:first-child
+                padding-left 60px
+        td
+            font-size 22px
+        margin-top -15px
+    &__button
+        text-align center
+        margin-top 40px
+    &__block 
+        background black
+        max-width 245px
+        width 100%
+        display flex
+        align-items center 
+        flex-direction column 
+        border-radius 6px
+        padding 40px 15px 43px
+        margin-bottom 10px
+        &:first-child 
+            background-color $blue
+        &:nth-child(2)
+            background-color #3f5be8
+        &:nth-child(3)
+            background-color #893fe8
+        &:last-child 
+            background-color #ae35d5
+        &-text 
+            font-weight 500
+            font-size 24px
+            color $white
+            line-height 26px
+            margin-top 10px
+            span 
+                font-size 20px
+        &-title 
+            font-size 14px
+            color $white
+            line-height 20px
+    &__snap 
+        display flex
+        justify-content space-between
+        box-shadow 0 30px 60px rgba(21, 28, 39, 0.1)
+        border-radius 10px
+        padding 50px 60px 30px
+        margin-top 30px
+    &__graph 
+        flex-grow 1
+        padding-right 40px
+        max-width 540px
+        margin-top 50px
+    &__blocks 
+        max-width 500px
+        display flex
+        justify-content space-between
+        flex-wrap wrap 
+    &__wrapper 
+        margin 50px 0 60px
+    .create__list
+        text-align center
