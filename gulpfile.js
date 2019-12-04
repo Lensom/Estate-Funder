@@ -29,6 +29,7 @@ gulp.task('js', gulp.series(function () {
 		'project/js/jquery.formstyler.min.js',
 		'project/js/charts.js',
 		'project/js/map.js',
+		'project/js/nouislider.min.js',
 		'project/js/common.js', // Always at the end
 	])
 		.pipe(plumber())

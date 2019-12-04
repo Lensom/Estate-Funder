@@ -105,7 +105,12 @@
 			justify-content space-around
 		&__snap
 			padding 50px 15px 30px
-		
+	.insum
+		&__item
+			&:nth-child(2n)
+				margin-left 20px
+		&__inner
+			padding 0 10px
 
 @media (max-width : 998px)
 
@@ -609,6 +614,50 @@
 			max-width none 
 			&:nth-child(2n)
 				margin-left 15px
+	.ist
+		&__photos
+			max-width 380px
+		&__thumb 
+			.item 
+				width 60px
+				height 60px
+		&__card
+			&:first-child:after
+				right 7%
+			.page__subtitle
+				font-size 20px
+		&__cards
+			margin-bottom 15px
+	.tooltiptext
+		font-size 12px
+	.insum
+		&__side
+			font-size 18px
+			&-left 
+				padding 15px
+		&__inner 
+			padding 0
+		.page
+			&__subtitle
+				font-size 16px
+			&__text-sm
+				font-size 12px
+		&__item 
+			min-height 80px
+		&__desc 
+			max-width none 
+			margin 0 0 30px 0
+		&__analitic
+			flex-direction column 
+		&__map
+			img 
+				margin 0 auto
+	.updates
+		&__info
+			&-image
+				img
+					max-width 120px	
+
 			
 @media (max-width : 768px)
 	.main
@@ -980,6 +1029,71 @@
 		&__graph
 			max-width none 
 			width 100%
+	.ist
+		&__item
+			display flex
+			flex-direction column 
+			align-items center 
+			margin-top 35px
+		&__details
+			margin 30px 0 0 0
+			text-align center 
+		&__cards 
+			padding 20px 0
+		&__thumb
+			.owl-stage
+				margin 0 auto
+		&__card
+			.page__subtitle
+				justify-content center
+	.insum
+		&__items 
+			flex-direction column 
+			align-items center 
+		&__item
+			margin 0 0 30px 0
+			width 100%
+			&:nth-child(2n)
+				margin 0 0 30px 0
+		&__table 
+			td
+				&:first-child:after
+					display none
+			.total
+				td 
+					padding 30px 10px
+	.updates
+		&__left
+			.updates__info-block
+				margin-right 25px
+				&:after 
+					right -5px
+			.upp 
+				right -35px
+			.updates__pos
+				margin-right 30px
+
+		&__right
+			.updates__info-block
+				margin-left 25px
+				&:after 
+					left -5px
+
+			.upp 
+				left -35px
+			.updates__pos
+				margin-left 30px
+		&__info
+			&-block 
+				padding 8px
+				p 
+					font-size 12px
+				&:after 
+					width 12px
+					height 12px
+		&__pos:last-child
+			margin-top 130px
+
 
 @media (max-width : 568px)
 	.main
@@ -1159,7 +1273,19 @@
 			width 100%
 			&:nth-child(2n)
 				margin-left 0
-
+	.breadcrumb 
+		display none
+	.ist 
+		&__photos 
+			max-width 568px 
+			width 100%
+		&__thumb 
+			display none !important 
+	.insum
+		&__table 
+			box-shadow none 
+			tr 
+				box-shadow 0 30px 60px rgba(21,28,39,0.1)
 
 @media (max-width : 480px)
 	.page
@@ -1271,6 +1397,26 @@
 				margin-right 5px
 				width 10px
 				height 10px
+	
+	.ist
+		&__cards
+			flex-direction column 
+		&__card
+			width 100%
+		&__details
+			width 100%
+	.insum
+		&__item 
+			flex-direction column 
+		&__side
+			&-right,
+			&-left
+				width 100%
+			&-left 
+				border-radius 10px 10px 0 0
+				justify-content center 
+			&-right
+				border-radius 0 0 10px 10px 
 
 @media (max-width : 380px)
 	.main
