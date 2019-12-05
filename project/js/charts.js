@@ -672,151 +672,145 @@ $(document).ready(function () {
         arr3.push(thirdData[key]);
     }
 
-    var ctx = document.getElementById('graph3').getContext("2d");
+    var ctx = document.getElementById('graph3');
 
-    var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
-    gradientStroke.addColorStop(0, '#3f89e8');
-    gradientStroke.addColorStop(1, '#5ebafe');
+    if (ctx) {
+        ctx = document.getElementById('graph3').getContext("2d");
 
-    // var gradientFill = ctx.createLinearGradient(0, 150, 0, 0);
-    // gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
-    // gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
-
-    // var gradientFill2 = ctx.createLinearGradient(0, 300, 0, 0);
-    // gradientFill.addColorStop(0, "#9c54ee");
-    // gradientFill.addColorStop(1, "rgb(115, 189, 245)");
-
-    // var gradientFill3 = ctx.createLinearGradient(0, 200, 0, 0);
-    // gradientFill.addColorStop(0, "#fdcc60");
-    // gradientFill.addColorStop(1, "rgba(115, 189, 245, 1)");
-
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["Year 1", "Year 2", "Year 3"],
-            datasets: [
-            {
-                label: "Year 1",
-                borderColor: gradientStroke,
-                pointBorderColor: '#fff',
-                pointBackgroundColor: gradientStroke,
-                pointHoverBackgroundColor: gradientStroke,
-                pointHoverBorderColor: gradientStroke,
-                pointBorderWidth: 5,
-                pointHoverRadius: 7,
-                pointHoverBorderWidth: 1,
-                pointRadius: 10,
-                fill: true,
-                backgroundColor: 'rgba(255,255,255, .1)',
-                borderWidth: 4,
-                data: arr1,
-                lineTension: 0
+        var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
+        gradientStroke.addColorStop(0, '#3f89e8');
+        gradientStroke.addColorStop(1, '#5ebafe');
+    
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Year 1", "Year 2", "Year 3"],
+                datasets: [
+                {
+                    label: "Year 1",
+                    borderColor: gradientStroke,
+                    pointBorderColor: '#fff',
+                    pointBackgroundColor: gradientStroke,
+                    pointHoverBackgroundColor: gradientStroke,
+                    pointHoverBorderColor: gradientStroke,
+                    pointBorderWidth: 5,
+                    pointHoverRadius: 7,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 10,
+                    fill: true,
+                    backgroundColor: 'rgba(255,255,255, .1)',
+                    borderWidth: 4,
+                    data: arr1,
+                    lineTension: 0
+                },
+                {
+                    label: "Year 2",
+                    borderColor: '#9d54ee',
+                    pointBorderColor: '#fff',
+                    pointBackgroundColor: '#9d54ee',
+                    pointHoverBackgroundColor: gradientStroke,
+                    pointHoverBorderColor: gradientStroke,
+                    pointBorderWidth: 5,
+                    pointHoverRadius: 7,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 10,
+                    fill: true,
+                    backgroundColor: 'rgba(255,255,255, .1)',
+                    borderWidth: 4,
+                    data: arr2,
+                    lineTension: 0
+                },
+                {
+                    label: "Year 3",
+                    borderColor: '#fdcc60',
+                    pointBorderColor: '#fff',
+                    pointBackgroundColor: '#fdcc60',
+                    pointHoverBackgroundColor: gradientStroke,
+                    pointHoverBorderColor: gradientStroke,
+                    pointBorderWidth: 5,
+                    pointHoverRadius: 7,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 10,
+                    fill: true,
+                    backgroundColor: 'rgba(255,255,255, .1)',
+                    borderWidth: 4,
+                    data: arr3,
+                    lineTension: 0
+                }
+            ]
             },
-            {
-                label: "Year 2",
-                borderColor: '#9d54ee',
-                pointBorderColor: '#fff',
-                pointBackgroundColor: '#9d54ee',
-                pointHoverBackgroundColor: gradientStroke,
-                pointHoverBorderColor: gradientStroke,
-                pointBorderWidth: 5,
-                pointHoverRadius: 7,
-                pointHoverBorderWidth: 1,
-                pointRadius: 10,
-                fill: true,
-                backgroundColor: 'rgba(255,255,255, .1)',
-                borderWidth: 4,
-                data: arr2,
-                lineTension: 0
-            },
-            {
-                label: "Year 3",
-                borderColor: '#fdcc60',
-                pointBorderColor: '#fff',
-                pointBackgroundColor: '#fdcc60',
-                pointHoverBackgroundColor: gradientStroke,
-                pointHoverBorderColor: gradientStroke,
-                pointBorderWidth: 5,
-                pointHoverRadius: 7,
-                pointHoverBorderWidth: 1,
-                pointRadius: 10,
-                fill: true,
-                backgroundColor: 'rgba(255,255,255, .1)',
-                borderWidth: 4,
-                data: arr3,
-                lineTension: 0
-            }
-        ]
-        },
-        options: {
-            legend: {
-                display: false
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        fontColor: "#475871",
-                        fontStyle: "500",
-                        fontFamily: "AvenirNextCyr",
-                        fontSize: 16,
-                        beginAtZero: false,
-                        min: 20000,
-                        maxTicksLimit: 5,
-                        padding: 20,
-                        beginAtZero: true,
-                        stepSize: 10000,
-                        callback: function(value) {
-                            return `$ ${value}`
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: "#475871",
+                            fontStyle: "500",
+                            fontFamily: "AvenirNextCyr",
+                            fontSize: 16,
+                            beginAtZero: false,
+                            min: 20000,
+                            maxTicksLimit: 5,
+                            padding: 20,
+                            beginAtZero: true,
+                            stepSize: 10000,
+                            callback: function(value) {
+                                return `$ ${value}`
+                            },
                         },
-                    },
-                    gridLines: {
-                        drawTicks: false,
-                        display: false
-                    }
-
-                }],
-                xAxes: [{
-                    gridLines: {
-                        zeroLineColor: "rgba(217, 224, 232, .55)"
-                    },
-                    ticks: {
-                        fontColor: "#475871",
-                        fontStyle: "500",
-                        fontFamily: "AvenirNextCyr",
-                        fontSize: 16,
-                        beginAtZero: false,
-                        maxTicksLimit: 5,
-                        padding: 20,
-                    }
-                }]
-            },
-            tooltips: {
-                backgroundColor: '#fff',
-                titleFontColor: '#475871',
-                titleAlign: 'center',
-                titleFontFamily: "AvenirNextCyr",
-                titleFontStyle: "500",
-                titleFontSize: 14,
-                bodyFontColor: '#1a273a',
-                bodyFontSize: 18,
-                bodyFontFamily: "AvenirNextCyr",
-                bodyFontStyle: "700",
-                displayColors: false,
-                cornerRadius: 10,
-                xPadding: 10,
-                yPadding: 15,
-                callbacks: {
-                    title: function (tooltipItem, data) {
-                        return 'Approx'
-                    },
-                    label: function (tooltipItem, data) {
-                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        return value;
+                        gridLines: {
+                            drawTicks: false,
+                            display: false
+                        }
+    
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            zeroLineColor: "rgba(217, 224, 232, .55)"
+                        },
+                        ticks: {
+                            fontColor: "#475871",
+                            fontStyle: "500",
+                            fontFamily: "AvenirNextCyr",
+                            fontSize: 16,
+                            beginAtZero: false,
+                            maxTicksLimit: 5,
+                            padding: 20,
+                        }
+                    }]
+                },
+                tooltips: {
+                    backgroundColor: '#fff',
+                    titleFontColor: '#475871',
+                    titleAlign: 'center',
+                    titleFontFamily: "AvenirNextCyr",
+                    titleFontStyle: "500",
+                    titleFontSize: 14,
+                    bodyFontColor: '#1a273a',
+                    bodyFontSize: 18,
+                    bodyFontFamily: "AvenirNextCyr",
+                    bodyFontStyle: "700",
+                    displayColors: false,
+                    cornerRadius: 10,
+                    xPadding: 10,
+                    yPadding: 15,
+                    callbacks: {
+                        title: function (tooltipItem, data) {
+                            return 'Approx'
+                        },
+                        label: function (tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                            return value;
+                        }
                     }
                 }
             }
-        }
-    });
+        });
+    }
+
+    
 })
 
 // Altv5 Chart
@@ -832,122 +826,125 @@ $(document).ready(function () {
     for (key in secondData) {
         arr2.push(secondData[key]);
     }
-    var ctx = document.getElementById('dashboard__graph').getContext("2d");
-
-    var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
-    gradientStroke.addColorStop(0, '#3f89e8');
-    gradientStroke.addColorStop(1, '#5ebafe');
-
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["Year 1", "Year 2", "Year 3"],
-            datasets: [
-            {
-                label: "Year 1",
-                borderColor: '#fdcc60',
-                pointBorderColor: '#fff',
-                pointBackgroundColor: '#fdcc60',
-                pointHoverBackgroundColor: '#fdcc60',
-                pointHoverBorderColor: '#fdcc60',
-                pointBorderWidth: 5,
-                pointHoverRadius: 7,
-                pointHoverBorderWidth: 1,
-                pointRadius: 10,
-                fill: true,
-                backgroundColor: 'rgba(255,255,255, .1)',
-                borderWidth: 4,
-                data: arr1,
-                lineTension: 0
+    var dashboard = document.getElementById('dashboard__graph');
+    if (dashboard) {
+        dashboard = document.getElementById('dashboard__graph').getContext("2d");
+        var gradientStroke = dashboard.createLinearGradient(100, 0, 500, 0);
+        gradientStroke.addColorStop(0, '#3f89e8');
+        gradientStroke.addColorStop(1, '#5ebafe');
+    
+        var myChart = new Chart(dashboard, {
+            type: 'line',
+            data: {
+                labels: ["Year 1", "Year 2", "Year 3"],
+                datasets: [
+                {
+                    label: "Year 1",
+                    borderColor: '#fdcc60',
+                    pointBorderColor: '#fff',
+                    pointBackgroundColor: '#fdcc60',
+                    pointHoverBackgroundColor: '#fdcc60',
+                    pointHoverBorderColor: '#fdcc60',
+                    pointBorderWidth: 5,
+                    pointHoverRadius: 7,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 10,
+                    fill: true,
+                    backgroundColor: 'rgba(255,255,255, .1)',
+                    borderWidth: 4,
+                    data: arr1,
+                    lineTension: 0
+                },
+                {
+                    label: "Year 2",
+                    borderColor: '#9d54ee',
+                    pointBorderColor: '#fff',
+                    pointBackgroundColor: '#9d54ee',
+                    pointHoverBackgroundColor: '#9d54ee',
+                    pointHoverBorderColor: '#9d54ee',
+                    pointBorderWidth: 5,
+                    pointHoverRadius: 7,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 10,
+                    fill: true,
+                    backgroundColor: 'rgba(255,255,255, .1)',
+                    borderWidth: 4,
+                    data: arr2,
+                    lineTension: 0
+                }
+            ]
             },
-            {
-                label: "Year 2",
-                borderColor: '#9d54ee',
-                pointBorderColor: '#fff',
-                pointBackgroundColor: '#9d54ee',
-                pointHoverBackgroundColor: '#9d54ee',
-                pointHoverBorderColor: '#9d54ee',
-                pointBorderWidth: 5,
-                pointHoverRadius: 7,
-                pointHoverBorderWidth: 1,
-                pointRadius: 10,
-                fill: true,
-                backgroundColor: 'rgba(255,255,255, .1)',
-                borderWidth: 4,
-                data: arr2,
-                lineTension: 0
-            }
-        ]
-        },
-        options: {
-            legend: {
-                display: false
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        fontColor: "#475871",
-                        fontStyle: "500",
-                        fontFamily: "AvenirNextCyr",
-                        fontSize: 16,
-                        beginAtZero: false,
-                        min: 10000,
-                        maxTicksLimit: 5,
-                        padding: 20,
-                        beginAtZero: true,
-                        stepSize: 10000,
-                        callback: function(value) {
-                            return `$ ${value}`
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: "#475871",
+                            fontStyle: "500",
+                            fontFamily: "AvenirNextCyr",
+                            fontSize: 16,
+                            beginAtZero: false,
+                            min: 10000,
+                            maxTicksLimit: 5,
+                            padding: 20,
+                            beginAtZero: true,
+                            stepSize: 10000,
+                            callback: function(value) {
+                                return `$ ${value}`
+                            },
                         },
-                    },
-                    gridLines: {
-                        drawTicks: false,
-                        display: false
-                    }
-
-                }],
-                xAxes: [{
-                    gridLines: {
-                        zeroLineColor: "rgba(217, 224, 232, .55)"
-                    },
-                    ticks: {
-                        fontColor: "#475871",
-                        fontStyle: "500",
-                        fontFamily: "AvenirNextCyr",
-                        fontSize: 16,
-                        beginAtZero: false,
-                        maxTicksLimit: 5,
-                        padding: 20,
-                    }
-                }]
-            },
-            tooltips: {
-                backgroundColor: '#fff',
-                titleFontColor: '#475871',
-                titleAlign: 'center',
-                titleFontFamily: "AvenirNextCyr",
-                titleFontStyle: "500",
-                titleFontSize: 14,
-                bodyFontColor: '#1a273a',
-                bodyFontSize: 18,
-                bodyFontFamily: "AvenirNextCyr",
-                bodyFontStyle: "700",
-                displayColors: false,
-                cornerRadius: 10,
-                xPadding: 10,
-                yPadding: 15,
-                callbacks: {
-                    title: function (tooltipItem, data) {
-                        return 'Approx'
-                    },
-                    label: function (tooltipItem, data) {
-                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        return value;
+                        gridLines: {
+                            drawTicks: false,
+                            display: false
+                        }
+    
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            zeroLineColor: "rgba(217, 224, 232, .55)"
+                        },
+                        ticks: {
+                            fontColor: "#475871",
+                            fontStyle: "500",
+                            fontFamily: "AvenirNextCyr",
+                            fontSize: 16,
+                            beginAtZero: false,
+                            maxTicksLimit: 5,
+                            padding: 20,
+                        }
+                    }]
+                },
+                tooltips: {
+                    backgroundColor: '#fff',
+                    titleFontColor: '#475871',
+                    titleAlign: 'center',
+                    titleFontFamily: "AvenirNextCyr",
+                    titleFontStyle: "500",
+                    titleFontSize: 14,
+                    bodyFontColor: '#1a273a',
+                    bodyFontSize: 18,
+                    bodyFontFamily: "AvenirNextCyr",
+                    bodyFontStyle: "700",
+                    displayColors: false,
+                    cornerRadius: 10,
+                    xPadding: 10,
+                    yPadding: 15,
+                    callbacks: {
+                        title: function (tooltipItem, data) {
+                            return 'Approx'
+                        },
+                        label: function (tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                            return value;
+                        }
                     }
                 }
             }
-        }
-    });
+        });
+    }
+    
 })
 
 // Invest page Chart

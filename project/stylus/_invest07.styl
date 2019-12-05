@@ -1,0 +1,149 @@
+.invin
+    padding 100px 0 
+    background $gray-back
+    text-align center
+    &__wrapper 
+        display flex
+        justify-content space-between
+        margin 70px 0 50px
+    &__side
+        max-width 460px
+        width 100%
+        text-align left
+        margin-right 30px
+    &__text 
+        font-weight 500
+        font-size 16px
+        color $black
+        line-height 26px
+    &__tabs
+        display flex
+        justify-content space-between
+    &__tab 
+        padding-top 20px
+    &__links 
+        text-align center
+        margin 25px 0 0
+        .profile__links-link
+            background $white
+            font-weight 500
+            &.active
+                background $blue
+    &__group
+        &-wrapper 
+            display flex
+            justify-content space-between
+            margin 15px 0 25px
+            label 
+                width 33.3%
+                text-align center 
+                font-weight 600
+                font-size 20px
+                color $gray-4
+                line-height 20px
+                background-color $white
+                padding 15px 10px
+                &:first-child
+                    border-radius 4px 0 0 4px
+        &.jq-radio
+            display none
+            &.checked + label 
+                background-color $blue
+                color $white
+    &__input 
+        border-radius 4px
+        background-color $white
+        border none 
+        appearance none
+        font-family $default-font
+        font-weight 400
+        font-size 20px
+        line-height 20px
+        text-align center
+        width 100%
+        outline none 
+        padding 13px 20px
+        &::placeholder
+            color rgba(107, 124, 149, .5)
+        &-wrapper 
+            margin 22px 0 34px
+        &-bottom 
+            margin 15px 0 22px
+    &__card
+        &-wrapper 
+            display flex
+            justify-content space-between   
+            margin-top 15px
+            .invin__input
+                width 75%
+                border-radius 4px 0 0 4px
+    &__cards
+        display flex
+        justify-content space-between 
+        background $white 
+        padding-right 20px
+        border-radius 0 4px 4px 0
+        flex-grow 1
+        img
+            align-self center 
+            margin-right 10px   
+    &__flex
+        display flex
+        justify-content space-between
+        &-side
+            max-width 210px
+            margin 20px 0 22px
+            .invin__input
+                margin-top 15px
+            &:first-child 
+                margin-right 15px
+            &-2
+                margin 0 0 7px 0
+    &__graph
+        margin-top 10px
+        h2 
+            font-weight 600
+            font-size 42px
+            color $white
+            line-height 26px
+            padding-top 28px
+        p
+            font-weight 500
+            font-size 20px
+            color $white
+            line-height 26px
+        .calc-chart 
+            margin-top 0
+    &__return
+        background-color $blue
+        padding 95px 32px 108px
+        border-radius 10px 10px 0 0
+    &__rules
+        max-width 760px
+        margin 55px auto 0
+        text-align left
+        p
+            font-weight 400
+            font-size 14px
+            color $black
+            line-height 22px
+            margin-bottom 8px
+        .form
+            &__agree
+                label 
+                    font-weight 600
+                    font-size 14px
+                    color $blue-2
+                    line-height 26px
+            &__group
+                margin 0
+    &__btns
+        display flex
+        justify-content space-between
+        margin 70px 0 0
+        .form__submit
+            margin 0
+        .btn__cancel
+            display flex
+            justify-content center
+            align-items center 
