@@ -523,7 +523,6 @@ $(document).ready(function() {
 
 });
 
-
 // Chart.js Perfomance page. 1 canvas
 $(document).ready(function () {
     let ctx = document.getElementById('perf__graph')
@@ -653,7 +652,6 @@ $(document).ready(function () {
     }
 
 });
-
 
 // Altv5 Chart
 $(document).ready(function () {
@@ -821,7 +819,6 @@ $(document).ready(function () {
     });
 })
 
-
 // Altv5 Chart
 $(document).ready(function () {
 
@@ -952,3 +949,128 @@ $(document).ready(function () {
         }
     });
 })
+
+// Invest page Chart
+// Chart.js Main page
+$(document).ready(function () {
+    let ctx = document.getElementById('potential__chart')
+    if (ctx) {
+
+    ctx = document.getElementById('potential__chart').getContext("2d");
+
+    var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
+    gradientStroke.addColorStop(0, '#3f89e8');
+    gradientStroke.addColorStop(1, '#5ebafe');
+
+    var gradientFill = ctx.createLinearGradient(0, 200, 0, 0);
+    gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
+    gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
+            datasets: [{
+                label: "Approx",
+                borderColor: '#fdcc60',
+                pointBorderColor: '#fff',
+                pointBackgroundColor: '#fdcc60',
+                pointHoverBackgroundColor: '#fdcc60',
+                pointHoverBorderColor: '#fdcc60',
+                pointBorderWidth: 5,
+                pointHoverRadius: 7,
+                pointHoverBorderWidth: 1,
+                pointRadius: 10,
+                fill: true,
+                backgroundColor: 'rgba(253, 204, 96, .3)',
+                borderWidth: 4,
+                data: [1000, 3000, 5000, 7000, 9000, 11000, 13000, 15000],
+                lineTension: 0,
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            layout: {
+                padding: {
+                    left: 15,
+                    right: 15,
+                    top: 30,
+                    bottom: 15
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        fontColor: "#475871",
+                        fontStyle: "500",
+                        fontFamily: "AvenirNextCyr",
+                        fontSize: 14,
+                        beginAtZero: false,
+                        min: 0,
+                        stepSize: 2000,
+                        maxTicksLimit: 5,
+                        padding: 20,
+                    },
+                    gridLines: {
+                        drawTicks: false,
+                        display: false
+                    }
+
+                }],
+                xAxes: [{
+                    gridLines: {
+                        zeroLineColor: "transparent"
+                    },
+                    ticks: {
+                        fontColor: "#475871",
+                        fontStyle: "500",
+                        fontFamily: "AvenirNextCyr",
+                        fontSize: 14,
+                        beginAtZero: false,
+                        min: 0,
+                        maxTicksLimit: 5,
+                        padding: 20,
+                    }
+                }]
+            },
+            tooltips: {
+                backgroundColor: '#fff',
+                titleFontColor: '#475871',
+                titleAlign: 'center',
+                titleFontFamily: "AvenirNextCyr",
+                titleFontStyle: "500",
+                titleFontSize: 14,
+                bodyFontColor: '#1a273a',
+                bodyFontSize: 18,
+                bodyFontFamily: "AvenirNextCyr",
+                bodyFontStyle: "700",
+                displayColors: false,
+                cornerRadius: 10,
+                xPadding: 10,
+                yPadding: 15,
+                callbacks: {
+                    title: function (tooltipItem, data) {
+                        return 'Approx'
+                    },
+                    label: function (tooltipItem, data) {
+                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                        console.log(value)
+                        return value;
+                    }
+                }
+            }
+        }
+    });
+
+    let lengthData = myChart.data.datasets[0].data.length;
+    let radius = myChart.data.datasets[0].pointRadius;
+    let radiusArray = [];
+    for (let i = 0; i < lengthData; i++) {
+        radiusArray.push(radius);
+    }
+
+    }
+
+});

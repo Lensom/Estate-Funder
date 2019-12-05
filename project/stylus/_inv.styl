@@ -395,24 +395,23 @@
 
 .potential 
     background-color $gray-back
+    padding 100px 0
+    &__wrapper
+        display flex
+        justify-content space-between
+    .page__title
+        text-align center
+
 
 .calculate
-  text-align center
-  padding-bottom 20px
-  margin 100px 0
+  text-align left
+  padding 10px 0 20px
   display flex
-  justify-content space-beetween
+  justify-content space-between
   max-width 460px
-  &-wrap 
-    height 140px
-    display flex
-    flex-direction column 
-    align-items center
-  &-amount 
-    color rgba(255, 255, 255, .6)
-    font-size 14px
-    font-weight 400
-    line-height 26px
+  width 100%
+  flex-direction column 
+  margin-right 30px
   &-text 
     color #fff 
     font-weight 700
@@ -433,56 +432,32 @@
     font-size 20px
     line-height 20px
     padding 13px 15px
-  &-inner 
-    display flex
-    justify-content space-between
-    padding 0 90px
-  &-block
-    font-size 14px
-    font-weight 400
-    color #A1AFC3
-    text-align center
-    line-height 26px
-    span 
-      font-weight 700
-      font-size 25px
-      color #1a273a
-  &-btn
-    font-weight 700
-    text-decoration none
-    text-transform uppercase
-    color #fff
-    background-color black
-    width 324px
-    display inline-block
-    padding 15px
-    border-radius 10px
-    &-wrapper 
-      margin 20px 0
       
- .noUi-handle
-   background #0085FF
-   box-shadow 0 11px 19px 0 rgba(12,71,124,0.48)
-   border-radius 50%
-   border none
-   outline none
-   cursor pointer
-   &:before 
-     width 10px
-     height 10px
-     border-radius 50%
-     top 50%
-     left 50%
-     transform translate(-50%, -50%)
-   &:after
-     display none
- 
+
  .noUi-horizontal .noUi-handle
    width 30px
    height 30px
    top -9px
      
+.noUi-handle
+    background #0085FF
+    box-shadow 0 11px 19px 0 rgba(12,71,124,0.48)
+    border-radius 50%
+    border none
+    outline none
+    cursor pointer
+    &:before 
+        width 10px
+        height 10px
+        border-radius 50%
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+    &:after
+        display none
+    
  .noUi
+    
    &-target
      background #A1AFC3
      border none
@@ -496,7 +471,7 @@
        height 10px
        background $white 
     &-tooltip
-        font-weight 700
+        font-weight 600
         font-size 18px
         color $blue-2
         line-height 26px
@@ -520,3 +495,40 @@
 .calc
     &-slider
         width 100%
+        margin-top 33px
+    &-chart 
+        max-width 560px
+        margin-top 20px
+    &__value 
+        font-weight 600
+        font-size 14px
+        color $blue-2
+        line-height 26px
+        &-wrapper 
+            display flex
+            justify-content space-between
+            margin 16px 0 2px
+    &__return
+        font-weight 400
+        font-size 16px
+        color $black
+        line-height 26px
+        border-top 1px solid #e5e5e5
+        margin-top 37px
+        padding-top 30px
+        text-align center
+        &-text 
+            font-weight 600
+            font-size 22px
+            color $blue-2
+            line-height 26px
+            padding-top 12px
+    &__button
+        &-wrapper 
+            margin-top 34px
+            .btn__details
+                width 100%
+                text-align center
+
+#potential__chart
+    background $white

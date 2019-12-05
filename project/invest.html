@@ -127,18 +127,33 @@
 	<section class="potential">
 		<div class="wrapper">
 			<h2 class="page__title">Your potential earnings</h2>
-			<div class="calculate">
-				<div class="calc-slider">
-					<div class="calculate-slider">
-					<div id="slider"></div>
+			<div class="potential__wrapper">
+				<div class="calculate">
+					<h4 class="card__title">Investment Amount</h4>
+					<div class="calc-slider">
+						<div class="calculate-slider">
+						<div id="slider"></div>
+						<div class="calc__value-wrapper">
+							<div class="calc__value">$5,000</div>
+							<div class="calc__value">$500,000</div>
+						</div>
+					</div>
+						<p class="calculate-text">
+							<input type="text" placeholder="enter different amount" id="text" class="calculate-input"></input>
+						</p>
+					</div>
+					<div class="calc__return">
+						This is your return
+						<p class="calc__return-text">$57,873 - $62,338</p>
+					</div>
+					<div class="calc__button-wrapper">
+						<a href="#" class="btn btn__details">Invest Now</a>
+					</div>
+					
 				</div>
-					<p class="calculate-text">
-						<input type="text" placeholder="enter different amount" id="text" class="calculate-input"></input>
-					</p>
+				<div class="calc-chart">
+					<canvas class="potential__chart" id="potential__chart" width="560" height="418"></canvas>
 				</div>
-				<!-- <div class="calc-chart">
-					<canvas id="myChart" width="400" height="400"></canvas>
-				</div> -->
 			</div>
 		</div>
 	</section>
