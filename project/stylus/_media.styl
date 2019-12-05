@@ -178,7 +178,7 @@
 			&-item 
 				display block
 				text-align center
-				padding 15px
+				padding 15px 0 0
 				a 
 					color $white 
 		&__logotype
@@ -697,6 +697,18 @@
 				font-size 16px
 		&__btns
 			margin 45px 0 0
+	.sub-menu
+		position relative
+		opacity 1
+		visibility visible
+		top auto 
+		background transparent 
+		box-shadow none
+		padding 0
+		&:after 
+			display none
+
+
 			
 @media (max-width : 768px)
 	.main
@@ -1143,6 +1155,13 @@
 			margin-top 50px
 
 @media (max-width : 568px)
+	.header 
+		&__menu
+			&-item 
+				padding 5px 0 0
+	.sub-menu 
+		a 
+			line-height 22px
 	.main
 		&__subtitle
 			br 
