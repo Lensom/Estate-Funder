@@ -1170,6 +1170,10 @@ a {
       -ms-flex-align: center;
           align-items: center;
 }
+.header__notification {
+  z-index: 2;
+  position: relative;
+}
 .header__notification span {
   position: absolute;
   color: #fff;
@@ -1201,6 +1205,8 @@ a {
 .header__profile {
   max-width: 40px;
   max-height: 40px;
+  position: relative;
+  z-index: 2;
 }
 .header__profile img {
   max-width: 40px;
@@ -1208,6 +1214,48 @@ a {
 }
 .header__profile a {
   display: block;
+}
+.header__dash {
+  position: absolute;
+  width: 166px;
+  right: -40px;
+  top: 51px;
+  -webkit-box-shadow: 0 15px 70px rgba(14,26,41,0.21);
+          box-shadow: 0 15px 70px rgba(14,26,41,0.21);
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 2;
+  display: none;
+}
+.header__dash a {
+  font-family: "AvenirNextCyr", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #475871;
+  line-height: 34px;
+}
+.header__dash a:hover {
+  color: #3f89e8;
+}
+.header__dash ul {
+  padding: 20px 21px 18px 30px;
+}
+.header__dash ul:first-child {
+  border-bottom: 1px solid #e1e6ea;
+}
+.header__dash ul:last-child {
+  padding-top: 15px;
+}
+.header__dash:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: -5px;
+  left: 102px;
 }
 .header .icon {
   display: none;
@@ -4347,6 +4395,12 @@ body.show {
   .header__notification-link {
     margin: 0 18px;
   }
+  .header__dash {
+    right: -5px;
+  }
+  .header__dash:after {
+    left: 136px;
+  }
   .page__title {
     font-size: 32px;
     line-height: 42px;
@@ -4433,6 +4487,9 @@ body.show {
   }
 }
 @media (max-width: 998px) {
+  .show .header__menu-item {
+    padding: 15px 0 0 0;
+  }
   .btn__details {
     font-size: 18px;
     padding: 10px 30px;
@@ -4510,7 +4567,6 @@ body.show {
   .header__menu-item {
     display: block;
     text-align: center;
-    padding: 15px 0 0;
   }
   .header__menu-item a {
     color: #fff;
@@ -4525,6 +4581,9 @@ body.show {
   }
   .header__info {
     right: 20px;
+  }
+  .header__info .header__menu-item {
+    padding: 0 7px;
   }
   .header.account {
     border-bottom: none;

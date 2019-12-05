@@ -41,6 +41,10 @@
 		&__notification
 			&-link 
 				margin 0 18px
+		&__dash
+			right -5px
+			&:after
+				left 136px
 	.page
 		&__title
 			font-size 32px
@@ -120,7 +124,9 @@
 				margin-right 5px
 
 @media (max-width : 998px)
-
+	.show
+		.header__menu-item
+			padding 15px 0 0 0
 	.btn
 		&__details
 			font-size 18px
@@ -178,7 +184,6 @@
 			&-item 
 				display block
 				text-align center
-				padding 15px 0 0
 				a 
 					color $white 
 		&__logotype
@@ -189,6 +194,9 @@
 			display block
 		&__info
 			right 20px
+			.header__menu-item
+				padding 0 7px
+				
 	.header.account
 		border-bottom none
 	

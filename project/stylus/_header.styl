@@ -72,6 +72,8 @@
         margin-right 10px
         align-items center
     &__notification
+        z-index 2
+        position relative
         span
             position absolute
             color $white
@@ -91,13 +93,50 @@
             position relative
             display flex
     &__profile
+        max-width 40px
+        max-height 40px
+        position relative
+        z-index 2
+        img 
             max-width 40px
             max-height 40px
-            img 
-                max-width 40px
-                max-height 40px
-            a 
-                display block
+        a 
+            display block
+    &__dash 
+        position absolute
+        width 166px
+        right -40px
+        top 51px
+        box-shadow 0 15px 70px rgba(14, 26, 41, 0.21)
+        background-color $white
+        border-radius 10px
+        z-index 2
+        display none
+        a 
+            font-family $default-font
+            font-weight 500
+            font-size 14px
+            color $black
+            line-height 34px
+            &:hover 
+                color $blue 
+        ul 
+            padding 20px 21px 18px 30px
+            &:first-child
+                border-bottom 1px solid #e1e6ea
+            &:last-child
+                padding-top 15px
+        &:after
+            content ''
+            position absolute
+            width 10px
+            height 10px
+            background $white
+            transform rotate(45deg)
+            top -5px
+            left 102px
+
+
     .icon
         display none
 .header.account

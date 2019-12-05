@@ -376,3 +376,9 @@ if (slider) {
 $('.cc-number').formatCardNumber();
 $('.cc-expires').formatCardExpiry();
 $('.cc-cvc').formatCardCVC();
+
+// Dashboard trigger
+$('.header__profile a').on('click', function(e) {
+    e.preventDefault();
+    $('.header__dash').fadeToggle(300);
+});
