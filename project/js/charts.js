@@ -1,8 +1,14 @@
 // Chart.js Main page
 $(document).ready(function () {
+    
     let ctx = document.getElementById('myChart')
     if (ctx) {
 
+    let dataCanvas = $('#myChart').data();
+    let arrCanvas = [];
+    for (key in dataCanvas) {
+        arrCanvas.push(dataCanvas[key]);
+    }
     ctx = document.getElementById('myChart').getContext("2d");
 
     var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
@@ -27,11 +33,11 @@ $(document).ready(function () {
                 pointBorderWidth: 5,
                 pointHoverRadius: 7,
                 pointHoverBorderWidth: 1,
-                pointRadius: 10,
+                pointRadius: 8,
                 fill: true,
-                backgroundColor: gradientFill,
-                borderWidth: 4,
-                data: [20000, 23000, 32000, 35387, 40000],
+                backgroundColor: 'rgba(63, 137, 232, .25)',
+                borderWidth: 5,
+                data: arrCanvas,
                 lineTension: 0
             }]
         },
@@ -39,17 +45,26 @@ $(document).ready(function () {
             legend: {
                 display: false
             },
+            layout: {
+                padding: {
+                    top: 54,
+                }
+            },
             scales: {
                 yAxes: [{
                     ticks: {
                         fontColor: "#475871",
                         fontStyle: "500",
                         fontFamily: "AvenirNextCyr",
-                        fontSize: 14,
+                        fontSize: 16,
                         beginAtZero: false,
                         min: 10000,
-                        maxTicksLimit: 5,
+                        minTicksLimit: 6,
                         padding: 20,
+                        stepSize: 10000,
+                        callback: function(value) {
+                            return `$ ${value}`
+                        }
                     },
                     gridLines: {
                         drawTicks: false,
@@ -65,11 +80,10 @@ $(document).ready(function () {
                         fontColor: "#475871",
                         fontStyle: "500",
                         fontFamily: "AvenirNextCyr",
-                        fontSize: 14,
+                        fontSize: 18,
                         beginAtZero: false,
-                        min: 10000,
-                        maxTicksLimit: 5,
                         padding: 20,
+                        
                     }
                 }]
             },
@@ -85,22 +99,29 @@ $(document).ready(function () {
                 bodyFontFamily: "AvenirNextCyr",
                 bodyFontStyle: "700",
                 displayColors: false,
+                caretPadding: 20,
                 cornerRadius: 10,
                 xPadding: 10,
                 yPadding: 15,
+                yAlign: 'bottom',
+                xAlign: 'center',
                 callbacks: {
                     title: function (tooltipItem, data) {
                         return 'Approx'
                     },
                     label: function (tooltipItem, data) {
                         var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        console.log(value)
-                        return value;
+                        return `$${value}`;
                     }
                 }
             }
         }
     });
+
+    Chart.Tooltip.positioners.cursor = function(chartElements, coordinates) {
+        return coordinates;
+      };
+
 
     let lengthData = myChart.data.datasets[0].data.length;
     let radius = myChart.data.datasets[0].pointRadius;
@@ -152,7 +173,7 @@ $(document).ready(function () {
                     pointRadius: 10,
                     fill: true,
                     backgroundColor: 'rgba(253, 204, 96, .3)',
-                    borderWidth: 4,
+                    borderWidth: 5,
                     data: arrCanvas,
                     lineTension: 0,
                 }]
@@ -275,7 +296,7 @@ $(document).ready(function() {
                     pointRadius: 10,
                     fill: true,
                     backgroundColor: 'rgba(253, 204, 96, .3)',
-                    borderWidth: 4,
+                    borderWidth: 5,
                     data: arrCanvas,
                     lineTension: 0,
                 }]
@@ -560,8 +581,8 @@ $(document).ready(function () {
                 pointHoverBorderWidth: 1,
                 pointRadius: 10,
                 fill: true,
-                backgroundColor: gradientFill,
-                borderWidth: 4,
+                backgroundColor: 'rgba(63, 137, 232, .25)',
+                borderWidth: 5,
                 data: arrCanvas,
                 lineTension: 0
             }]
@@ -698,8 +719,8 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: 'rgba(255,255,255, .1)',
-                    borderWidth: 4,
+                    backgroundColor: '#b4caf2',
+                    borderWidth: 5,
                     data: arr1,
                     lineTension: 0
                 },
@@ -715,8 +736,8 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: 'rgba(255,255,255, .1)',
-                    borderWidth: 4,
+                    backgroundColor: 'rgba(151, 84, 238, .25)',
+                    borderWidth: 5,
                     data: arr2,
                     lineTension: 0
                 },
@@ -732,8 +753,8 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: 'rgba(255,255,255, .1)',
-                    borderWidth: 4,
+                    backgroundColor: 'rgba(253, 204, 96, .15)',
+                    borderWidth: 5,
                     data: arr3,
                     lineTension: 0
                 }
@@ -850,8 +871,8 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: 'rgba(255,255,255, .1)',
-                    borderWidth: 4,
+                    backgroundColor: 'rgba(253, 204, 96, .15)',
+                    borderWidth: 5,
                     data: arr1,
                     lineTension: 0
                 },
@@ -867,8 +888,8 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: 'rgba(255,255,255, .1)',
-                    borderWidth: 4,
+                    backgroundColor: '#d9b7ff',
+                    borderWidth: 5,
                     data: arr2,
                     lineTension: 0
                 }
@@ -948,22 +969,19 @@ $(document).ready(function () {
 })
 
 // Invest page Chart
-// Chart.js Main page
 $(document).ready(function () {
     let ctx = document.getElementById('potential__chart')
     if (ctx) {
 
+    let dataCanvas = $('#potential__chart').data();
+    let arrCanvas = [];
+    for (key in dataCanvas) {
+        arrCanvas.push(dataCanvas[key]);
+    }
+
     ctx = document.getElementById('potential__chart').getContext("2d");
 
-    var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
-    gradientStroke.addColorStop(0, '#3f89e8');
-    gradientStroke.addColorStop(1, '#5ebafe');
-
-    var gradientFill = ctx.createLinearGradient(0, 200, 0, 0);
-    gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
-    gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
-
-    var myChart = new Chart(ctx, {
+    let myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
@@ -977,11 +995,11 @@ $(document).ready(function () {
                 pointBorderWidth: 5,
                 pointHoverRadius: 7,
                 pointHoverBorderWidth: 1,
-                pointRadius: 10,
+                pointRadius: 0,
                 fill: true,
                 backgroundColor: 'rgba(253, 204, 96, .3)',
-                borderWidth: 4,
-                data: [1000, 3000, 5000, 7000, 9000, 11000, 13000, 15000],
+                borderWidth: 5,
+                data: arrCanvas,
                 lineTension: 0,
             }]
         },
@@ -1007,19 +1025,16 @@ $(document).ready(function () {
                         beginAtZero: false,
                         min: 0,
                         stepSize: 2000,
-                        maxTicksLimit: 5,
                         padding: 20,
                     },
                     gridLines: {
                         drawTicks: false,
-                        display: false
+                        display: true,
+                        drawBorder: false
                     }
 
                 }],
                 xAxes: [{
-                    gridLines: {
-                        zeroLineColor: "transparent"
-                    },
                     ticks: {
                         fontColor: "#475871",
                         fontStyle: "500",
@@ -1027,8 +1042,11 @@ $(document).ready(function () {
                         fontSize: 14,
                         beginAtZero: false,
                         min: 0,
-                        maxTicksLimit: 5,
                         padding: 20,
+                    },
+                    gridLines: {
+                        display: false,
+                        drawBorder: false
                     }
                 }]
             },
@@ -1048,25 +1066,17 @@ $(document).ready(function () {
                 xPadding: 10,
                 yPadding: 15,
                 callbacks: {
-                    title: function (tooltipItem, data) {
+                    title: function () {
                         return 'Approx'
                     },
                     label: function (tooltipItem, data) {
                         var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        console.log(value)
                         return value;
                     }
                 }
             }
         }
     });
-
-    let lengthData = myChart.data.datasets[0].data.length;
-    let radius = myChart.data.datasets[0].pointRadius;
-    let radiusArray = [];
-    for (let i = 0; i < lengthData; i++) {
-        radiusArray.push(radius);
-    }
 
     }
 

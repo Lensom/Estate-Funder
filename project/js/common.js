@@ -382,3 +382,6 @@ $('.header__profile a').on('click', function(e) {
     e.preventDefault();
     $('.header__dash').fadeToggle(300);
 });
+
+// Mask input
+$(".date").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});

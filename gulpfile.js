@@ -31,6 +31,7 @@ gulp.task('js', gulp.series(function () {
 		'project/js/charts.js',
 		'project/js/map.js',
 		'project/js/nouislider.min.js',
+		'project/js/maskinput.js',
 		'project/js/common.js',
 	])
 		.pipe(plumber())

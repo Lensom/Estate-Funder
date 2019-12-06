@@ -529,8 +529,8 @@ a {
 .plane {
   position: absolute;
   width: 73%;
-  right: -120px;
-  bottom: 35px;
+  right: -132px;
+  bottom: 37px;
 }
 .center {
   text-align: center;
@@ -1032,6 +1032,8 @@ a {
 }
 .drop__table td:last-child {
   padding-right: 40px;
+  text-align: right;
+  width: 60px;
 }
 .drop__table span {
   color: #3f89e8;
@@ -2777,6 +2779,9 @@ body.show {
   line-height: 20px;
   width: 100% !important;
 }
+.state__select.jq-selectbox .jq-selectbox__trigger-arrow {
+  right: 18px;
+}
 .state__select.jq-selectbox li {
   font-weight: 500;
   font-size: 16px;
@@ -2838,6 +2843,7 @@ body.show {
   font-size: 16px;
   color: #3f89e8;
   line-height: 26px;
+  margin-left: 12px;
 }
 .state__extra .profile__button {
   margin-top: 70px;
@@ -3876,7 +3882,7 @@ body.show {
 .calculate-input {
   background: transparent;
   border: none;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 45px;
   outline: none;
   width: 100%;
@@ -3888,6 +3894,21 @@ body.show {
   font-size: 20px;
   line-height: 20px;
   padding: 13px 15px;
+}
+.calculate-input::-webkit-input-placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.calculate-input::-moz-placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.calculate-input:-ms-input-placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.calculate-input::-ms-input-placeholder {
+  color: rgba(107,124,149,0.5);
+}
+.calculate-input::placeholder {
+  color: rgba(107,124,149,0.5);
 }
 .noUi-horizontal .noUi-handle {
   width: 30px;
@@ -5302,6 +5323,9 @@ body.show {
   .sub-menu:after {
     display: none;
   }
+  .plane {
+    bottom: 69px;
+  }
 }
 @media (max-width: 768px) {
   .main__title {
@@ -6033,6 +6057,9 @@ body.show {
   }
   .drop__table td:nth-child(2) {
     max-width: none;
+  }
+  .drop__table td:last-child {
+    width: 100%;
   }
   .drop__table p {
     max-width: calc(100% - 100px);
