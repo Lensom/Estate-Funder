@@ -55,6 +55,17 @@
         padding-right 40px
         max-width 540px
         margin-top 50px
+        position relative
+        &:before 
+            content 'AUD'
+            position absolute
+            top -55px
+            left 0
+            font-weight 600
+            font-size 18px
+            color $blue-2
+            line-height 26px
+            text-transform uppercase
     &__blocks 
         max-width 500px
         display flex

@@ -242,8 +242,11 @@ function handleFiles(files) {
 // Trigger actions table
 $(document).ready(function() {
     $('.table__toggle-trigger').on('click', function() {
-        $('.table__toggle').addClass('hidden');
+        // $('.table__toggle').addClass('hidden');
         $(this).siblings('.table__toggle').toggleClass('hidden');
+        // if ($(this).siblings('.table__toggle').not('.hidden')) {
+            // $(this).siblings('.table__toggle').addClass('hidden');
+        // }
     });
 })
 

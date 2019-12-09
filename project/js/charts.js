@@ -41,6 +41,8 @@ $(document).ready(function () {
                 lineTension: 0
             }]
         },
+        responsive: true,
+        maintainAspectRatio: false,
         options: {
             legend: {
                 display: false
@@ -136,6 +138,13 @@ $(document).ready(function () {
     myChart.data.datasets[0].pointRadius = radiusArray;
     myChart.update();
     }
+
+
+    if (window.matchMedia("(max-width: 400px)").matches) {
+        $('#myChart').height = '600px'
+        myChart.update()
+      } 
+
 
 });
 
