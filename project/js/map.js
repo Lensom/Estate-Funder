@@ -74,23 +74,23 @@ function initMap() {
     var markers = [
         {
           coords:{lat:50.4668,lng:-70.9495},
-          content:'<h1>Lynn 1</h1>'
+          content:'<h1>Lynn 1</h1>',
         },
         {
           coords:{lat:52.8584,lng:-22.9300},
-          content:'<h1>Lynn 2</h1>'
+          content:'<h1>Lynn 2</h1>',
         },
         {
           coords:{lat:42.7762,lng:-41.0773},
-          content:'<h1>Lynn 3</h1>'
+          content:'<h1>Lynn 3</h1>',
         },
         {
           coords:{lat:82.7762,lng:-41.0773},
-          content:'<h1>Lynn 4</h1>'
+          content:'<h1>Lynn 4</h1>',
         },
         {
           coords:{lat:62.7762,lng:-41.0773},
-          content:'<h1>Lynn 5</h1>'
+          content:'<h1>Lynn 5</h1>',
         }
       ];
 
@@ -103,8 +103,9 @@ function initMap() {
     function addMarker(props){
         var marker = new google.maps.Marker({
           position:props.coords,
-          map:map,
-          icon:'./img/google.png'
+          map,
+          icon:'./img/google.png',
+          labelContent: 'asd'
         });
 
         // Check for customicon

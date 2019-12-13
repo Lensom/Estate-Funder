@@ -15,7 +15,7 @@ $(document).ready(function () {
     gradientStroke.addColorStop(0, '#3f89e8');
     gradientStroke.addColorStop(1, '#5ebafe');
 
-    var gradientFill = ctx.createLinearGradient(0, 200, 0, 0);
+    var gradientFill = ctx.createLinearGradient(0, 355, 0, 0);
     gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
     gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
 
@@ -35,7 +35,7 @@ $(document).ready(function () {
                 pointHoverBorderWidth: 1,
                 pointRadius: 8,
                 fill: true,
-                backgroundColor: 'rgba(63, 137, 232, .25)',
+                backgroundColor: gradientFill,
                 borderWidth: 5,
                 data: arrCanvas,
                 lineTension: 0
@@ -61,7 +61,8 @@ $(document).ready(function () {
                         fontSize: 16,
                         beginAtZero: false,
                         min: 10000,
-                        minTicksLimit: 6,
+                        max: 50000,
+                        minTicksLimit: 10,
                         padding: 20,
                         stepSize: 10000,
                         callback: function(value) {
@@ -139,12 +140,10 @@ $(document).ready(function () {
     myChart.update();
     }
 
-
     if (window.matchMedia("(max-width: 400px)").matches) {
         $('#myChart').height = '600px'
         myChart.update()
       } 
-
 
 });
 
@@ -179,7 +178,7 @@ $(document).ready(function () {
                     pointBorderWidth: 5,
                     pointHoverRadius: 7,
                     pointHoverBorderWidth: 1,
-                    pointRadius: 10,
+                    pointRadius: 8,
                     fill: true,
                     backgroundColor: 'rgba(253, 204, 96, .3)',
                     borderWidth: 5,
@@ -244,7 +243,9 @@ $(document).ready(function () {
                             fontFamily: 'AvenirNextCyr, sans-serif',
                             fontStyle: 500,
                             min: 10000,
-                            maxTicksLimit: 5,
+                            max: 50000,
+                            minTicksLimit: 5,
+                            stepSize: 10000,
                             padding: 20,
                             callback: function(value, index, values) {
                                 return `$ ${value}`
@@ -710,6 +711,8 @@ $(document).ready(function () {
         var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
         gradientStroke.addColorStop(0, '#3f89e8');
         gradientStroke.addColorStop(1, '#5ebafe');
+
+    
     
         var myChart = new Chart(ctx, {
             type: 'line',
@@ -781,7 +784,8 @@ $(document).ready(function () {
                             fontFamily: "AvenirNextCyr",
                             fontSize: 16,
                             beginAtZero: false,
-                            min: 20000,
+                            min: 10000,
+                            max: 40000,
                             maxTicksLimit: 5,
                             padding: 20,
                             beginAtZero: true,
