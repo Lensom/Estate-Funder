@@ -109,7 +109,7 @@ $(document).ready(function () {
                 yAlign: 'bottom',
                 xAlign: 'center',
                 callbacks: {
-                    title: function (tooltipItem, data) {
+                    title: function () {
                         return 'Approx'
                     },
                     label: function (tooltipItem, data) {
@@ -121,7 +121,7 @@ $(document).ready(function () {
         }
     });
 
-    Chart.Tooltip.positioners.cursor = function(chartElements, coordinates) {
+    Chart.Tooltip.positioners.cursor = function(coordinates) {
         return coordinates;
       };
 
@@ -401,7 +401,7 @@ $(document).ready(function() {
 
 // Chart.js Perfomance page. 2 canvas
 $(document).ready(function() {
-    var bar = document.getElementById('st');
+    let bar = document.getElementById('st');
     if (bar) {
         bar = document.getElementById('st').getContext('2d');
         let dataCanvas = $('#st').data();
@@ -410,9 +410,7 @@ $(document).ready(function() {
             arrCanvas.push(dataCanvas[key]);
         }
         arrCanvas.reverse();
-        console.log(arrCanvas)
-
-        var myChart = new Chart(bar, {
+        let myChart = new Chart(bar, {
             type: 'bar',
             data: {
                 labels: ['', 'Year 1', ''],
@@ -433,8 +431,8 @@ $(document).ready(function() {
                 }],
             },
             options: {
-                
                 showAllTooltips: true,
+                hover: {mode: null},
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -445,21 +443,23 @@ $(document).ready(function() {
                             fontStyle: "500",
                             fontFamily: "AvenirNextCyr",
                             fontSize: 14,
-                            callback: function(value, index, values) {
+                            callback: function(value) {
                                 return `${value}%`
                             },
-                        }
+                        },
+                        
                     }],
                     xAxes: [{
                         gridLines: {
-                            display: false
+                            display: false,
+                            zeroLineColor: "transparent",
                         },
                         ticks: {
                         fontColor: "#475871",
                         fontStyle: "500",
                         fontFamily: "AvenirNextCyr",
                         fontSize: 18,
-                        }
+                        },
                     }]
                 },
                 legend: {
@@ -480,7 +480,7 @@ $(document).ready(function() {
                     xPadding: 12,
                     yPadding: 7,
                     callbacks: {
-                        title: function(tooltipItem, data) {
+                        title: function() {
                             return ''
                         },
                         label: function(tooltipItem, data) {
@@ -490,15 +490,19 @@ $(document).ready(function() {
                             return `${value}%`;
 
                         },
-                        labelColor: function(tooltipItem, data) {
+                        labelColor: function(tooltipItem) {
                             let color = myChart.data.datasets[tooltipItem.datasetIndex].backgroundColor;
                             let colorLable = color[tooltipItem.index + 1];
                             myChart.options.tooltips.backgroundColor = colorLable;
-                        
                             return myChart.options.tooltips.backgroundColor;
                         }
                     }
                 },
+                
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
             }
         });
 
@@ -506,8 +510,6 @@ $(document).ready(function() {
         Chart.pluginService.register({
             beforeRender: function(chart) {
                 if (chart.config.options.showAllTooltips) {
-                    // create an array of tooltips
-                    // we can't use the chart tooltip because there is only one tooltip per chart
                     chart.pluginTooltips = [];
                     chart.config.data.datasets.forEach(function(dataset, i) {
                         chart.getDatasetMeta(i).data.forEach(function(sector, j) {
@@ -521,25 +523,21 @@ $(document).ready(function() {
                         });
                     });
 
-                    // turn off normal tooltips
                     chart.options.tooltips.enabled = false;
                 }
             },
             afterDraw: function(chart, easing) {
                 if (chart.config.options.showAllTooltips) {
-                    // we don't want the permanent tooltips to animate, so don't do anything till the animation runs atleast once
                     if (!chart.allTooltipsOnce) {
                         if (easing !== 1)
                             return;
                         chart.allTooltipsOnce = true;
                     }
 
-                    // turn on tooltips
                     chart.options.tooltips.enabled = true;
                     Chart.helpers.each(chart.pluginTooltips, function(tooltip) {
                         tooltip.initialize();
                         tooltip.update();
-                        // we don't actually need this since we are not animating tooltips
                         tooltip.pivot();
                         tooltip.transition(easing).draw();
                     });
@@ -547,7 +545,6 @@ $(document).ready(function() {
                 }
             }
         });
-        // Update chart
         myChart.update();
     }
 
@@ -571,7 +568,7 @@ $(document).ready(function () {
     gradientStroke.addColorStop(0, '#3f89e8');
     gradientStroke.addColorStop(1, '#5ebafe');
 
-    var gradientFill = ctx.createLinearGradient(0, 200, 0, 0);
+    var gradientFill = ctx.createLinearGradient(0, 320, 0, 0);
     gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
     gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
 
@@ -589,9 +586,9 @@ $(document).ready(function () {
                 pointBorderWidth: 5,
                 pointHoverRadius: 7,
                 pointHoverBorderWidth: 1,
-                pointRadius: 10,
+                pointRadius: 8,
                 fill: true,
-                backgroundColor: 'rgba(63, 137, 232, .25)',
+                backgroundColor: gradientFill,
                 borderWidth: 5,
                 data: arrCanvas,
                 lineTension: 0
@@ -610,7 +607,8 @@ $(document).ready(function () {
                         fontSize: 16,
                         beginAtZero: false,
                         min: 10000,
-                        maxTicksLimit: 5,
+                        max: 50000,
+                        maxTicksLimit: 7,
                         padding: 20,
                         beginAtZero: true,
                         stepSize: 10000,
@@ -655,7 +653,7 @@ $(document).ready(function () {
                 xPadding: 10,
                 yPadding: 15,
                 callbacks: {
-                    title: function (tooltipItem, data) {
+                    title: function () {
                         return 'Approx'
                     },
                     label: function (tooltipItem, data) {
@@ -921,7 +919,7 @@ $(document).ready(function () {
                             fontSize: 16,
                             beginAtZero: false,
                             min: 10000,
-                            maxTicksLimit: 5,
+                            max: 50000,
                             padding: 20,
                             beginAtZero: true,
                             stepSize: 10000,
@@ -929,16 +927,8 @@ $(document).ready(function () {
                                 return `$ ${value}`
                             },
                         },
-                        gridLines: {
-                            drawTicks: false,
-                            display: false
-                        }
-    
                     }],
                     xAxes: [{
-                        gridLines: {
-                            zeroLineColor: "rgba(217, 224, 232, .55)"
-                        },
                         ticks: {
                             fontColor: "#475871",
                             fontStyle: "500",
@@ -947,7 +937,11 @@ $(document).ready(function () {
                             beginAtZero: false,
                             maxTicksLimit: 5,
                             padding: 20,
-                        }
+                        },
+                        gridLines: {
+                            display: false,
+                            zeroLineColor: "transparent",
+                        },
                     }]
                 },
                 tooltips: {
@@ -966,7 +960,7 @@ $(document).ready(function () {
                     xPadding: 10,
                     yPadding: 15,
                     callbacks: {
-                        title: function (tooltipItem, data) {
+                        title: function () {
                             return 'Approx'
                         },
                         label: function (tooltipItem, data) {
@@ -1037,8 +1031,13 @@ $(document).ready(function () {
                         fontSize: 14,
                         beginAtZero: false,
                         min: 0,
+                        max: 16000,
                         stepSize: 2000,
                         padding: 20,
+                        callback: function(label) {
+                            return Intl.NumberFormat('hi', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                            .format(label).replace(/^(\D+)/, '$1 ');
+                        },
                     },
                     gridLines: {
                         drawTicks: false,
