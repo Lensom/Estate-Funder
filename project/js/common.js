@@ -256,7 +256,6 @@ $('.profile__links-link').on('click', function() {
 });
 
 
-
 // RANGE SLIDER
 let slider = document.getElementById('slider');
 let background = document.querySelector('.calculate-top');
@@ -273,20 +272,20 @@ if (slider) {
             'min': 5000,
             'max': 500000
         },
-        step: 5000,
+        step: 1000,
         format: {
           from: function(value) {
                 return Math.round(+value);
             },
           to: function(value) {
-                return Math.round(+value);
+                return `$${Math.round(+value)}`;
             }
         },
         tooltips: true
     });
     
     slider.noUiSlider.on('update', function (values, handle) {
-        inputs[handle].value = values[handle];
+        inputs[handle].value = values[handle].substr(1);
     })
     
     slider.noUiSlider.on('update', function (values, handle) {
@@ -304,36 +303,22 @@ if (slider) {
             var values = slider.noUiSlider.get();
             var value = Number(values[handle]);
     
-            // [[handle0_down, handle0_up], [handle1_down, handle1_up]]
             var steps = slider.noUiSlider.steps();
     
-            // [down, up]
             var step = steps[handle];
     
             var position;
-    
-            // 13 is enter,
-            // 38 is key up,
-            // 40 is key down.
             switch (e.which) {
-    
                 case 13:
-                    stepsSlider.noUiSlider.setHandle(handle, this.value);
+                    slider.noUiSlider.setHandle(handle, this.value);
                     break;
-    
                 case 38:
-    
-                    // Get step to go increase slider value (up)
                     position = step[1];
-    
-                    // false = no step is set
                     if (position === false) {
                         position = 1;
                     }
-    
-                    // null = edge of slider
                     if (position !== null) {
-                        stepsSlider.noUiSlider.setHandle(handle, value + position);
+                        slider.noUiSlider.setHandle(handle, value + position);
                     }
     
                     break;
@@ -341,13 +326,11 @@ if (slider) {
                 case 40:
     
                     position = step[0];
-    
                     if (position === false) {
                         position = 1;
                     }
-    
                     if (position !== null) {
-                        stepsSlider.noUiSlider.setHandle(handle, value - position);
+                        slider.noUiSlider.setHandle(handle, value - position);
                     }
     
                     break;

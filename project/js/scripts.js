@@ -611,6 +611,9 @@ $(document).ready(function () {
             legend: {
                 display: false
             },
+            layout: {
+                left: 1
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -625,8 +628,9 @@ $(document).ready(function () {
                         padding: 20,
                         beginAtZero: true,
                         stepSize: 10000,
-                        callback: function(value) {
-                            return `$ ${value}`
+                        callback: function(label) {
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                            .format(label).replace(/^(\D+)/, '$1');
                         },
                     },
                     gridLines: {
@@ -637,13 +641,14 @@ $(document).ready(function () {
                 }],
                 xAxes: [{
                     gridLines: {
-                        zeroLineColor: "transparent"
+                        zeroLineColor: "transparent",
+                        color: '#e4e9ef'
                     },
                     ticks: {
                         fontColor: "#475871",
                         fontStyle: "500",
                         fontFamily: "AvenirNextCyr",
-                        fontSize: 16,
+                        fontSize: 18,
                         beginAtZero: false,
                         maxTicksLimit: 5,
                         padding: 20,
@@ -671,7 +676,6 @@ $(document).ready(function () {
                     },
                     label: function (tooltipItem, data) {
                         var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        console.log(value)
                         return value;
                     }
                 }
@@ -714,18 +718,20 @@ $(document).ready(function () {
         arr3.push(thirdData[key]);
     }
 
-    var ctx = document.getElementById('graph3');
+    let ctx = document.getElementById('graph3');
 
     if (ctx) {
         ctx = document.getElementById('graph3').getContext("2d");
 
-        var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
+        let gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
         gradientStroke.addColorStop(0, '#3f89e8');
         gradientStroke.addColorStop(1, '#5ebafe');
 
+        let gradientFill = ctx.createLinearGradient(0, 355, 0, 0);
+        gradientFill.addColorStop(0, "rgba(115, 189, 245, 1)");
+        gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
     
-    
-        var myChart = new Chart(ctx, {
+        new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ["Year 1", "Year 2", "Year 3"],
@@ -742,7 +748,7 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: '#b4caf2',
+                    backgroundColor: 'rgba(115, 189, 245, .6)',
                     borderWidth: 5,
                     data: arr1,
                     lineTension: 0
@@ -787,6 +793,9 @@ $(document).ready(function () {
                 legend: {
                     display: false
                 },
+                layout: {
+                    left: 1
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -801,8 +810,9 @@ $(document).ready(function () {
                             padding: 20,
                             beginAtZero: true,
                             stepSize: 10000,
-                            callback: function(value) {
-                                return `$ ${value}`
+                            callback: function(label) {
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                                .format(label).replace(/^(\D+)/, '$1');
                             },
                         },
                         gridLines: {
@@ -877,6 +887,13 @@ $(document).ready(function () {
         var gradientStroke = dashboard.createLinearGradient(100, 0, 500, 0);
         gradientStroke.addColorStop(0, '#3f89e8');
         gradientStroke.addColorStop(1, '#5ebafe');
+
+        let gradientFill = dashboard.createLinearGradient(0, 1050, 0, 0);
+            gradientFill.addColorStop(0, "rgba(188, 130, 255, 1)");
+            gradientFill.addColorStop(1, "rgba(225, 197, 255, 1)");
+        let gradientFill2 = dashboard.createRadialGradient(0,0,1,0,0,150);
+            gradientFill2.addColorStop(0, "rgba(253, 204, 96, .01)");
+            gradientFill2.addColorStop(1, "rgba(253, 204, 96, .25");
     
         var myChart = new Chart(dashboard, {
             type: 'line',
@@ -893,9 +910,9 @@ $(document).ready(function () {
                     pointBorderWidth: 5,
                     pointHoverRadius: 7,
                     pointHoverBorderWidth: 1,
-                    pointRadius: 10,
+                    pointRadius: 8,
                     fill: true,
-                    backgroundColor: 'rgba(253, 204, 96, .15)',
+                    backgroundColor: gradientFill2,
                     borderWidth: 5,
                     data: arr1,
                     lineTension: 0
@@ -910,9 +927,9 @@ $(document).ready(function () {
                     pointBorderWidth: 5,
                     pointHoverRadius: 7,
                     pointHoverBorderWidth: 1,
-                    pointRadius: 10,
+                    pointRadius: 8,
                     fill: true,
-                    backgroundColor: '#d9b7ff',
+                    backgroundColor: '#bc82ff',
                     borderWidth: 5,
                     data: arr2,
                     lineTension: 0
@@ -922,6 +939,9 @@ $(document).ready(function () {
             options: {
                 legend: {
                     display: false
+                },
+                layout: {
+                    left: 1
                 },
                 scales: {
                     yAxes: [{
@@ -936,8 +956,9 @@ $(document).ready(function () {
                             padding: 20,
                             beginAtZero: true,
                             stepSize: 10000,
-                            callback: function(value) {
-                                return `$ ${value}`
+                            callback: function(label) {
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                                .format(label).replace(/^(\D+)/, '$1');
                             },
                         },
                     }],
@@ -970,16 +991,21 @@ $(document).ready(function () {
                     bodyFontStyle: "700",
                     displayColors: false,
                     cornerRadius: 10,
-                    xPadding: 10,
+                    xPadding: 25,
                     yPadding: 15,
                     callbacks: {
                         title: function () {
                             return 'Approx'
                         },
-                        label: function (tooltipItem, data) {
-                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                            return value;
-                        }
+                        // label: function (tooltipItem, data) {
+                        //     var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                        //     return `$${value}`;
+                        // },
+                        label: function(tooltipItem, data) {
+                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                            .format(value).replace(/^(\D+)/, '$1');
+                        },
                     }
                 }
             }
@@ -1029,10 +1055,10 @@ $(document).ready(function () {
             },
             layout: {
                 padding: {
-                    left: 15,
-                    right: 15,
+                    left: 30,
+                    right: 30,
                     top: 30,
-                    bottom: 15
+                    bottom: 5
                 }
             },
             scales: {
@@ -1048,14 +1074,15 @@ $(document).ready(function () {
                         stepSize: 2000,
                         padding: 20,
                         callback: function(label) {
-                            return Intl.NumberFormat('hi', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                            .format(label).replace(/^(\D+)/, '$1 ');
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                            .format(label).replace(/^(\D+)/, '$1');
                         },
                     },
                     gridLines: {
                         drawTicks: false,
                         display: true,
-                        drawBorder: false
+                        drawBorder: false,
+                        color: 'rgba(0,0,0,.05)'
                     }
 
                 }],
@@ -1071,7 +1098,7 @@ $(document).ready(function () {
                     },
                     gridLines: {
                         display: false,
-                        drawBorder: false
+                        drawBorder: false,
                     }
                 }]
             },
@@ -1944,7 +1971,6 @@ $('.profile__links-link').on('click', function() {
 });
 
 
-
 // RANGE SLIDER
 let slider = document.getElementById('slider');
 let background = document.querySelector('.calculate-top');
@@ -1961,20 +1987,20 @@ if (slider) {
             'min': 5000,
             'max': 500000
         },
-        step: 5000,
+        step: 1000,
         format: {
           from: function(value) {
                 return Math.round(+value);
             },
           to: function(value) {
-                return Math.round(+value);
+                return `$${Math.round(+value)}`;
             }
         },
         tooltips: true
     });
     
     slider.noUiSlider.on('update', function (values, handle) {
-        inputs[handle].value = values[handle];
+        inputs[handle].value = values[handle].substr(1);
     })
     
     slider.noUiSlider.on('update', function (values, handle) {
@@ -1992,36 +2018,22 @@ if (slider) {
             var values = slider.noUiSlider.get();
             var value = Number(values[handle]);
     
-            // [[handle0_down, handle0_up], [handle1_down, handle1_up]]
             var steps = slider.noUiSlider.steps();
     
-            // [down, up]
             var step = steps[handle];
     
             var position;
-    
-            // 13 is enter,
-            // 38 is key up,
-            // 40 is key down.
             switch (e.which) {
-    
                 case 13:
-                    stepsSlider.noUiSlider.setHandle(handle, this.value);
+                    slider.noUiSlider.setHandle(handle, this.value);
                     break;
-    
                 case 38:
-    
-                    // Get step to go increase slider value (up)
                     position = step[1];
-    
-                    // false = no step is set
                     if (position === false) {
                         position = 1;
                     }
-    
-                    // null = edge of slider
                     if (position !== null) {
-                        stepsSlider.noUiSlider.setHandle(handle, value + position);
+                        slider.noUiSlider.setHandle(handle, value + position);
                     }
     
                     break;
@@ -2029,13 +2041,11 @@ if (slider) {
                 case 40:
     
                     position = step[0];
-    
                     if (position === false) {
                         position = 1;
                     }
-    
                     if (position !== null) {
-                        stepsSlider.noUiSlider.setHandle(handle, value - position);
+                        slider.noUiSlider.setHandle(handle, value - position);
                     }
     
                     break;

@@ -1803,6 +1803,9 @@ body.show {
 .choose__type .card__subtitle {
   margin-bottom: 10px;
 }
+.choose__btn {
+  margin-bottom: 30px;
+}
 .invest__types {
   padding: 100px 0 0;
 }
@@ -2688,11 +2691,11 @@ body.show {
   display: -ms-flexbox;
   display: flex;
   margin-top: -80px;
-  margin-right: 140px;
+  margin-right: 135px;
 }
 .cont .card__title {
   line-height: 34px;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .cont .page__text {
   margin-top: 22px;
@@ -4061,6 +4064,55 @@ body.show {
   width: 100%;
   text-align: center;
 }
+.calc-title {
+  text-align: center;
+  background: #fff;
+  font-family: "AvenirNextCyr", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1a273a;
+  line-height: 26px;
+  padding-top: 24px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.calc-series {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #fff;
+  width: 100%;
+  padding-left: 130px;
+  padding-bottom: 40px;
+}
+.calc-seria {
+  font-family: "AvenirNextCyr", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1a273a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 30px;
+}
+.calc-seria span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 #potential__chart {
   background: #fff;
 }
@@ -4737,6 +4789,9 @@ body.show {
   }
   .choose__body {
     padding: 25px 15px 20px;
+  }
+  .choose__btn {
+    margin-bottom: 0;
   }
   .sign__wrapper {
     padding: 95px 0 60px;
@@ -6403,6 +6458,12 @@ body.show {
   }
   .calc-chart {
     margin-top: 38px;
+  }
+  .calc-series {
+    padding: 0 0 20px 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .invin__links .profile__links-link {
     font-size: 14px;
