@@ -342,7 +342,7 @@ a {
 }
 .btn__started {
   display: inline-block;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   color: #fff;
   line-height: 20px;
@@ -380,7 +380,7 @@ a {
   background: #3f89e8;
 }
 .btn__login {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   color: #6b7c95;
   line-height: 20px;
@@ -4298,6 +4298,9 @@ body.show {
   font-size: 20px;
   color: #fff;
   line-height: 26px;
+}
+.invin__graph .calc-title {
+  color: #1a273a;
 }
 .invin__graph .calc-chart {
   margin-top: 0;

@@ -65,13 +65,14 @@ $(document).ready(function () {
                         minTicksLimit: 10,
                         padding: 20,
                         stepSize: 10000,
-                        callback: function(value) {
-                            return `$ ${value}`
-                        }
+                        callback: function(label) {
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                            .format(label).replace(/^(\D+)/, '$1');
+                        },
                     },
                     gridLines: {
                         drawTicks: false,
-                        display: false
+                        display: false,
                     }
 
                 }],
@@ -431,8 +432,11 @@ $(document).ready(function() {
                 }],
             },
             options: {
+                events: ['hover'],
                 showAllTooltips: true,
-                hover: {mode: null},
+                onHover: function() {
+                    return false
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -558,21 +562,22 @@ $(document).ready(function () {
 
     let dataCanvas = $('#perf__graph').data();
     let arrCanvas = [];
+
     for (key in dataCanvas) {
         arrCanvas.push(dataCanvas[key]);
     }
 
     ctx = document.getElementById('perf__graph').getContext("2d");
 
-    var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
-    gradientStroke.addColorStop(0, '#3f89e8');
-    gradientStroke.addColorStop(1, '#5ebafe');
+    let gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
+        gradientStroke.addColorStop(0, '#3f89e8');
+        gradientStroke.addColorStop(1, '#5ebafe');
 
-    var gradientFill = ctx.createLinearGradient(0, 320, 0, 0);
-    gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
-    gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
+    let gradientFill = ctx.createLinearGradient(0, 320, 0, 0);
+        gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
+        gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
 
-    var myChart = new Chart(ctx, {
+    new Chart(ctx, {
         type: 'line',
         data: {
             labels: ["", "Year 1", "Year 2", "Year 3", ""],
@@ -711,12 +716,12 @@ $(document).ready(function () {
         ctx = document.getElementById('graph3').getContext("2d");
 
         let gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
-        gradientStroke.addColorStop(0, '#3f89e8');
-        gradientStroke.addColorStop(1, '#5ebafe');
+            gradientStroke.addColorStop(0, '#3f89e8');
+            gradientStroke.addColorStop(1, '#5ebafe');
 
-        let gradientFill = ctx.createLinearGradient(0, 355, 0, 0);
-        gradientFill.addColorStop(0, "rgba(115, 189, 245, 1)");
-        gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
+        let gradientFill = ctx.createLinearGradient(0, 25, 0, 0);
+            gradientFill.addColorStop(0, "rgba(115, 189, 245, .8)");
+            gradientFill.addColorStop(1, "rgba(63, 137, 232, .1)");
     
         new Chart(ctx, {
             type: 'line',
@@ -735,7 +740,7 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: 'rgba(115, 189, 245, .6)',
+                    backgroundColor: gradientFill,
                     borderWidth: 5,
                     data: arr1,
                     lineTension: 0
@@ -769,7 +774,7 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: 'rgba(253, 204, 96, .15)',
+                    backgroundColor: 'rgba(253, 204, 96, .13)',
                     borderWidth: 5,
                     data: arr3,
                     lineTension: 0
@@ -816,7 +821,7 @@ $(document).ready(function () {
                             fontColor: "#475871",
                             fontStyle: "500",
                             fontFamily: "AvenirNextCyr",
-                            fontSize: 16,
+                            fontSize: 18,
                             beginAtZero: false,
                             maxTicksLimit: 5,
                             padding: 20,
@@ -1034,6 +1039,23 @@ $(document).ready(function () {
                 borderWidth: 5,
                 data: arrCanvas,
                 lineTension: 0,
+            },
+            {
+                label: "Approx",
+                borderColor: '#9d54ee',
+                pointBorderColor: '#fff',
+                pointBackgroundColor: '#fdcc60',
+                pointHoverBackgroundColor: '#fdcc60',
+                pointHoverBorderColor: '#fdcc60',
+                pointBorderWidth: 5,
+                pointHoverRadius: 7,
+                pointHoverBorderWidth: 1,
+                pointRadius: 0,
+                fill: true,
+                backgroundColor: '#9d54ee',
+                borderWidth: 5,
+                data: [0,0,0,0,0,0,0,0],
+                lineTension: 0,
             }]
         },
         options: {
@@ -1061,7 +1083,7 @@ $(document).ready(function () {
                         stepSize: 2000,
                         padding: 20,
                         callback: function(label) {
-                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
                             .format(label).replace(/^(\D+)/, '$1');
                         },
                     },
