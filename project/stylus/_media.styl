@@ -126,6 +126,10 @@
 		&__table 
 			td 
 				font-size 20px
+	.doc
+		&__table
+			td 
+				font-size 16px
 	.insum
 		.page
 			&__text
@@ -1200,6 +1204,11 @@
 	.start
 		.btn__start
 			text-align center
+	.table
+		&__toggle 
+			left 0
+			&:after 
+				left 86%
 
 @media (max-width : 568px)
 	.header 
@@ -1319,17 +1328,7 @@
 				width 100%
 		p
 			max-width calc(100% - 100px)
-			margin 0 0 0 auto
-	.table__toggle
-		left auto 
-		right 0
-		tr
-			display flex
-		td 
-			display inline-block
-			&:last-child
-				margin-left 10px
-		
+			margin 0 0 0 auto		
 	.news
 		&__bottom
 			.news__item
@@ -1410,6 +1409,10 @@
 			box-shadow none 
 			tr 
 				box-shadow 0 30px 60px rgba(21,28,39,0.1)
+	.table
+		&__toggle
+			left auto 
+			right -59px
 
 @media (max-width : 480px)
 	.page
@@ -1583,6 +1586,9 @@
 	.perfomance
 		&__year
 			margin-left 10px
+	.table
+		&__toggle 
+			right -54px
 
 @media (max-width : 380px)
 	.main

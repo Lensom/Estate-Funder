@@ -759,21 +759,34 @@ a
     &__toggle
         position absolute
         z-index 1
-        left -100%
-        td 
+        left 50%
+        transform translateX(-50%)
+        box-shadow 0 15px 70px rgba(14, 26, 41, 0.21)
+        border-radius 10px
+        display flex
+        flex-direction column 
+        justify-content flex-start
+        background $white 
+        padding 14px 20px
+        &:after 
+            content ''
+            position absolute
+            top -1px
+            left 50%
+            transform rotate(45deg) translateX(-50%)
+            width 12px
+            height 12px
+            background $white
+            border-radius 2px
+        a 
             font-size 14px
-            padding 0 !important
-            border 1px solid $gray
-            border-radius 10px
-            a 
-                display block
-                padding 5px 10px 
-                color $black
-                &:hover
-                    color #52af56
-            &:last-child
-                a:hover
-                    color red
+            padding 0
+            display block
+            padding 5px 10px 
+            color $black
+            text-align left
+            &:hover
+                color $blue
         &-trigger 
             cursor pointer
 

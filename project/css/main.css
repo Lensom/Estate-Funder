@@ -1050,24 +1050,47 @@ a {
 .table__toggle {
   position: absolute;
   z-index: 1;
-  left: -100%;
-}
-.table__toggle td {
-  font-size: 14px;
-  padding: 0 !important;
-  border: 1px solid #7586a0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-box-shadow: 0 15px 70px rgba(14,26,41,0.21);
+          box-shadow: 0 15px 70px rgba(14,26,41,0.21);
   border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background: #fff;
+  padding: 14px 20px;
 }
-.table__toggle td a {
+.table__toggle:after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  -webkit-transform: rotate(45deg) translateX(-50%);
+          transform: rotate(45deg) translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 2px;
+}
+.table__toggle a {
+  font-size: 14px;
+  padding: 0;
   display: block;
   padding: 5px 10px;
   color: #475871;
+  text-align: left;
 }
-.table__toggle td a:hover {
-  color: #52af56;
-}
-.table__toggle td:last-child a:hover {
-  color: #f00;
+.table__toggle a:hover {
+  color: #3f89e8;
 }
 .table__toggle-trigger {
   cursor: pointer;
@@ -4603,6 +4626,9 @@ body.show {
   .drop__table td {
     font-size: 20px;
   }
+  .doc__table td {
+    font-size: 16px;
+  }
   .insum .page__text {
     font-size: 16px;
   }
@@ -6078,6 +6104,12 @@ body.show {
   .start .btn__start {
     text-align: center;
   }
+  .table__toggle {
+    left: 0;
+  }
+  .table__toggle:after {
+    left: 86%;
+  }
 }
 @media (max-width: 568px) {
   .header__menu-item {
@@ -6215,21 +6247,6 @@ body.show {
     max-width: calc(100% - 100px);
     margin: 0 0 0 auto;
   }
-  .table__toggle {
-    left: auto;
-    right: 0;
-  }
-  .table__toggle tr {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .table__toggle td {
-    display: inline-block;
-  }
-  .table__toggle td:last-child {
-    margin-left: 10px;
-  }
   .news__bottom .news__item {
     width: 100%;
     padding-right: 0;
@@ -6322,6 +6339,10 @@ body.show {
   .insum__table tr {
     -webkit-box-shadow: 0 30px 60px rgba(21,28,39,0.1);
             box-shadow: 0 30px 60px rgba(21,28,39,0.1);
+  }
+  .table__toggle {
+    left: auto;
+    right: -59px;
   }
 }
 @media (max-width: 480px) {
@@ -6530,6 +6551,9 @@ body.show {
   }
   .perfomance__year {
     margin-left: 10px;
+  }
+  .table__toggle {
+    right: -54px;
   }
 }
 @media (max-width: 380px) {
