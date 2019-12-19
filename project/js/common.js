@@ -278,34 +278,32 @@ if (slider) {
                 return Math.round(+value);
             },
           to: function(value) {
-                return `$${Math.round(+value)}`;
+                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                .format(value).replace(/^(\D+)/, '$1');
             }
         },
         tooltips: true
     });
     
     slider.noUiSlider.on('update', function (values, handle) {
-        inputs[handle].value = values[handle].substr(1);
-    })
-    
-    slider.noUiSlider.on('update', function (values, handle) {
         value.innerHTML = values[handle];
     });
-    
+
+    slider.noUiSlider.on('change', function(values) {
+        let amount = values[0];
+        let v = amount.replace(/\.|,/g, "");
+        let s = v.substring(0, v.length -2);
+        let k = s.substr(1);
+
+        $(value).val(k)
+    });
+
     inputs.forEach(function(input, handle) {
-    
-        input.addEventListener('change', function() {
-            slider.noUiSlider.setHandle(handle, this.value);
-        });
-    
-        input.addEventListener('keydown', function(e) {
-    
-            var values = slider.noUiSlider.get();
-            var value = Number(values[handle]);
-    
-            var steps = slider.noUiSlider.steps();
-    
-            var step = steps[handle];
+        input.addEventListener('keyup', function(e) {
+            let input = e.target.value;
+            let k = input.replace(/\./g, "");
+            let v = k.replace(/,/g, "");
+            slider.noUiSlider.set(v);
     
             var position;
             switch (e.which) {

@@ -707,6 +707,9 @@ a {
 .form__address {
   margin-top: 62px;
 }
+.form__addm .form__input {
+  margin-bottom: 14px;
+}
 .jq-selectbox {
   margin-top: 14px;
   width: 100%;
@@ -4597,6 +4600,18 @@ body.show {
     width: 20px;
     margin-right: 5px;
   }
+  .drop__table td {
+    font-size: 20px;
+  }
+  .insum .page__text {
+    font-size: 16px;
+  }
+  .insum .page__subtitle {
+    font-size: 20px;
+  }
+  .insum__side {
+    font-size: 20px;
+  }
 }
 @media (max-width: 998px) {
   .show .header__menu-item {
@@ -4682,6 +4697,9 @@ body.show {
   }
   .header__menu-item a {
     color: #fff;
+  }
+  .header__menu-item a:hover {
+    color: #1a273a;
   }
   .header__logotype {
     position: relative;
@@ -5069,6 +5087,7 @@ body.show {
         -ms-flex-align: center;
             align-items: center;
     padding: 0;
+    width: 100%;
   }
   .str__numb {
     position: relative;
@@ -6101,6 +6120,12 @@ body.show {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    margin-bottom: 15px;
+  }
+  .perfomance__item:nth-child(1),
+  .perfomance__item:nth-child(2),
+  .perfomance__item:nth-child(3) {
+    width: 33.3%;
   }
   .p-avg {
     margin-right: 15px;
@@ -6411,8 +6436,17 @@ body.show {
   .about__text {
     padding-bottom: 250px;
   }
+  .about__image {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    bottom: -25px;
+    padding: 0 20px;
+  }
   .about__image img {
-    width: 290px;
+    width: 100%;
+    margin: 0 auto;
   }
   .returns__graph-text p {
     font-size: 14px;
@@ -6493,6 +6527,9 @@ body.show {
   }
   .type__wrapper {
     padding: 40px 15px;
+  }
+  .perfomance__year {
+    margin-left: 10px;
   }
 }
 @media (max-width: 380px) {
@@ -6593,5 +6630,11 @@ body.show {
   }
   .invin__return {
     padding: 22px 25px 36px;
+  }
+  .about__image {
+    bottom: 0;
+  }
+  .company__form .form__group {
+    margin: 0 45px 0 0;
   }
 }

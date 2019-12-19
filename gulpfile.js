@@ -7,7 +7,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 var stylus = require('gulp-stylus');
 var cleanCSS = require('gulp-clean-css');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var imagemin = require('gulp-tinypng');
 
 gulp.task('browser-sync', () => {

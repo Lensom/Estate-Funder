@@ -122,6 +122,18 @@
 			img 
 				width 20px
 				margin-right 5px
+	.drop 
+		&__table 
+			td 
+				font-size 20px
+	.insum
+		.page
+			&__text
+				font-size 16px
+			&__subtitle 
+				font-size 20px
+		&__side 
+			font-size 20px
 
 @media (max-width : 998px)
 	.show
@@ -185,7 +197,9 @@
 				display block
 				text-align center
 				a 
-					color $white 
+					color $white
+					&:hover 
+						color $blue-2
 		&__logotype
 			position relative
 			margin-left 40px
@@ -485,6 +499,7 @@
 			flex-direction column
 			align-items center 
 			padding 0
+			width 100%
 		&__numb
 			position relative 
 			margin-bottom 30px
@@ -1227,6 +1242,11 @@
 		&__item
 			width 50%
 			justify-content flex-start
+			margin-bottom 15px
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(3)
+				width 33.3%
 	.p-avg
 		margin-right 15px
 	
@@ -1319,7 +1339,6 @@
 				max-width 400px
 				h2 
 					margin 10px 0 0
-	.news
 		&__item
 			h3 
 				font-size 16px
@@ -1492,8 +1511,13 @@
 		&__text 
 			padding-bottom 250px
 		&__image 
+			width 100%
+			display flex
+			bottom -25px
+			padding 0 20px
 			img 
-				width 290px
+				width 100%
+				margin 0 auto 
 	.returns
 		&__graph-text
 			p 
@@ -1556,6 +1580,9 @@
 		padding 40px 0
 		&__wrapper
 			padding 40px 15px
+	.perfomance
+		&__year
+			margin-left 10px
 
 @media (max-width : 380px)
 	.main
@@ -1650,3 +1677,10 @@
 				font-size 14px
 		&__return
 			padding 22px 25px 36px
+	.about 
+		&__image 
+			bottom 0
+	.company
+		&__form
+			.form__group
+				margin 0 45px 0 0

@@ -11,13 +11,13 @@ $(document).ready(function () {
     }
     ctx = document.getElementById('myChart').getContext("2d");
 
-    var gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
-    gradientStroke.addColorStop(0, '#3f89e8');
-    gradientStroke.addColorStop(1, '#5ebafe');
+    let gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
+        gradientStroke.addColorStop(0, '#3f89e8');
+        gradientStroke.addColorStop(1, '#5ebafe');
 
-    var gradientFill = ctx.createLinearGradient(0, 355, 0, 0);
-    gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
-    gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
+    let gradientFill = ctx.createLinearGradient(0, 355, 0, 0);
+        gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
+        gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
 
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -50,6 +50,7 @@ $(document).ready(function () {
             layout: {
                 padding: {
                     top: 54,
+                    left: 5
                 }
             },
             scales: {
@@ -66,7 +67,7 @@ $(document).ready(function () {
                         padding: 20,
                         stepSize: 10000,
                         callback: function(label) {
-                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                             .format(label).replace(/^(\D+)/, '$1');
                         },
                     },
@@ -110,12 +111,11 @@ $(document).ready(function () {
                 yAlign: 'bottom',
                 xAlign: 'center',
                 callbacks: {
-                    title: function () {
-                        return 'Approx'
-                    },
+                    title: () => 'Approx',
                     label: function (tooltipItem, data) {
-                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        return `$${value}`;
+                        let value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                        .format(value).replace(/^(\D+)/, '$1');
                     }
                 }
             }
@@ -220,17 +220,13 @@ $(document).ready(function () {
                     bodyFontSize: 18,
                     bodyFontStyle: 500,
                     callbacks: {
-                        title: function(tooltipItem, data) {
-                            console.log(data);
-                            return 'Approx'
-                        },
+                        title: () => 'Approx',
                         label: function(tooltipItem, data) {
                             myChart.data.datasets[tooltipItem.datasetIndex].backgroundColor;
-                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        
-                            return `$ ${value}`;
-    
-                        }
+                            let value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                            .format(value).replace(/^(\D+)/, '$1');
+                        },
                     }
                 },
                 scales: {
@@ -248,8 +244,9 @@ $(document).ready(function () {
                             minTicksLimit: 5,
                             stepSize: 10000,
                             padding: 20,
-                            callback: function(value, index, values) {
-                                return `$ ${value}`
+                            callback: function(label) {
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                .format(label).replace(/^(\D+)/, '$1');
                             },
                         },
                         gridLines: {
@@ -265,7 +262,7 @@ $(document).ready(function () {
                         },
                         ticks: {
                             padding: 20,
-                            fontSize: 16,
+                            fontSize: 18,
                             fontColor: '#475871',
                             fontFamily: 'AvenirNextCyr, sans-serif',
                             fontStyle: 500,
@@ -371,8 +368,9 @@ $(document).ready(function() {
                             min: 10000,
                             maxTicksLimit: 5,
                             padding: 20,
-                            callback: function(value, index, values) {
-                                return `$ ${value}`
+                            callback: function(label) {
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                .format(label).replace(/^(\D+)/, '$1');
                             },
                         },
                         gridLines: {
@@ -388,7 +386,7 @@ $(document).ready(function() {
                         },
                         ticks: {
                             padding: 20,
-                            fontSize: 16,
+                            fontSize: 18,
                             fontColor: '#475871',
                             fontFamily: 'AvenirNextCyr, sans-serif',
                             fontStyle: 500,
@@ -468,6 +466,9 @@ $(document).ready(function() {
                 },
                 legend: {
                     display: false
+                },
+                layout: {
+                    left: 2
                 },
                 tooltips: {
                     displayColors: false,
@@ -604,7 +605,7 @@ $(document).ready(function () {
                 display: false
             },
             layout: {
-                left: 1
+                left: 20,
             },
             scales: {
                 yAxes: [{
@@ -621,7 +622,7 @@ $(document).ready(function () {
                         beginAtZero: true,
                         stepSize: 10000,
                         callback: function(label) {
-                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                             .format(label).replace(/^(\D+)/, '$1');
                         },
                     },
@@ -667,8 +668,9 @@ $(document).ready(function () {
                         return 'Approx'
                     },
                     label: function (tooltipItem, data) {
-                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        return value;
+                        let value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                        .format(value).replace(/^(\D+)/, '$1');
                     }
                 }
             }
@@ -782,11 +784,13 @@ $(document).ready(function () {
             ]
             },
             options: {
+                // responsive: false,
+                // maintainAspectRatio: false,
                 legend: {
                     display: false
                 },
                 layout: {
-                    left: 1
+                    left: 100
                 },
                 scales: {
                     yAxes: [{
@@ -803,7 +807,7 @@ $(document).ready(function () {
                             beginAtZero: true,
                             stepSize: 10000,
                             callback: function(label) {
-                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                 .format(label).replace(/^(\D+)/, '$1');
                             },
                         },
@@ -844,12 +848,11 @@ $(document).ready(function () {
                     xPadding: 10,
                     yPadding: 15,
                     callbacks: {
-                        title: function (tooltipItem, data) {
-                            return 'Approx'
-                        },
+                        title: () => 'Approx',
                         label: function (tooltipItem, data) {
-                            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                            return value;
+                            let value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                            .format(value).replace(/^(\D+)/, '$1');
                         }
                     }
                 }
@@ -933,7 +936,7 @@ $(document).ready(function () {
                     display: false
                 },
                 layout: {
-                    left: 1
+                    left: 5
                 },
                 scales: {
                     yAxes: [{
@@ -949,7 +952,7 @@ $(document).ready(function () {
                             beginAtZero: true,
                             stepSize: 10000,
                             callback: function(label) {
-                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                 .format(label).replace(/^(\D+)/, '$1');
                             },
                         },
@@ -1083,7 +1086,7 @@ $(document).ready(function () {
                         stepSize: 2000,
                         padding: 20,
                         callback: function(label) {
-                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }  )
+                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                             .format(label).replace(/^(\D+)/, '$1');
                         },
                     },
@@ -1127,12 +1130,11 @@ $(document).ready(function () {
                 xPadding: 10,
                 yPadding: 15,
                 callbacks: {
-                    title: function () {
-                        return 'Approx'
-                    },
+                    title: () => 'Approx',
                     label: function (tooltipItem, data) {
-                        var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        return value;
+                        let value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
+                        return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                            .format(value).replace(/^(\D+)/, '$1');
                     }
                 }
             }
