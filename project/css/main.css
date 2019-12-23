@@ -1816,12 +1816,11 @@ body.show {
           justify-content: space-between;
 }
 .choose__type {
-  width: 50%;
   text-align: left;
   max-width: 530px;
-}
-.choose__type:first-child {
-  margin-right: 30px;
+  margin-left: 15px;
+  min-height: 214px;
+  margin-bottom: 60px;
 }
 .choose__type .card__title {
   margin-bottom: 15px;
@@ -1831,6 +1830,9 @@ body.show {
 }
 .choose__btn {
   margin-bottom: 30px;
+}
+.choose__items:first-child .choose__type {
+  margin-left: 0;
 }
 .invest__types {
   padding: 100px 0 0;
@@ -1863,6 +1865,7 @@ body.show {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 50%;
+  margin-top: 0;
 }
 .invest__items .choose__items:last-child {
   -webkit-box-align: end;
@@ -2404,6 +2407,35 @@ body.show {
 .terms .page__subtitle {
   margin-bottom: 24px;
 }
+.canvas__mainpage {
+  height: 436px;
+}
+.canvas__graph3 {
+  height: 377px;
+}
+.canvas__potential {
+  height: 302px;
+}
+.canvas__perf {
+  height: 367px;
+}
+.rg__wrap {
+  height: 406px;
+}
+.mobile {
+  display: none;
+}
+.mobile img {
+  margin: 0 auto;
+  position: relative;
+  left: -20px;
+}
+.mobile__notleft img {
+  left: 0;
+}
+.mobile__left img {
+  left: 20px;
+}
 .drag {
   padding: 100px 0;
 }
@@ -2587,6 +2619,12 @@ body.show {
 }
 .diver .card__subtitle {
   margin-bottom: 40px;
+}
+.diver__item {
+  width: 33.3%;
+}
+.diver__item img {
+  padding: 0 7px;
 }
 .about {
   padding: 100px 0 80px;
@@ -5469,6 +5507,18 @@ body.show {
   .plane {
     bottom: 69px;
   }
+  .canvas__mainpage {
+    height: 366px;
+  }
+  .canvas__perf {
+    height: 280px;
+  }
+  .rg__wrap {
+    height: 366px;
+  }
+  .historical .chart-1 {
+    margin-top: 65px;
+  }
 }
 @media (max-width: 768px) {
   .main__title {
@@ -5630,9 +5680,15 @@ body.show {
   .choose__type {
     width: 100%;
     margin-bottom: 30px;
+    max-width: none;
+    text-align: center;
+    min-height: auto;
   }
   .choose__type:first-child {
     margin-right: 0;
+  }
+  .choose__items {
+    margin-bottom: 30px;
   }
   .contact__form {
     margin-bottom: 5px;
@@ -5919,6 +5975,11 @@ body.show {
   }
   .diver__item {
     margin-bottom: 50px;
+    width: 100%;
+  }
+  .diver__item img {
+    width: 100%;
+    max-width: 420px;
   }
   .diver__items {
     margin: 65px 0 0;
@@ -6109,6 +6170,24 @@ body.show {
   }
   .table__toggle:after {
     left: 86%;
+  }
+  .canvas__mainpage {
+    height: 290px;
+  }
+  .canvas__graph3 {
+    height: 276px;
+  }
+  .rg__wrap {
+    height: 320px;
+  }
+  .mobile {
+    display: block;
+  }
+  .mobile__out {
+    display: none;
+  }
+  .historical .perfomance__subtitle {
+    margin: 30px 0 0;
   }
 }
 @media (max-width: 568px) {
@@ -6344,6 +6423,18 @@ body.show {
     left: auto;
     right: -59px;
   }
+  .rg__wrap {
+    height: 220px;
+  }
+  .rg__graph-text {
+    padding: 20px 10px;
+  }
+  .canvas__graph3 {
+    height: 200px;
+  }
+  .canvas__perf {
+    height: 213px;
+  }
 }
 @media (max-width: 480px) {
   .page__text {
@@ -6507,6 +6598,8 @@ body.show {
   }
   .insum__side-right {
     border-radius: 0 0 10px 10px;
+    padding: 10px 15px;
+    min-height: 74px;
   }
   .potential__chart {
     width: 100% !important;
@@ -6554,6 +6647,11 @@ body.show {
   }
   .table__toggle {
     right: -54px;
+  }
+  .canvas__potential {
+    padding: 0 10px;
+    background: #fff;
+    height: 210px;
   }
 }
 @media (max-width: 380px) {
@@ -6660,5 +6758,11 @@ body.show {
   }
   .company__form .form__group {
     margin: 0 45px 0 0;
+  }
+  .canvas__mainpage {
+    height: 220px;
+  }
+  .canvas__perf {
+    height: 150px;
   }
 }

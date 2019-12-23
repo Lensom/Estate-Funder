@@ -1,15 +1,15 @@
 // Chart.js Main page
 $(document).ready(function () {
     
-    let ctx = document.getElementById('myChart')
+    let ctx = document.getElementById('mainPage')
     if (ctx) {
 
-    let dataCanvas = $('#myChart').data();
+    let dataCanvas = $('#mainPage').data();
     let arrCanvas = [];
     for (key in dataCanvas) {
         arrCanvas.push(dataCanvas[key]);
     }
-    ctx = document.getElementById('myChart').getContext("2d");
+    ctx = document.getElementById('mainPage').getContext("2d");
 
     let gradientStroke = ctx.createLinearGradient(100, 0, 500, 0);
         gradientStroke.addColorStop(0, '#3f89e8');
@@ -41,9 +41,8 @@ $(document).ready(function () {
                 lineTension: 0
             }]
         },
-        responsive: true,
-        maintainAspectRatio: false,
         options: {
+            maintainAspectRatio: false,
             legend: {
                 display: false
             },
@@ -122,9 +121,9 @@ $(document).ready(function () {
         }
     });
 
-    Chart.Tooltip.positioners.cursor = function(coordinates) {
-        return coordinates;
-      };
+    if(window.matchMedia('(max-width: 480px)').matches){
+        resizeChart(myChart);
+    }
 
 
     let lengthData = myChart.data.datasets[0].data.length;
@@ -141,11 +140,6 @@ $(document).ready(function () {
     myChart.update();
     }
 
-    if (window.matchMedia("(max-width: 400px)").matches) {
-        $('#myChart').height = '600px'
-        myChart.update()
-      } 
-
 });
 
 // Chart.js Etabs page
@@ -157,15 +151,15 @@ $(document).ready(function () {
     }
     arrCanvas.reverse();
     
-    var etabs = document.getElementById('return__graph');
+    let etabs = document.getElementById('return__graph');
     if (etabs) {
         etabs = document.getElementById('return__graph').getContext("2d");
         etabs.canvas.style.backgroundColor = 'white';
-        var gradientFill = etabs.createLinearGradient(0, 200, 0, 0);
+        let gradientFill = etabs.createLinearGradient(0, 200, 0, 0);
         gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)"); 
         gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
     
-        var myChart = new Chart(etabs, {
+        let myChart = new Chart(etabs, {
             type: 'line',
             data: {
                 labels: ["Year 1", "Year 2", "Year 3"],
@@ -188,6 +182,7 @@ $(document).ready(function () {
                 }]
             },
             options: {
+                maintainAspectRatio: false,
                 legend: {
                     display: false
                 },
@@ -271,7 +266,13 @@ $(document).ready(function () {
                 }
             }
         });
+
+        if(window.matchMedia('(max-width: 568px)').matches){
+            resizeChart(myChart);
+        }
+
     }
+
 });
 
 // Gde to ewe 1 chart
@@ -287,7 +288,7 @@ $(document).ready(function() {
     if (etabs2) {
         etabs2 = document.getElementById('return__graph-2').getContext("2d");
         etabs2.canvas.style.backgroundColor = 'white';
-        var myChart = new Chart(etabs2, {
+        let myChart = new Chart(etabs2, {
             type: 'line',
             data: {
                 labels: ["Year 1", "Year 2", "Year 3"],
@@ -310,6 +311,7 @@ $(document).ready(function() {
                 }]
             },
             options: {
+                maintainAspectRatio: false,
                 legend: {
                     display: false
                 },
@@ -395,6 +397,9 @@ $(document).ready(function() {
                 }
             }
         });
+        if(window.matchMedia('(max-width: 568px)').matches){
+            resizeChart(myChart);
+        }
     }
 });
 
@@ -430,6 +435,7 @@ $(document).ready(function() {
                 }],
             },
             options: {
+                maintainAspectRatio: false,
                 events: ['hover'],
                 showAllTooltips: true,
                 onHover: function() {
@@ -578,7 +584,7 @@ $(document).ready(function () {
         gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)");
         gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
 
-    new Chart(ctx, {
+    let myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ["", "Year 1", "Year 2", "Year 3", ""],
@@ -601,6 +607,7 @@ $(document).ready(function () {
             }]
         },
         options: {
+            maintainAspectRatio: false,
             legend: {
                 display: false
             },
@@ -677,6 +684,10 @@ $(document).ready(function () {
         }
     });
 
+    if(window.matchMedia('(max-width: 568px)').matches){
+        resizeChart(myChart)
+    }
+
     let lengthData = myChart.data.datasets[0].data.length;
     let radius = myChart.data.datasets[0].pointRadius;
     let radiusArray = [];
@@ -725,7 +736,7 @@ $(document).ready(function () {
             gradientFill.addColorStop(0, "rgba(115, 189, 245, .8)");
             gradientFill.addColorStop(1, "rgba(63, 137, 232, .1)");
     
-        new Chart(ctx, {
+        let chart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ["Year 1", "Year 2", "Year 3"],
@@ -784,13 +795,12 @@ $(document).ready(function () {
             ]
             },
             options: {
-                // responsive: false,
-                // maintainAspectRatio: false,
+                maintainAspectRatio: false,
                 legend: {
                     display: false
                 },
                 layout: {
-                    left: 100
+                    left: 5
                 },
                 scales: {
                     yAxes: [{
@@ -858,12 +868,17 @@ $(document).ready(function () {
                 }
             }
         });
+
+        if(window.matchMedia('(max-width: 568px)').matches){
+            resizeChart(chart)
+        }
+        
     }
 
     
 })
 
-// Altv5 Chart
+// Dashboard Chart
 $(document).ready(function () {
 
     let firstData = $('.h-1').data();
@@ -876,12 +891,12 @@ $(document).ready(function () {
     for (key in secondData) {
         arr2.push(secondData[key]);
     }
-    var dashboard = document.getElementById('dashboard__graph');
+    let dashboard = document.getElementById('dashboard__graph');
     if (dashboard) {
         dashboard = document.getElementById('dashboard__graph').getContext("2d");
-        var gradientStroke = dashboard.createLinearGradient(100, 0, 500, 0);
-        gradientStroke.addColorStop(0, '#3f89e8');
-        gradientStroke.addColorStop(1, '#5ebafe');
+        let gradientStroke = dashboard.createLinearGradient(100, 0, 500, 0);
+            gradientStroke.addColorStop(0, '#3f89e8');
+            gradientStroke.addColorStop(1, '#5ebafe');
 
         let gradientFill = dashboard.createLinearGradient(0, 1050, 0, 0);
             gradientFill.addColorStop(0, "rgba(188, 130, 255, 1)");
@@ -890,7 +905,7 @@ $(document).ready(function () {
             gradientFill2.addColorStop(0, "rgba(253, 204, 96, .01)");
             gradientFill2.addColorStop(1, "rgba(253, 204, 96, .25");
     
-        var myChart = new Chart(dashboard, {
+        let myChart = new Chart(dashboard, {
             type: 'line',
             data: {
                 labels: ["Year 1", "Year 2", "Year 3"],
@@ -936,7 +951,7 @@ $(document).ready(function () {
                     display: false
                 },
                 layout: {
-                    left: 5
+                    left: 10
                 },
                 scales: {
                     yAxes: [{
@@ -992,10 +1007,6 @@ $(document).ready(function () {
                         title: function () {
                             return 'Approx'
                         },
-                        // label: function (tooltipItem, data) {
-                        //     var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString();
-                        //     return `$${value}`;
-                        // },
                         label: function(tooltipItem, data) {
                             var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                             return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
@@ -1005,6 +1016,10 @@ $(document).ready(function () {
                 }
             }
         });
+
+        if(window.matchMedia('(max-width: 480px)').matches){
+            resizeChart(myChart)
+        }
     }
     
 })
@@ -1062,6 +1077,7 @@ $(document).ready(function () {
             }]
         },
         options: {
+            maintainAspectRatio: false,
             legend: {
                 display: false
             },
@@ -1141,6 +1157,35 @@ $(document).ready(function () {
         }
     });
 
+    if(window.matchMedia('(max-width: 568px)').matches){
+        resizeChart(myChart, false)
+    }
+
     }
 
 });
+
+
+function resizeChart(graph, notPoints = true) {
+    graph.options.scales.xAxes[0].ticks.fontSize = 12;
+    graph.options.scales.yAxes[0].ticks.fontSize = 12;
+
+    graph.options.scales.yAxes[0].ticks.padding = 8;
+    graph.options.scales.xAxes[0].ticks.padding = 8;
+
+    graph.options.layout.left = 0;
+
+    if (notPoints) {
+        let points = graph.data.datasets;
+        for (let val of points) {
+            val.pointRadius = 5
+            val.pointBorderWidth = 3
+        }
+    }
+
+    graph.options.layout.padding.right = 0
+    graph.options.layout.padding.left = 5
+    graph.options.layout.padding.bottom = 0
+    graph.options.layout.padding.top = 0
+    graph.update();
+}

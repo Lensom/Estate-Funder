@@ -741,6 +741,18 @@
 			display none
 	.plane
 		bottom 69px
+	.canvas
+		&__mainpage
+			height 366px
+		&__perf
+			height 280px
+	.rg
+		&__wrap 
+			height 366px
+	.historical
+		.chart-1
+			margin-top 65px
+
 
 			
 @media (max-width : 768px)
@@ -861,8 +873,14 @@
 		&__type
 			width 100%
 			margin-bottom 30px
+			max-width none 
+			text-align center
+			min-height auto 
 			&:first-child
 				margin-right 0
+		&__items
+			margin-bottom 30px
+		
 	
 	.contact
 		&__form
@@ -1065,6 +1083,10 @@
 			margin-bottom 20px
 		&__item 
 			margin-bottom 50px
+			width 100%
+			img 
+				width 100%
+				max-width 420px
 		&__items
 			margin 65px 0 0
 
@@ -1209,6 +1231,21 @@
 			left 0
 			&:after 
 				left 86%
+	.canvas
+		&__mainpage
+			height 290px
+		&__graph3
+			height 276px
+	.rg
+		&__wrap 
+			height 320px
+	.mobile
+		display block
+		&__out 
+			display none
+	.historical
+		.perfomance__subtitle
+			margin 30px 0 0
 
 @media (max-width : 568px)
 	.header 
@@ -1413,6 +1450,17 @@
 		&__toggle
 			left auto 
 			right -59px
+	.rg
+		&__wrap 
+			height 220px
+		&__graph
+			&-text
+				padding 20px 10px
+	.canvas
+		&__graph3
+			height 200px
+		&__perf
+			height 213px
 
 @media (max-width : 480px)
 	.page
@@ -1549,6 +1597,8 @@
 				justify-content center 
 			&-right
 				border-radius 0 0 10px 10px 
+				padding 10px 15px
+				min-height 74px
 	.potential
 		&__chart 
 			width 100% !important
@@ -1589,6 +1639,11 @@
 	.table
 		&__toggle 
 			right -54px
+	.canvas
+		&__potential 
+			padding 0 10px
+			background $white
+			height 210px
 
 @media (max-width : 380px)
 	.main
@@ -1690,3 +1745,8 @@
 		&__form
 			.form__group
 				margin 0 45px 0 0
+	.canvas
+		&__mainpage
+			height 220px
+		&__perf
+			height 150px

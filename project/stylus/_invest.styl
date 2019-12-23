@@ -3,11 +3,11 @@
     display flex
     justify-content space-between
   &__type
-    width 50%
     text-align left
     max-width 530px
-    &:first-child
-      margin-right 30px
+    margin-left 15px
+    min-height 214px
+    margin-bottom 60px
     .card
       &__title
         margin-bottom 15px
@@ -15,6 +15,10 @@
         margin-bottom 10px
   &__btn
     margin-bottom 30px
+  &__items 
+    &:first-child
+      .choose__type
+        margin-left 0
 .invest
   &__types
     padding 100px 0 0
@@ -37,6 +41,7 @@
     .choose__items
       flex-direction column
       width 50%
+      margin-top 0
       &:last-child
         align-items flex-end
         .choose__item
