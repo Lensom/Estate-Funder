@@ -187,93 +187,229 @@
             </div>
             <div class="profile__item profile__item-edit" id="edit-profile">
               <form action="#" class="contact__form company__form form">
-                <div class="form__wrapper df company__titles">
-                  <p>Company Details</p>
-                  <p>Director Details</p>
+
+                <div class="form__tabs">
+                  <div class="form__tab">
+                    <a href="#" class="active">1. Company details</a>
+                    <a href="#">2. Director/Owner</a>
+                    <a href="#" class="hidden">3. Director/Owner</a>
+                  </div>
+                  <div class="form__add">
+                    <a href="#"><span>+</span>Add Diretor/Owner</a>
+                  </div>
                 </div>
 
-                <div class="form__wrapper df">
-                  <label for="#">
-                    <p>Company Name</p>
-                    <input type="text" class="form__input">
-                  </label>
-                  <label for="#">
-                    <p>First Name</p>
-                    <input type="text" class="form__input">
-                  </label>
-                </div>
-                <div class="form__wrapper df order">
-                  <label for="#">
-                    <p>Registration No</p>
-                    <input type="text" class="form__input">
-                  </label>
-                  <label for="#">
-                    <p>Last Name</p>
-                    <input type="text" class="form__input">
-                  </label>
-                </div>
-                <div class="form__wrapper df">
-                  <label for="#">
-                    <p>City/State of Registration</p>
-                    <input type="text" class="form__input">
-                  </label>
-                  <div class="form__label">
+                <div class="form__body active">
+                  <div class="form__wrapper">
                     <label for="#">
-                      <p>Date of Birth</p>
-                      <input type="text" class="form__input date">
+                      <p>Company Name</p>
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+                  <div class="form__wrapper df order">
+                    <label for="#">
+                      <p>Registration No</p>
+                      <input type="text" class="form__input">
                     </label>
                     <label for="#">
-                      <p>Gender</p>
+                      <p>City/State of Registration</p>
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper form__address form__addm">
+                    <label for="#">
+                      <p>Address</p>
+                      <input type="text" class="form__input" value="145 Brooklyn Ave, Brooklyn, NY 11213">
+                    </label>
+                    <label for="#">
+                      <input type="text" class="form__input">
+                    </label>
+                    <label for="#">
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper df order">
+                    <label for="#">
+                      <p>Post Code</p>
+                      <input type="text" class="form__input">
+                    </label>
+                    <label for="#">
+                      <p>City</p>
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper">
+                    <label for="#">
+                      <p>Country</p>
                       <select class="form__select" name="" id="">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="USA">USA</option>
+                        <option value="Ukraine">Ukraine</option>
                       </select>
+                    </label>
+                  </div>
+ 
+                  <div class="form__wrapper df">
+                    <label for="#">
+                      <p>Email Address</p>
+                      <input type="email" value="constantine.work@gmail.com" class="form__input">
+                    </label>
+                    <label for="#">
+                      <p>Mobile Phone</p>
+                      <input type="text" value="716-725-1414" class="form__input">
                     </label>
                   </div>
                 </div>
 
-                <div class="form__wrapper form__address form__addm">
-                  <label for="#">
-                    <p>Director Address</p>
-                    <input type="text" class="form__input" value="145 Brooklyn Ave, Brooklyn, NY 11213">
-                  </label>
-                  <label for="#">
-                    <p>Owner Address</p>
-                    <input type="text" class="form__input">
-                  </label>
-                  <label for="#">
-                    <p>Company Address</p>
-                    <input type="text" class="form__input">
-                  </label>
+                <div class="form__body">
+                  
+                  <div class="form__wrapper df">
+                    <label for="#">
+                      <p>First Name</p>
+                      <input type="text" class="form__input">
+                    </label>
+                    <label for="#">
+                      <p>Last Name</p>
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper form__date df">
+                    <div class="form__label">
+                      <label for="#">
+                        <p>Date of Birth</p>
+                        <input type="text" class="form__input">
+                      </label>
+                      <label for="#">
+                        <p>Gender</p>
+                        <select class="form__select" name="" id="">
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form__wrapper form__addm form__address">
+                    <label for="#">
+                      <p>Address</p>
+                      <input type="text" class="form__input" value="145 Brooklyn Ave, Brooklyn, NY 11213">
+                    </label>
+                    <label for="#">
+                      <input type="text" class="form__input">
+                    </label>
+                    <label for="#">
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper df order">
+                    <label for="#">
+                      <p>Post Code</p>
+                      <input type="text" class="form__input">
+                    </label>
+                    <label for="#">
+                      <p>City</p>
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper">
+                    <label for="#">
+                      <p>Country</p>
+                      <select class="form__select" name="" id="">
+                        <option value="USA">USA</option>
+                        <option value="Ukraine">Ukraine</option>
+                      </select>
+                    </label>
+                  </div>
+ 
+                  <div class="form__wrapper df">
+                    <label for="#">
+                      <p>Email Address</p>
+                      <input type="email" value="constantine.work@gmail.com" class="form__input">
+                    </label>
+                    <label for="#">
+                      <p>Mobile Phone</p>
+                      <input type="text" value="716-725-1414" class="form__input">
+                    </label>
+                  </div>
                 </div>
-                <div class="form__wrapper df">
-                  <label for="#">
-                    <p>Post Code</p>
-                    <input type="text" placeholder="First Name" class="form__input">
-                  </label>
-                  <label for="#">
-                    <p>City</p>
-                    <input type="text" placeholder="Last Name" class="form__input">
-                  </label>
-                </div>
-                <div class="form__wrapper">
-                  <label for="#">
-                    <p>Country</p>
-                    <select class="form__select" name="" id="">
-                      <option value="USA">USA</option>
-                      <option value="Ukraine">Ukraine</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="form__wrapper df">
-                  <label for="#">
-                    <p>Email Address</p>
-                    <input type="email" value="constantine.work@gmail.com" class="form__input">
-                  </label>
-                  <label for="#">
-                    <p>Mobile Phone</p>
-                    <input type="text" value="716-725-1414" class="form__input">
-                  </label>
+
+                <div class="form__body form__body-hidden">
+                  <div class="form__wrapper df">
+                    <label for="#">
+                      <p>First Name</p>
+                      <input type="text" class="form__input">
+                    </label>
+                    <label for="#">
+                      <p>Last Name</p>
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper form__date df">
+                    <div class="form__label">
+                      <label for="#">
+                        <p>Date of Birth</p>
+                        <input type="text" class="form__input">
+                      </label>
+                      <label for="#">
+                        <p>Gender</p>
+                        <select class="form__select" name="" id="">
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form__wrapper form__addm form__address">
+                    <label for="#">
+                      <p>Address</p>
+                      <input type="text" class="form__input" value="145 Brooklyn Ave, Brooklyn, NY 11213">
+                    </label>
+                    <label for="#">
+                      <input type="text" class="form__input">
+                    </label>
+                    <label for="#">
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper df order">
+                    <label for="#">
+                      <p>Post Code</p>
+                      <input type="text" class="form__input">
+                    </label>
+                    <label for="#">
+                      <p>City</p>
+                      <input type="text" class="form__input">
+                    </label>
+                  </div>
+
+                  <div class="form__wrapper">
+                    <label for="#">
+                      <p>Country</p>
+                      <select class="form__select" name="" id="">
+                        <option value="USA">USA</option>
+                        <option value="Ukraine">Ukraine</option>
+                      </select>
+                    </label>
+                  </div>
+ 
+                  <div class="form__wrapper df">
+                    <label for="#">
+                      <p>Email Address</p>
+                      <input type="email" value="constantine.work@gmail.com" class="form__input">
+                    </label>
+                    <label for="#">
+                      <p>Mobile Phone</p>
+                      <input type="text" value="716-725-1414" class="form__input">
+                    </label>
+                  </div>
                 </div>
 
                 <div class="form__buttons">

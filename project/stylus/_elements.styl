@@ -409,6 +409,8 @@ a
 
     &__wrapper
         margin-bottom 40px
+        .jq-selectbox
+            max-width none 
     &__wrapper.df
         display flex
         align-items flex-end 
@@ -455,11 +457,56 @@ a
             &:first-child
                 margin-right 40px !important
     &__address
-        margin-top 62px 
+        margin-top 22px 
     &__addm
         .form__input
-            margin-bottom 14px  
-
+            margin-bottom 6px  
+    &__tabs
+        display flex
+        justify-content space-between
+        margin-top -18px    
+        margin-bottom 42px
+    &__tab
+        a
+            font-size 14px
+            font-weight 600
+            color #6b7c95
+            line-height 20px
+            text-transform uppercase
+            display inline-block 
+            padding-bottom 4px
+            border-bottom 2px solid transparent
+            margin-right 34px
+            &.active 
+                color #1a273a
+                border-bottom 2px solid #3f89e8
+        .hidden 
+            display none 
+    &__add
+        display flex 
+        align-items center 
+        a   
+            display flex 
+            align-items center 
+            font-family $avenir-font
+            font-weight 600
+            font-size 14px
+            color #1a273a
+            line-height 20px
+        span 
+            line-height 20px  
+            font-weight 600
+            font-size 22px
+            color #3f89e8
+            display inline-block
+            margin-right 10px
+    &__body
+        display none 
+        &.active
+            display block 
+        &-hidden
+            display none 
+    
   
 
 .jq-selectbox

@@ -1895,7 +1895,6 @@ $(document).ready(function () {
     });
 });
 
-
 // Profile tabs
 $(document).ready(function () {
     $('.profile__links-link').on('click', function (e) {
@@ -2041,121 +2040,152 @@ $(document).ready(function() {
 // })
 
 // Efund and eDirect tabs
-$('.profile__links-link').on('click', function() {
-    $('.ed, .et').toggleClass('hidden');
-});
-
+$(document).ready(function() {
+    $('.profile__links-link').on('click', function() {
+        $('.ed, .et').toggleClass('hidden');
+    });
+})
 
 // RANGE SLIDER
-let slider = document.getElementById('slider');
-let background = document.querySelector('.calculate-top');
-let procentBlock = document.getElementById('income');
-let calculateBtn = document.querySelector('.calculate-btn');
-let value = document.getElementById("text");
-let prop = document.getElementById('prop');
-let inputs = [value];
-if (slider) {
-    noUiSlider.create(slider, {
-        start: 5000,
-        connect: [true, false],
-        range: {
-            'min': 5000,
-            'max': 500000
-        },
-        step: 1000,
-        format: {
-          from: function(value) {
-                return Math.round(+value);
+$(document).ready(function() {
+    let slider = document.getElementById('slider');
+    let value = document.getElementById("text");
+    let inputs = [value];
+    if (slider) {
+        noUiSlider.create(slider, {
+            start: 5000,
+            connect: [true, false],
+            range: {
+                'min': 5000,
+                'max': 500000
             },
-          to: function(value) {
-                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                                .format(value).replace(/^(\D+)/, '$1');
-            }
-        },
-        tooltips: true
-    });
-    
-    slider.noUiSlider.on('update', function (values, handle) {
-        value.innerHTML = values[handle];
-    });
-
-    slider.noUiSlider.on('change', function(values) {
-        let amount = values[0];
-        let v = amount.replace(/\.|,/g, "");
-        let s = v.substring(0, v.length -2);
-        let k = s.substr(1);
-
-        $(value).val(k)
-    });
-
-    inputs.forEach(function(input, handle) {
-        input.addEventListener('keyup', function(e) {
-            let input = e.target.value;
-            let k = input.replace(/\./g, "");
-            let v = k.replace(/,/g, "");
-            slider.noUiSlider.set(v);
-    
-            var position;
-            switch (e.which) {
-                case 13:
-                    slider.noUiSlider.setHandle(handle, this.value);
-                    break;
-                case 38:
-                    position = step[1];
-                    if (position === false) {
-                        position = 1;
-                    }
-                    if (position !== null) {
-                        slider.noUiSlider.setHandle(handle, value + position);
-                    }
-    
-                    break;
-    
-                case 40:
-    
-                    position = step[0];
-                    if (position === false) {
-                        position = 1;
-                    }
-                    if (position !== null) {
-                        slider.noUiSlider.setHandle(handle, value - position);
-                    }
-    
-                    break;
-            }
+            step: 1000,
+            format: {
+            from: function(value) {
+                    return Math.round(+value);
+                },
+            to: function(value) {
+                    return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                    .format(value).replace(/^(\D+)/, '$1');
+                }
+            },
+            tooltips: true
         });
-    });
-    
-    let calcInput = document.getElementById('text');
-    calcInput.onkeydown = function(e) {
-        if ((e.which >= 48 && e.which <= 57) // numbers
-            ||
-            (e.which >= 96 && e.which <= 105) // num lock
-            ||
-            e.which == 8 // backspace
-            ||
-            (e.which >= 37 && e.which <= 40) // arrows
-            ||
-            e.which == 46 || e.which == 13) // delete and enter
-        {
-            return true;
-        } else {
-            return false;
-        }
-    };
-}
+        
+        slider.noUiSlider.on('update', function (values, handle) {
+            value.innerHTML = values[handle];
+        });
 
+        slider.noUiSlider.on('change', function(values) {
+            let amount = values[0];
+            let v = amount.replace(/\.|,/g, "");
+            let s = v.substring(0, v.length -2);
+            let k = s.substr(1);
+
+            $(value).val(k)
+        });
+
+        inputs.forEach(function(input, handle) {
+            input.addEventListener('keyup', function(e) {
+                let input = e.target.value;
+                let k = input.replace(/\./g, "");
+                let v = k.replace(/,/g, "");
+                slider.noUiSlider.set(v);
+        
+                var position;
+                switch (e.which) {
+                    case 13:
+                        slider.noUiSlider.setHandle(handle, this.value);
+                        break;
+                    case 38:
+                        position = step[1];
+                        if (position === false) {
+                            position = 1;
+                        }
+                        if (position !== null) {
+                            slider.noUiSlider.setHandle(handle, value + position);
+                        }
+        
+                        break;
+        
+                    case 40:
+        
+                        position = step[0];
+                        if (position === false) {
+                            position = 1;
+                        }
+                        if (position !== null) {
+                            slider.noUiSlider.setHandle(handle, value - position);
+                        }
+        
+                        break;
+                }
+            });
+        });
+        
+        let calcInput = document.getElementById('text');
+        calcInput.onkeydown = function(e) {
+            if ((e.which >= 48 && e.which <= 57) // numbers
+                ||
+                (e.which >= 96 && e.which <= 105) // num lock
+                ||
+                e.which == 8 // backspace
+                ||
+                (e.which >= 37 && e.which <= 40) // arrows
+                ||
+                e.which == 46 || e.which == 13) // delete and enter
+            {
+                return true;
+            } else {
+                return false;
+            }
+        };
+    }
+});
 
 // Credit card fields
-$('.cc-number').formatCardNumber();
-$('.cc-expires').formatCardExpiry();
-$('.cc-cvc').formatCardCVC();
+$(document).ready(function() {
+    $('.cc-number').formatCardNumber();
+    $('.cc-expires').formatCardExpiry();
+    $('.cc-cvc').formatCardCVC();
+});
 
 // Dashboard trigger
-$('.header__profile a').on('click', function(e) {
-    e.preventDefault();
-    $('.header__dash').fadeToggle(300);
+$(document).ready(function() {
+    $('.header__profile a').on('click', function(e) {
+        e.preventDefault();
+        $('.header__dash').fadeToggle(300);
+    });
 });
 
 // Mask input
-$(".date").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+$(document).ready(function() {
+    $(".date").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+});
+
+// Form tabs 
+$(document).ready(function () {
+    $('.form__tab a').on('click', function (e) {
+        e.preventDefault();
+        let index = $(this).index();
+
+        $('.form__tab a').removeClass('active');
+        $(this).addClass('active');
+
+        $('.form__body').removeClass('active');
+        let activeBody = $('.form__body')[index];
+        $(activeBody).addClass('active');
+    });
+});
+
+// Added one more form
+$(document).ready(function() {
+    $('.form__add a').on('click', function(e) {
+        e.preventDefault();
+        $('.form__tab a').removeClass('active');
+        $('a.hidden').addClass('active').removeClass('hidden');
+        $('.form__add').css('display', 'none');
+        $('.form__body').removeClass('active');
+        $('.form__body-hidden').addClass('active').removeClass('form__body-hidden');
+    });
+});
