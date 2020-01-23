@@ -737,6 +737,7 @@
 		background transparent 
 		box-shadow none
 		padding 0
+		max-width none
 		&:after 
 			display none
 	.plane
@@ -1189,6 +1190,9 @@
 			.total
 				td 
 					padding 30px 10px
+		.card__subtitle
+			br
+				display none
 	.updates
 		&__left
 			.updates__info-block
@@ -1351,9 +1355,9 @@
 		&__tab 
 			display flex
 			flex-direction column 
-			a
+			a 
 				margin 0 0 10px 0
-		&__tabs 
+		&__tabs
 			margin 0 0 25px
 	.company
 		&__form
@@ -1479,6 +1483,14 @@
 			height 200px
 		&__perf
 			height 213px
+	.diver
+		.mobile
+			img 
+				max-width 270px
+	.etab
+		.mobile
+			img
+				max-width 270px
 
 @media (max-width : 480px)
 	.page

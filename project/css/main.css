@@ -5568,6 +5568,7 @@ body.show {
     -webkit-box-shadow: none;
             box-shadow: none;
     padding: 0;
+    max-width: none;
   }
   .sub-menu:after {
     display: none;
@@ -6186,6 +6187,9 @@ body.show {
   .insum__table .total td {
     padding: 30px 10px;
   }
+  .insum .card__subtitle br {
+    display: none;
+  }
   .updates__left .updates__info-block {
     margin-right: 25px;
   }
@@ -6537,6 +6541,12 @@ body.show {
   }
   .canvas__perf {
     height: 213px;
+  }
+  .diver .mobile img {
+    max-width: 270px;
+  }
+  .etab .mobile img {
+    max-width: 270px;
   }
 }
 @media (max-width: 480px) {
