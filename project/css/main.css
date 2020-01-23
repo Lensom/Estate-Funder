@@ -6381,6 +6381,21 @@ body.show {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .form__tab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .form__tab a {
+    margin: 0 0 10px 0;
+  }
+  .form__tabs {
+    margin: 0 0 25px;
+  }
   .company__form .form__input {
     padding: 8px 15px 8px;
   }
