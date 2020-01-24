@@ -1,6 +1,16 @@
+var flag;
+function sizeScreen() {
+    return (window.matchMedia("(max-width: 568px)").matches)
+        ? flag = 1
+        : size = 0;
+}
+
+sizeScreen();
+
 // Chart.js Main page
 $(document).ready(function () {
     
+
     let ctx = document.getElementById('mainPage')
     if (ctx) {
 
@@ -66,8 +76,12 @@ $(document).ready(function () {
                         padding: 20,
                         stepSize: 10000,
                         callback: function(label) {
-                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                            .format(label).replace(/^(\D+)/, '$1');
+                            if (flag) {
+                                return `$${label}` 
+                            } else {
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                .format(label).replace(/^(\D+)/, '$1');
+                            }
                         },
                     },
                     gridLines: {
@@ -240,8 +254,12 @@ $(document).ready(function () {
                             stepSize: 10000,
                             padding: 20,
                             callback: function(label) {
-                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                                .format(label).replace(/^(\D+)/, '$1');
+                                if (flag) {
+                                    return `$${label}` 
+                                } else {
+                                    return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                    .format(label).replace(/^(\D+)/, '$1');
+                                }
                             },
                         },
                         gridLines: {
@@ -371,8 +389,12 @@ $(document).ready(function() {
                             maxTicksLimit: 5,
                             padding: 20,
                             callback: function(label) {
-                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                                .format(label).replace(/^(\D+)/, '$1');
+                                if (flag) {
+                                    return `$${label}` 
+                                } else {
+                                    return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                    .format(label).replace(/^(\D+)/, '$1');
+                                }
                             },
                         },
                         gridLines: {
@@ -629,8 +651,12 @@ $(document).ready(function () {
                         beginAtZero: true,
                         stepSize: 10000,
                         callback: function(label) {
-                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                            .format(label).replace(/^(\D+)/, '$1');
+                            if (flag) {
+                                return `$${label}` 
+                            } else {
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                .format(label).replace(/^(\D+)/, '$1');
+                            }
                         },
                     },
                     gridLines: {
@@ -817,8 +843,12 @@ $(document).ready(function () {
                             beginAtZero: true,
                             stepSize: 10000,
                             callback: function(label) {
-                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                                .format(label).replace(/^(\D+)/, '$1');
+                                if (flag) {
+                                    return `$${label}` 
+                                } else {
+                                    return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                    .format(label).replace(/^(\D+)/, '$1');
+                                }
                             },
                         },
                         gridLines: {
@@ -967,8 +997,12 @@ $(document).ready(function () {
                             beginAtZero: true,
                             stepSize: 10000,
                             callback: function(label) {
-                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                                .format(label).replace(/^(\D+)/, '$1');
+                                if (flag) {
+                                    return `$${label}` 
+                                } else {
+                                    return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                    .format(label).replace(/^(\D+)/, '$1');
+                                }
                             },
                         },
                     }],
@@ -1102,8 +1136,12 @@ $(document).ready(function () {
                         stepSize: 2000,
                         padding: 20,
                         callback: function(label) {
-                            return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
-                            .format(label).replace(/^(\D+)/, '$1');
+                            if (flag) {
+                                return `$${label}` 
+                            } else {
+                                return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
+                                .format(label).replace(/^(\D+)/, '$1');
+                            }
                         },
                     },
                     gridLines: {

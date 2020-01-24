@@ -1364,12 +1364,15 @@
 			.form__input
 				padding 8px 15px 8px
 	.drop__table
+		border-radius 10px
 		td
+			box-shadow 0 30px 60px rgba(21, 28, 39, 0.1)
+			background-color #ffffff
 			&:before
 				content attr(data-label)
 				float left
-				text-transform uppercase
-				font-weight bold
+				color rgba(71, 88, 113, .55)
+
 		thead 
 			display none
 		tr 
@@ -1674,6 +1677,10 @@
 			padding 0 10px
 			background $white
 			height 210px
+	.rg
+		p
+			span
+				line-height 26px
 
 @media (max-width : 380px)
 	.main

@@ -6403,11 +6403,18 @@ body.show {
   .company__form .form__input {
     padding: 8px 15px 8px;
   }
+  .drop__table {
+    border-radius: 10px;
+  }
+  .drop__table td {
+    -webkit-box-shadow: 0 30px 60px rgba(21,28,39,0.1);
+            box-shadow: 0 30px 60px rgba(21,28,39,0.1);
+    background-color: #fff;
+  }
   .drop__table td:before {
     content: attr(data-label);
     float: left;
-    text-transform: uppercase;
-    font-weight: bold;
+    color: rgba(71,88,113,0.55);
   }
   .drop__table thead {
     display: none;
@@ -6765,6 +6772,9 @@ body.show {
     padding: 0 10px;
     background: #fff;
     height: 210px;
+  }
+  .rg p span {
+    line-height: 26px;
   }
 }
 @media (max-width: 380px) {
