@@ -1054,10 +1054,10 @@
 	.about
 		&__image
 			position absolute
-			bottom 0
 			left 50%
 			margin 0
 			transform translateX(-50%)
+			bottom -25px
 			img 
 				margin 0
 				align-self center 
@@ -1261,6 +1261,9 @@
 	.historical
 		.perfomance__subtitle
 			margin 30px 0 0
+	.noUi-tooltip
+		padding 6px 4px
+		font-size 14px
 
 @media (max-width : 568px)
 	.header 
@@ -1597,7 +1600,7 @@
 		&__image 
 			width 100%
 			display flex
-			bottom -25px
+			bottom -50px
 			padding 0 20px
 			img 
 				width 100%
@@ -1681,7 +1684,9 @@
 		p
 			span
 				line-height 26px
-
+	.noUi-tooltip
+		font-size 14px
+		padding 8px 6px
 @media (max-width : 380px)
 	.main
 		&__title

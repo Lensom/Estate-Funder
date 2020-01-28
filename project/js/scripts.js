@@ -59,7 +59,7 @@ $(document).ready(function () {
                 pointRadius: 8,
                 fill: true,
                 backgroundColor: gradientFill,
-                borderWidth: 5,
+                borderWidth: 4,
                 data: arrCanvas,
                 lineTension: 0
             }]
@@ -90,7 +90,7 @@ $(document).ready(function () {
                         stepSize: 10000,
                         callback: function(label) {
                             if (flag) {
-                                return `$${label}` 
+                                return `$${label / 1000}k` 
                             } else {
                                 return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                 .format(label).replace(/^(\D+)/, '$1');
@@ -183,9 +183,9 @@ $(document).ready(function () {
         etabs = document.getElementById('return__graph').getContext("2d");
         etabs.canvas.style.backgroundColor = 'white';
         let gradientFill = etabs.createLinearGradient(0, 200, 0, 0);
-        gradientFill.addColorStop(0, "rgba(115, 189, 245, 0)"); 
-        gradientFill.addColorStop(1, "rgba(63, 137, 232, 1)");
-    
+        gradientFill.addColorStop(0, "rgba(253, 204, 96, .3)"); 
+        gradientFill.addColorStop(1, "rgba(253, 204, 96, 1)");
+        
         let myChart = new Chart(etabs, {
             type: 'line',
             data: {
@@ -202,8 +202,8 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 1,
                     pointRadius: 8,
                     fill: true,
-                    backgroundColor: 'rgba(253, 204, 96, .3)',
-                    borderWidth: 5,
+                    backgroundColor: gradientFill,
+                    borderWidth: 4,
                     data: arrCanvas,
                     lineTension: 0,
                 }]
@@ -268,7 +268,7 @@ $(document).ready(function () {
                             padding: 20,
                             callback: function(label) {
                                 if (flag) {
-                                    return `$${label}` 
+                                    return `$${label / 1000}k` 
                                 } else {
                                     return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                     .format(label).replace(/^(\D+)/, '$1');
@@ -318,6 +318,10 @@ $(document).ready(function() {
     var etabs2 = document.getElementById('return__graph-2')
     if (etabs2) {
         etabs2 = document.getElementById('return__graph-2').getContext("2d");
+        let gradientFill = etabs2.createLinearGradient(0, 200, 0, 0);
+        gradientFill.addColorStop(0, "rgba(253, 204, 96, .3)"); 
+        gradientFill.addColorStop(1, "rgba(253, 204, 96, 1)");
+
         etabs2.canvas.style.backgroundColor = 'white';
         let myChart = new Chart(etabs2, {
             type: 'line',
@@ -335,8 +339,8 @@ $(document).ready(function() {
                     pointHoverBorderWidth: 1,
                     pointRadius: 10,
                     fill: true,
-                    backgroundColor: 'rgba(253, 204, 96, .3)',
-                    borderWidth: 5,
+                    backgroundColor: gradientFill,
+                    borderWidth: 4,
                     data: arrCanvas,
                     lineTension: 0,
                 }]
@@ -403,7 +407,7 @@ $(document).ready(function() {
                             padding: 20,
                             callback: function(label) {
                                 if (flag) {
-                                    return `$${label}` 
+                                    return `$${label / 1000}k` 
                                 } else {
                                     return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                     .format(label).replace(/^(\D+)/, '$1');
@@ -636,7 +640,7 @@ $(document).ready(function () {
                 pointRadius: 8,
                 fill: true,
                 backgroundColor: gradientFill,
-                borderWidth: 5,
+                borderWidth: 4,
                 data: arrCanvas,
                 lineTension: 0
             }]
@@ -665,7 +669,7 @@ $(document).ready(function () {
                         stepSize: 10000,
                         callback: function(label) {
                             if (flag) {
-                                return `$${label}` 
+                                return `$${label / 1000}k` 
                             } else {
                                 return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                 .format(label).replace(/^(\D+)/, '$1');
@@ -793,7 +797,7 @@ $(document).ready(function () {
                     pointRadius: 10,
                     fill: true,
                     backgroundColor: gradientFill,
-                    borderWidth: 5,
+                    borderWidth: 4,
                     data: arr1,
                     lineTension: 0
                 },
@@ -810,7 +814,7 @@ $(document).ready(function () {
                     pointRadius: 10,
                     fill: true,
                     backgroundColor: 'rgba(151, 84, 238, .25)',
-                    borderWidth: 5,
+                    borderWidth: 4,
                     data: arr2,
                     lineTension: 0
                 },
@@ -827,7 +831,7 @@ $(document).ready(function () {
                     pointRadius: 10,
                     fill: true,
                     backgroundColor: 'rgba(253, 204, 96, .13)',
-                    borderWidth: 5,
+                    borderWidth: 4,
                     data: arr3,
                     lineTension: 0
                 }
@@ -857,7 +861,7 @@ $(document).ready(function () {
                             stepSize: 10000,
                             callback: function(label) {
                                 if (flag) {
-                                    return `$${label}` 
+                                    return `$${label / 1000}k` 
                                 } else {
                                     return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                     .format(label).replace(/^(\D+)/, '$1');
@@ -966,7 +970,7 @@ $(document).ready(function () {
                     pointRadius: 8,
                     fill: true,
                     backgroundColor: gradientFill2,
-                    borderWidth: 5,
+                    borderWidth: 4,
                     data: arr1,
                     lineTension: 0
                 },
@@ -983,7 +987,7 @@ $(document).ready(function () {
                     pointRadius: 8,
                     fill: true,
                     backgroundColor: '#bc82ff',
-                    borderWidth: 5,
+                    borderWidth: 4,
                     data: arr2,
                     lineTension: 0
                 }
@@ -1011,7 +1015,7 @@ $(document).ready(function () {
                             stepSize: 10000,
                             callback: function(label) {
                                 if (flag) {
-                                    return `$${label}` 
+                                    return `$${label / 1000}k` 
                                 } else {
                                     return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                     .format(label).replace(/^(\D+)/, '$1');
@@ -1101,7 +1105,7 @@ $(document).ready(function () {
                 pointRadius: 0,
                 fill: true,
                 backgroundColor: 'rgba(253, 204, 96, .3)',
-                borderWidth: 5,
+                borderWidth: 4,
                 data: arrCanvas,
                 lineTension: 0,
             },
@@ -1118,7 +1122,7 @@ $(document).ready(function () {
                 pointRadius: 0,
                 fill: true,
                 backgroundColor: '#9d54ee',
-                borderWidth: 5,
+                borderWidth: 4,
                 data: [0,0,0,0,0,0,0,0],
                 lineTension: 0,
             }]
@@ -1150,7 +1154,7 @@ $(document).ready(function () {
                         padding: 20,
                         callback: function(label) {
                             if (flag) {
-                                return `$${label}` 
+                                return `$${label / 1000}k` 
                             } else {
                                 return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }  )
                                 .format(label).replace(/^(\D+)/, '$1');
