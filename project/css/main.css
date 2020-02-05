@@ -620,6 +620,9 @@ a {
 .form__wrapper .jq-selectbox {
   max-width: none;
 }
+.form__wrapper .card__text {
+  margin-top: 10px;
+}
 .form__wrapper.df {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2413,6 +2416,9 @@ body.show {
 }
 .news__main h2 {
   margin: 34px 0 4px;
+}
+.news__btn {
+  margin-top: 40px;
 }
 .import {
   text-align: center;
@@ -5924,6 +5930,9 @@ body.show {
   }
   .news__bottom .news__item {
     width: 50%;
+  }
+  .news__btn {
+    margin-top: 20px;
   }
   .import__item {
     width: 50%;
